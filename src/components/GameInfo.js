@@ -5,7 +5,7 @@ import './map.scss'
 import { Input, Button, Label, Tooltip } from 'reactstrap';
 import { FaStar, FaRegCommentDots, FaHashtag, FaDollarSign } from 'react-icons/fa';
 
-import gameImgTemp from '../img/城市尋寶_尖山陶寶_01.png'
+// import gameImgTemp from '../img/城市尋寶_尖山陶寶_01.png'
 
 
 class GameInfo extends Component {
@@ -39,9 +39,9 @@ class GameInfo extends Component {
                                     <div className=""><FaRegCommentDots className="gameRatingSamples"/><span> 則評價</span></div>
                                 </div>
                                 <div className="gameFeature">
-                                    <FaHashtag className="gameFeatureTag"/><span></span>
-                                    <FaHashtag className="gameFeatureTag"/><span></span>
-                                    <FaHashtag className="gameFeatureTag"/><span></span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.FEATURE1}</span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.FEATURE2}</span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.FEATURE3}</span>
                                 </div>
                                 <div className="d-flex flex-row">
                                     <div className="flex-grow-1"><FaDollarSign/><span>{game.PRICE} 元起 </span></div>
@@ -51,7 +51,7 @@ class GameInfo extends Component {
                         </div>
                     )
                 }
-                    <div className="gameRow">
+                    {/* <div className="gameRow">
                         <div className="gameLeft">
                             <img className="gameImg" src={gameImgTemp} alt={"gameImgTemp"}></img>
                         </div>
@@ -71,7 +71,7 @@ class GameInfo extends Component {
                                 <div className=""><Button className="" color="warning">查看更多</Button></div>
                             </div>
                         </div>
-                    </div>            
+                    </div>             */}
                 </div>
             </React.Fragment>
         )
