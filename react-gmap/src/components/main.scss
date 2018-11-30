@@ -1,0 +1,100 @@
+$mainColor: #F7882F;
+$spaceForHeaderNav : 64px;
+// header = 64px, nav = 48px
+
+.header{
+    position: fixed;
+    background-color: #F7882F;
+    height: $spaceForHeaderNav;
+    width: 100vw;
+    color: white;
+    z-index: 999;
+    .mainLogo{
+        display: block;
+        position: relative;
+        float: left;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        img{
+            height: $spaceForHeaderNav;
+        }
+    }
+    .memberStatus{
+        display: block;
+        position: relative;
+        float: right;
+        top: 50%;
+        transform:translateY(-50%);
+        right: 10%;
+    }
+}
+
+
+.navList{
+    position: relative;
+    top: $spaceForHeaderNav;
+    background-color: #6B7A8F;
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    justify-content: center;
+    .navItem{
+        padding: 12px 56px;
+        font-size: 1em;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        &:hover{
+            // background-color: $mainColor;
+            opacity: 0.8;
+        }
+        .linkClear{
+            color: white;
+            &:hover{
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+}
+
+
+.footer{
+    position: relative;
+    top: $spaceForHeaderNav;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #444444;
+    color: white;
+    .footerList{
+        padding: 12px;
+        list-style: none;
+        font-weight: 600;
+        .footerItem{
+            font-weight: 400;
+        }
+        .subscribeInput{
+            border-radius: 24px;
+            height: 2.4em;
+            font-size: 1em;
+            line-height: 2.4em;
+        }
+        .socialIcon{
+            width: 48px;
+        }
+    }
+}
+
+.copyright{
+    position: relative;
+    top: $spaceForHeaderNav;
+    background-color: black;
+    color: #444444;
+    h6{
+        padding: 8px;
+        text-align: center;
+    }
+}

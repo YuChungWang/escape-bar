@@ -1,0 +1,118 @@
+$mainColor: #F7882F;
+$spaceForHeaderNav : 64px;
+$bodyColor: #f4f4f4;
+
+$queryBarPositionFromTop: 12px;
+
+
+
+.mapContainer{
+    position: relative;
+    top: $spaceForHeaderNav;
+    height: calc(100vh - 64px - 48px);
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-between;
+    .mapBody{
+        width: 77%;
+        img[src^="../img/company/40/"]{
+            border-radius: 100%;
+            border:2px dashed $mainColor !important;
+        }
+    }
+    .citySelect{
+        position: absolute;
+        /* position: relative; */
+        top: $queryBarPositionFromTop;
+        left: 15%;
+        width: 200px;
+        background-color: white;
+    }
+    .queryBar{
+        position: absolute;
+        top: $queryBarPositionFromTop;
+        left: 32%;
+        /* height: 48px; */
+        width: 360px;
+        background-color: white;
+        .queryBtn{
+            position: absolute;
+            top: 0;
+            left: 380px;
+            width: 96px;
+        }
+    }
+    .mapSideInfo{
+        width: 23%;
+        background-color: $bodyColor;
+        // background-color: transparent;
+        padding-left: 2px;
+        /* overflow: hidden; */
+        overflow: auto;
+        .storeInfo{
+            width: 100%;
+            padding: 8px;
+            .storeTop{
+                display: inline-flex;
+                align-items: center;
+                justify-content: space-around;
+                padding: 4px;
+                img.storeLogo{
+                    width: 100px;
+                    height: 100px;
+                    margin-right: 16px;
+                }
+                h3.storeName{
+                    padding: 0;
+                    text-align: left;
+                    font-size: 1.2em;
+                    font-weight: 800;
+                }
+
+            }
+            hr{
+                margin: 4px;
+            }
+            .storeFa{
+                color: $mainColor;
+            }
+        }
+        .gameInfo{
+            /* height: 800px; */
+            width: 100%;
+            background-color: $bodyColor;
+            padding: 12px;
+            overflow: auto;
+            .gameRow{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 16px;
+                background-color: white;
+                padding-bottom: 12px;
+                img.gameImg{
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover;
+                    margin-right: 16px;
+                }
+                h4.gameTitle{
+                    font-size: 1em;
+                    font-weight: 800;
+                }
+                .gameRating{
+                    color: yellow;
+                }
+                .gameRatingSamples{
+                    color: blue;
+                }
+                .gameFeature{
+                    font-weight: 600;
+                    .gameFeatureTag{
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}
