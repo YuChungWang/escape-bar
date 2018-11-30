@@ -15,7 +15,6 @@ class App extends Component {
           {/* <Header/>
           <Nav/>
           <Route exact path="/" component={IndexBody} />
-          <Route path="/indexbody" component={IndexBody} />
           <Route path="/map" component={EscapeRoomMap} /> */}
           {/* <IndexBody/> */}
           <EscapeRoomMap/>
