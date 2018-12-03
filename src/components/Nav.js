@@ -12,7 +12,7 @@ class Nav extends Component {
                 <nav className="navList">
                     <div className="navItem">工作室列表</div>
                     <div className="navItem">遊戲列表</div>
-                    <div className="navItem">本月主打</div>
+                    <div className="navItem"><Link className="linkClear" to="/article/topic201812">本月主打</Link></div>
                     <div className="navItem"><Link className="linkClear" to="/map">密室地圖</Link></div>
                     <div className="navItem">揪團一起玩</div>
                 </nav>                
