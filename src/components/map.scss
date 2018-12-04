@@ -90,26 +90,31 @@ $queryBarPositionFromTop: 12px;
                 margin-bottom: 16px;
                 background-color: white;
                 padding-bottom: 12px;
-                img.gameImg{
-                    width: 100px;
-                    height: 100px;
-                    object-fit: cover;
-                    margin-right: 16px;
+                .gameLeft{
+                    padding: 8px;
+                    img.gameImg{
+                        width: 100px;
+                        height: 100px;
+                        object-fit: cover;
+                        margin-right: 16px;
+                    }
                 }
-                h4.gameTitle{
-                    font-size: 1em;
-                    font-weight: 800;
-                }
-                .gameRating{
-                    color: yellow;
-                }
-                .gameRatingSamples{
-                    color: blue;
-                }
-                .gameFeature{
-                    font-weight: 600;
-                    .gameFeatureTag{
-                        color: red;
+                .gameRight{
+                    h4.gameTitle{
+                        font-size: 1em;
+                        font-weight: 800;
+                    }
+                    .gameRating{
+                        color: yellow;
+                    }
+                    .gameRatingSamples{
+                        color: blue;
+                    }
+                    .gameFeature{
+                        font-weight: 600;
+                        .gameFeatureTag{
+                            color: red;
+                        }
                     }
                 }
             }
