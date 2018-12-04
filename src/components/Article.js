@@ -7,26 +7,58 @@ class Article extends Component{
     constructor(props){
         super(props);
         // console.log(props);
-        this.articleName = props.match.params.articlename;
+        //this.articleName = props.match.params.articlename;
+        //console.log(this.articleName);
         this.state = {
             articleTitle: "",
             articleContent: "",
-            createdAt: ""
+            createdAt: "",
+            articleName:props.match.params.articlename
         }
     }
 
-    componentWillMount(){
-        // this.getArticleBody();
-    }
+    // componentWillMount(){
+    //     this.getArticleBody();
+    //     // console.log(this.state)
 
+    // }
+
+    // componentWillUpdate(){
+    //      this.getArticleBody();
+    //     // console.log(this.state)
+    // }
+    // componentDidUpdate(){
+    //     this.getArticleBody();
+    // }
     componentDidMount(){
         this.getArticleBody();
         // console.log(this.state)
     }
+    static getDerivedStateFromProps(props, state) {
+        var articleName = props.match.params.articlename;
+        if (articleName !== state.articleName) {
+         //  console.log("different:" + articleName)
+           fetch('http://localhost:4000/article/'+articleName)
+           .then(res => res.json())
+           // .then(({data})=>{console.log(data[0])})
+           .then( ({data})  => {            
+               console.log(data);
+               return{
+                articleTitle: data[0].article_title,
+                articleContent: data[0].article_content,
+                createdAt: data[0].created_at,
+                articleName:articleName
+            }
+           })
+           
+           
+        }
+        return null;
+    }
 
     getArticleBody(){
-        let articleName = this.articleName;
-
+        let articleName = this.state.articleName;
+       console.log("fetch:" + articleName)
         fetch('http://localhost:4000/article/'+articleName)
         .then(res => res.json())
         // .then(({data})=>{console.log(data[0])})
@@ -42,6 +74,7 @@ class Article extends Component{
 
 
     render(){
+        console.log(this.state);
         return(
             <React.Fragment>
                 <section>
