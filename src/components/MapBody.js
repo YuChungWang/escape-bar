@@ -25,7 +25,8 @@ class MapBody extends React.Component {
   componentDidMount() {
     // console.log('Mounted @ ' + Date.now());
 
-    fetch('http://localhost:4000/city/')
+    // fetch('http://localhost:4000/city/')
+    fetch('http://localhost:3000/map/city/')
         .then(res => res.json())
         // .then(({data})=>{console.log(data)})
         .then(res => {
@@ -62,7 +63,8 @@ class MapBody extends React.Component {
     let markerSTel = evt.s_tel;
     let markerSOpHr = evt.s_ophr;
 
-    fetch('http://localhost:4000/store/'+markerSid)
+    // fetch('http://localhost:4000/store/'+markerSid)
+    fetch('http://localhost:3000/map/store/'+markerSid)
     .then(res => res.json())
     // .then(({data})=> {console.log(data)})
     .then(({ data }) => {

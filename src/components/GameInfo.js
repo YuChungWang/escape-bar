@@ -39,9 +39,9 @@ class GameInfo extends Component {
                                     <div className=""><FaRegCommentDots className="gameRatingSamples"/><span> 則評價</span></div>
                                 </div>
                                 <div className="gameFeature">
-                                    <FaHashtag className="gameFeatureTag"/><span>{game.FEATURE1}</span>
-                                    <FaHashtag className="gameFeatureTag"/><span>{game.FEATURE2}</span>
-                                    <FaHashtag className="gameFeatureTag"/><span>{game.FEATURE3}</span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.Feature1}</span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.Feature2}</span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.Feature3}</span>
                                 </div>
                                 <div className="d-flex flex-row">
                                     <div className="flex-grow-1"><FaDollarSign/><span>{game.PRICE} 元起 </span></div>
