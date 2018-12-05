@@ -131,7 +131,7 @@ class IndexBody extends Component {
                                 <p>聖誕節是基督教用來紀念耶穌降生的節日，西方基督教通常將此節日定於12月25日。亦有人則稱之為耶誕節（意為耶穌誕辰日）[1]。
                                     <br/><br/>將聖誕節作為基督教禮儀年曆的重要節日，教會透過將臨期或降臨期來準備，並以八日慶典與禮儀節期延續慶祝。聖誕節也是許多國家和地區、尤其是西方國家等以基督教文化為主流之地區的公共假日；在教會以外的場合，聖誕節已轉化成一種民俗節日，並常與日期相近的公曆新年合稱「聖誕與新年季」。
                                 </p>
-                                <div className="seeMore"><Button color="warning" size="lg" className="indexBtn">看更多</Button></div>
+                                <div className="seeMore"><Link className="" to="/article/topic201812"><Button color="warning" size="lg" className="indexBtn">看更多</Button></Link></div>
                             </div>
                         </div>
                     </div>
@@ -140,7 +140,7 @@ class IndexBody extends Component {
                             <h3>密室地圖</h3>
                             <hr className="indexHr"></hr>
                             <h5 className="py-3">想知道你附近有哪些密室逃脫嗎？<br/>用密室地圖來找吧！場館與遊戲資訊一目了然！</h5>
-                            <div className="seeMap"><Button color="danger" size="lg" className="indexBtn">馬上看地圖</Button></div>
+                            <div className="seeMap"><Link className="" to="/map"><Button color="danger" size="lg" className="indexBtn">馬上看地圖</Button></Link></div>
                         </div>
                     </div>
                     <div className="indexContainer grouping">
@@ -161,7 +161,7 @@ class IndexBody extends Component {
                                 <div className="serviceImgDiv">
                                     <img className="serviceImg" src="/img/book.png" alt=""></img>
                                 </div>
-                                <p className="mt-3">新手教學</p>
+                                <p className="mt-3"><Link className="linkClear" to="/article/whatisrealescape">新手教學</Link></p>
                             </div>
                             <div className="serviceFeature">
                                 <div className="serviceImgDiv">
@@ -173,7 +173,7 @@ class IndexBody extends Component {
                                 <div className="serviceImgDiv">
                                     <img className="serviceImg" src="/img/teamwork.png" alt=""></img>
                                 </div>
-                                <p className="mt-3">福委與教育訓練</p>
+                                <p className="mt-3"><Link className="" to="/article/groupactivity">福委活動與教育訓練</Link></p>
                             </div>
                         </div>
                     </div>

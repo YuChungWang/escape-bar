@@ -16,13 +16,13 @@ class Footer extends Component {
                     <ul className="footerList">主要功能
                         <li className="footerItem">找遊戲</li>
                         <li className="footerItem">找工作室</li>
-                        <li className="footerItem">用地圖找</li>
+                        <Link className="" to="/map"><li className="footerItem">用地圖找</li></Link>
                         <li className="footerItem">揪團一起玩</li>
                         <li className="footerItem">線上玩遊戲</li>
                     </ul>
                     <ul className="footerList">關於密室逃脫
-                        <li className="footerItem">什麼是密室逃脫</li>
-                        <li className="footerItem">福委活動與教育訓練</li>
+                        <Link className="" to="/article/whatisrealescape"><li className="footerItem">什麼是密室逃脫</li></Link>
+                        <Link className="" to="/article/groupactivity"><li className="footerItem">福委活動與教育訓練</li></Link>
                         <li className="footerItem">密室逃脫的二三事</li>
                     </ul>
                     <ul className="footerList">關於逃脫吧

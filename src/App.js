@@ -5,6 +5,7 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import IndexBody from './components/IndexBody'
 import EscapeRoomMap from './components/Map'
+import Article from './components/Article'
 // import InfoWindow from './components/practice/InfoWindow'
 
 class App extends Component {
@@ -12,13 +13,13 @@ class App extends Component {
     return (
       <BrowserRouter>
         <setcion>
-          {/* <Header/>
+          <Header/>
           <Nav/>
           <Route exact path="/" component={IndexBody} />
           <Route path="/map" component={EscapeRoomMap} /> */}
           {/* <IndexBody/> */}
-          <EscapeRoomMap/>
-          {/* <Footer/> */}
+          {/* <EscapeRoomMap/> */}
+          <Footer/>
         </setcion>
       </BrowserRouter>
     );

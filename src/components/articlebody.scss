@@ -1,0 +1,17 @@
+$mainColor: #F7882F;
+$spaceForHeaderNav : 64px;
+$bodyColor: #f4f4f4;
+
+section {
+    margin-top: $spaceForHeaderNav;
+    .postWrapperSpace{
+        height: 1em;
+    }
+    .postWrapper{
+        border: 2px solid black;
+        border-radius: 8px;
+
+        margin: auto;
+        
+    }
+}
