@@ -88,7 +88,7 @@ class CitySelect extends Component {
     }
     
     getStoresByCity = (city_id) => {
-        fetch('http://localhost:4000/city/'+city_id)
+        fetch('http://localhost:3000/map/city/'+city_id)
         .then(res => res.json())
         .then(({data})=>{console.log(data)})
         // .then(res => this.setState({stores: res.data})) //僅顯示該縣市marker用，待研究
