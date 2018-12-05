@@ -27,7 +27,7 @@ class Article extends Component{
     getArticleBody(){
         let articleName = this.articleName;
 
-        fetch('http://localhost:4000/article/'+articleName)
+        fetch('http://localhost:3000/article/'+articleName)
         .then(res => res.json())
         // .then(({data})=>{console.log(data[0])})
         .then( ({data})  => {

@@ -19,7 +19,7 @@ class QueryBar extends Component {
       }
     
     getStoresByName = (name_kw) => {
-        fetch('http://localhost:4000/name/'+name_kw)
+        fetch('http://localhost:3000/map/name/'+name_kw)
         .then(res => res.json())
         .then(({data})=>{console.log(data)})
         // .then(res => this.setState({stores: res.data})) //研究完資料傳遞後打開
