@@ -1,0 +1,22 @@
+#products{
+    background-color: #F9F9F9;
+    #pro_body{
+        width: 80%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        
+        .pro_body_l{
+            width: 60%;
+            margin-right: 5%;
+            // background-color: #fff;
+            // box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+        .pro_body_r{
+            width: 35%;
+            margin-top: 20px;
+        }
+    }
+}
+
