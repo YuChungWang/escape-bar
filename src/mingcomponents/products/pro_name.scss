@@ -8,6 +8,7 @@
         // box-sizing: border-box;
         // padding: 5px;
         .jc_sb{
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -24,14 +25,55 @@
                     border: 1.5px solid #C09147;
                     border-radius: 12.5px;
                     font-weight: 800;
-                    width: 70px;
+                    width: 80px;
                     height: 25px;
                     text-align: center;
                 }
             }
-            select{
-                height: 25px;
-                margin-right: 20px;
+            .sites{
+                box-sizing: content-box;
+                position: absolute;
+                z-index: 5;
+                right: 0;
+                top: 12.5px;
+                min-height: 25px;
+                min-width: 100px;
+                border: 1px solid #B0ABAB;
+                border-radius: 8px;
+                background-color: #fff;
+                background-image: url(../../images/down_arrow.svg);
+                background-size: 12px;
+                background-position: right 5px top 10px;
+                background-repeat: no-repeat;
+                cursor: pointer;
+                transition: .2s;
+                outline: none;
+                -webkit-user-select: none;  
+                -moz-user-select: none; 
+                overflow: hidden; 
+                .first{
+                    height: 25px;
+                    padding: 0 20px 0 10px;
+                }
+                .option{
+                    cursor: pointer;
+                    height: 0px;
+                    padding: 0 20px 0 10px;
+                    transition: .2s;
+                    opacity: 0;
+                }
+            }
+            .sites.open{
+                .option{
+                    height: 25px;
+                    opacity: 1;
+                }
+                .option:hover{
+                    background-color: rgba(247, 194, 49, 0.671);
+                }
+            }
+            .sites.none{
+                display: none;
             }
         }
         .img_info{

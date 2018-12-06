@@ -20,6 +20,11 @@ class Products extends Component{
             data: this.props.location.state.id
         }
     }
+    changeSite = (data) => {
+        this.setState({
+            data
+        })
+    }
     render(){
         return(
             <React.Fragment>
@@ -27,7 +32,7 @@ class Products extends Component{
                     <div id="pro_body">
                         <div className="pro_body_l">
                             <ProSlider id={this.state.data.PRO_SEQ}/>
-                            <ProName data={this.state.data}/>
+                            <ProName data={this.state.data} changeSite={this.changeSite}/>
                             <ProInfo info={this.state.data.PRO_INFO}/>
                             {/* <PRO_COMMENT/> */}
                             <ProBuyRule/>
@@ -37,7 +42,7 @@ class Products extends Component{
                             <ProMap data={this.state.data}/>
                             <ProShare data={this.state.data}/>
                             <ProManu data={this.state.data}/>
-                            <ProStock data={this.state.data}/>
+                            {/* <ProStock data={this.state.data}/> */}
                         </div>
                         <div className="pro_body_l">
                             {/* <ProComment id={this.state.data.id/> */}

@@ -12,7 +12,7 @@ class ProList extends Component{
     super(props)
     this.state = {
       products: [],
-      records: {},
+      records: false,
       type:"search",
       sort: ""
     }
@@ -61,7 +61,7 @@ class ProList extends Component{
     this.setState({
       sort 
     }, ()=> {
-      if(this.state.type === "search"){
+      if(this.state.type === "search" && this.state.records){
         this.search(this.state.records)
       }
     })
