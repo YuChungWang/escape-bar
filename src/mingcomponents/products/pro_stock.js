@@ -15,11 +15,14 @@ class PRO_STOCK extends Component{
             nowStocks: [],
             nowArray: [],
             nowDate: "",
-            totalPriceShow : false
+            totalPriceShow : false,
+            sites: [],
+            siteDisplayNone: true,
+            sitesOpen: false
         }
     }
     getStock = () => {
-        let pid = this.state.data.PRO_SEQ
+      let pid = this.state.data.PRO_SEQ
       if(this.state.stock.length === 0){
         fetch('http://localhost:3000/eb/pro_list/products/stock/' + pid ,{
           method:'GET',
@@ -102,7 +105,10 @@ class PRO_STOCK extends Component{
         })
     }
     componentWillMount(){
-        // stopPropagation()
+        this.getSiteName() 
+    }
+    componentDidUpdate(){
+        this.siteDisplayNone()
     }
     checkRedirect = () => {
         if(this.state.number !== 0){
@@ -116,20 +122,78 @@ class PRO_STOCK extends Component{
     warning = () => {
         alert("請先選擇日期與人數！")
     }
+    //site 選擇場館 
+    getSiteName = () => {
+        let str = `p.\`PRO_NAME\` = '${this.props.data.PRO_NAME}' && p.\`CID\` = ${this.props.data.CID} && p.\`PRO_SEQ\` `
+        console.log("str:"+ str)
+        fetch('http://localhost:3000/eb/pro_list/products/site_name/' + str, {
+            method:'GET',
+            mode: "cors",
+        })
+        .then(res=>res.json())
+        .then(sites => this.setState({
+            sites
+        }));
+    }
+    siteDisplayNone = () => {
+        if(this.state.sites.length >= 2 && this.state.siteDisplayNone){
+            this.setState({
+                siteDisplayNone: false
+            })
+        }
+    }
+    openSites = () => {
+        let {sitesOpen} = this.state
+        sitesOpen = !sitesOpen
+        this.setState({
+            sitesOpen
+        })
+    }
+    closeSites = () => {
+        this.setState({
+            sitesOpen: false
+        })
+    }
+    selSite = (evt) => {
+        let id = evt.target.dataset.id
+        console.log("id:"+ id)
+        fetch('http://localhost:3000/eb/pro_list/site/' + id, {
+            method:'GET',
+            mode: "cors",
+        })
+        .then(res=>res.json())
+        .then(data => this.props.changeSite(data));
+        // .then(data )
+    }
+
+    makeSiteOptions = () => {
+        let sites = this.state.sites
+        sites = sites.filter(site => {
+            return (site.PRO_SEQ !== this.props.data.PRO_SEQ)
+        })
+        sites = sites.map(site =>
+            <div className="option" data-id={site.PRO_SEQ}  onClick={this.selSite}>{site.site_name}</div>
+        )
+        return sites
+    }
+    //site 以上選擇場館 
     render(){
         let price = this.state.number*this.state.data.PRICE
         let totalPriceShow = this.state.totalPriceShow ? "" : "none"
-        // let number = this.state.nowArray ? this.state.number : 0
+        let siteDNone = this.state.siteDisplayNone ? "none" : ""
+        let sitesClassName = this.state.sitesOpen ? "open" : ""
+        let siteName = this.state.siteDisplayNone ? this.props.data.s_name : this.props.data.site_name
         this.getStock()
         return(
             <React.Fragment>
                 <div id="pro_stock">
                     <div id="pro_stock_place">
                         <h4>選擇預約場館</h4>
-                        <select>
-                            <option>台北館</option>
-                            <option>台中館</option>
-                        </select>
+                        <div className={`one_site ${siteDNone}`}>{this.props.data.s_name}</div>
+                        <div className={`sites ${sitesClassName} ${siteDNone}`} onClick={this.openSites} tabIndex={0} onBlur={this.closeSites}>
+                            <div className="first">{this.props.data.site_name}</div>
+                            {this.makeSiteOptions()}
+                        </div>
                     </div>
                     <div id="pro_stock_date">
                         <h4>預約日期與時段</h4>
@@ -153,14 +217,12 @@ class PRO_STOCK extends Component{
                             )}
                         </ul>
                     </div>
-                    
                 </div>
                 <div id="pro_stock_price" className={`dd-flex ${totalPriceShow}`}>
                     <div id="title">
                         <p>您選擇的遊戲為:</p>
-                        <div className="dd-flex">
-                        <h4 id="">{this.state.data.PRO_NAME}</h4>-<h4 id="">場館</h4>
-                        </div>       
+                        <h4 id="">{this.state.data.PRO_NAME}</h4>
+                        <h4 id="site_name">- {siteName}</h4>   
                     </div>
                     <div id="total_price">
                         <p>總價</p>

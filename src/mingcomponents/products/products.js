@@ -22,7 +22,7 @@ class Products extends Component{
     }
     changeSite = (data) => {
         this.setState({
-            data
+            data : data[0]
         })
     }
     render(){
@@ -42,7 +42,7 @@ class Products extends Component{
                             <ProMap data={this.state.data}/>
                             <ProShare data={this.state.data}/>
                             <ProManu data={this.state.data}/>
-                            {/* <ProStock data={this.state.data}/> */}
+                            <ProStock data={this.state.data} changeSite={this.changeSite}/>
                         </div>
                         <div className="pro_body_l">
                             {/* <ProComment id={this.state.data.id/> */}

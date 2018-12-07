@@ -8,14 +8,65 @@
         text-align: center;
         box-sizing: border-box;
         padding-top: 10px;
+        position: relative;
         h4{
             padding: 10px 0;
             margin: auto;
             width: 80%;
             border-bottom: 1px solid #F7882F;
         }
-        select{
-            margin: 15px 0;
+        .one_site{
+            margin: 10px 0;
+            visibility: hidden;
+        }
+        .one_site.none{
+            visibility: visible;
+        }
+        .sites{
+            box-sizing: content-box;
+            position: absolute;
+            z-index: 5;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 70px;
+            min-height: 25px;
+            min-width: 100px;
+            border: 1px solid #B0ABAB;
+            border-radius: 8px;
+            background-color: #fff;
+            background-image: url(../../images/down_arrow.svg);
+            background-size: 12px;
+            background-position: right 5px top 10px;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            transition: .2s;
+            outline: none;
+            -webkit-user-select: none;  
+            -moz-user-select: none; 
+            overflow: hidden; 
+            .first{
+                height: 25px;
+                padding: 0 20px 0 10px;
+            }
+            .option{
+                cursor: pointer;
+                height: 0px;
+                padding: 0 20px 0 10px;
+                transition: .2s;
+                opacity: 0;
+            }
+        }
+        .sites.open{
+            .option{
+                height: 25px;
+                opacity: 1;
+            }
+            .option:hover{
+                background-color: rgba(247, 194, 49, 0.671);
+            }
+        }
+        .sites.none{
+            display: none;
         }
     }
     #pro_stock_date{
@@ -114,6 +165,15 @@
     #title{
         p{
             margin: 0;
+            color: #888;
+        }
+        h4{
+            font-size: 1rem;
+            color: #3a6a9e;
+            margin-top: 10px;
+        }
+        #site_name{
+            // font-size: 1rem;
         }
     }
     #total_price{

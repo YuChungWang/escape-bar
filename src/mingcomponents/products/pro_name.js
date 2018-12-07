@@ -13,15 +13,14 @@ class PRO_NAME extends Component {
         }
     }
     getSiteName = () => {
-        let str = `p.\`PRO_NAME\` = '${this.props.data.PRO_NAME}' && p.\`CID\` = ${this.props.data.CID} `
-        console.log("str:"+ str)
+        let str = `p.\`PRO_NAME\` = '${this.props.data.PRO_NAME}' && p.\`CID\` = ${this.props.data.CID} && p.\`PRO_SEQ\` `
         fetch('http://localhost:3000/eb/pro_list/products/site_name/' + str, {
-        method:'GET',
-        mode: "cors",
+            method:'GET',
+            mode: "cors",
         })
         .then(res=>res.json())
         .then(sites => this.setState({
-            sites
+                sites
         }));
     }
     siteDisplayNone = () => {
@@ -45,30 +44,33 @@ class PRO_NAME extends Component {
     }
     selSite = (evt) => {
         let id = evt.target.dataset.id
+        console.log("id:"+ id)
         fetch('http://localhost:3000/eb/pro_list/site/' + id, {
-        method:'GET',
-        mode: "cors",
+            method:'GET',
+            mode: "cors",
         })
         .then(res=>res.json())
         .then(data => this.props.changeSite(data));
     }
     componentWillMount(){
-        this.getSiteName()
-        
+        this.getSiteName() 
     }
     componentDidUpdate(){
         this.siteDisplayNone()
     }
-    componentWillUpdate(){
-        
-    }
-    componentDidMount(){
-        
+    makeSiteOptions = () => {
+        let sites = this.state.sites
+        sites = sites.filter(site => {
+            return (site.PRO_SEQ !== this.props.data.PRO_SEQ)
+        })
+        sites = sites.map(site =>
+            <div className="option" data-id={site.PRO_SEQ}  onClick={this.selSite}>{site.site_name}</div>
+        )
+        return sites
     }
     render() {
         let siteDNone = this.state.siteDisplayNone ? "none" : ""
         let sitesClassName = this.state.sitesOpen ? "open" : ""
-        console.log("L:"+this.state.sites.length)
         return (
             <div id="pro_name">
                 <h2>{this.props.data.PRO_NAME}</h2>
@@ -81,9 +83,7 @@ class PRO_NAME extends Component {
                         </ul>
                         <div className={`sites ${sitesClassName} ${siteDNone}`} onClick={this.openSites} tabIndex={0} onBlur={this.closeSites}>
                             <div className="first">{this.props.data.site_name}</div>
-                            {this.state.sites.map(site => 
-                                <div className="option" data-id={site.PRO_SEQ} onClick={this.selSite}>{site.site_name}</div>
-                                )}
+                            {this.makeSiteOptions()}
                         </div>
                     </div>
                     <div className="img_info">
@@ -95,7 +95,6 @@ class PRO_NAME extends Component {
                             <div className="info_list">連絡電話：{this.props.data.s_tel}</div> 
                             <div className="info_list">遊戲地點：{this.props.data.s_add}</div>  
                         </div>
-                        
                     </div>
                     
                 </div>
