@@ -1,5 +1,5 @@
 #pro_filter{
-    margin-top: 60px;
+    // margin-top: 60px;
     background-color: #F9F9F9;
     // display: flex;
     #pro_filter_btns{
@@ -12,6 +12,7 @@
             margin: 0;
         }
         #pro_sort{
+            
             position: absolute;
             z-index: 5;
             right: 0;
@@ -22,9 +23,10 @@
             border-radius: 5px;
             background: url(../../../images/down_arrow.svg) no-repeat right 5px center #fff;
             background-size: 12px;
-            -webkit-user-select: none;   /* for Chrome */
-            -moz-user-select: none;  /* for Firefox */ 
+            -webkit-user-select: none;  
+            -moz-user-select: none;  
             cursor: pointer;
+            outline:none;
             .first{
                 height: 32px;
                 text-align: left;
