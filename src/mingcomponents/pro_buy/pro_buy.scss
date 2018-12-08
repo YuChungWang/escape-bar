@@ -11,6 +11,21 @@
     .body_l{
       width: 60%;
       margin-right: 5%;
+      #pay-btn{
+        margin: 30px auto;
+        background-color: #F7882F;
+        width: 200px;
+        height: 40px;
+        border-radius: 15px;
+        text-align: center;
+        color: white;
+        line-height: 39px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
     }
     .body_r{
       width: 35%;

@@ -1,0 +1,28 @@
+#cancel_rule{
+  div{
+    font-weight: 600;
+    line-height: 1.5rem;
+    // .ti2{
+    //   text-indent: 2rem;
+    // }
+  }
+  .agree_check{
+    margin-top: 20px;
+    background: no-repeat left 15px center;
+    background-color: #E2E6EB;
+    border-radius: 20px;
+    font-weight: normal;
+    background-image: url(../../../images/agree_unchecked.png) ;
+    background-size: 20px;
+    text-indent: 50px;
+    padding: 8px 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    line-height: 23px;
+    height: 40px;
+  }
+  .agree_check.checked{
+    background-image: url(../../../images/agree_checked.png) ;
+  }
+}

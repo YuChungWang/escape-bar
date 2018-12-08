@@ -399,10 +399,10 @@ class ProFilter extends Component{
             <div id="pro_sort" onClick={this.sortOpen} tabIndex={0} onBlur={this.sortClose}>
               <div className="first">{this.state.nowSort}</div>
               <div className={`option ${this.state.sortOpen}`}>
-                <div data-value="ORDER BY p.`HOT_INDEX` DESC " data-text="最受歡迎" onClick={this.selSort}>最受歡迎</div>
-                <div data-value="ORDER BY p.`HOT_INDEX` DESC " data-text="評價最高" onClick={this.selSort}>評價最高</div>
-                <div data-value="ORDER BY p.`PRICE` " data-text="價格由低到高" onClick={this.selSort}>價格由低到高</div>
-                <div data-value="ORDER BY p.`PRICE` DESC " data-text="價格由高到低" onClick={this.selSort}>價格由高到低</div>
+                <div data-value=" ORDER BY p.`HOT_INDEX` DESC " data-text="最受歡迎" onClick={this.selSort}>最受歡迎</div>
+                <div data-value=" ORDER BY p.`HOT_INDEX` DESC " data-text="評價最高" onClick={this.selSort}>評價最高</div>
+                <div data-value=" ORDER BY p.`PRICE` " data-text="價格由低到高" onClick={this.selSort}>價格由低到高</div>
+                <div data-value=" ORDER BY p.`PRICE` DESC " data-text="價格由高到低" onClick={this.selSort}>價格由高到低</div>
               </div>
             </div>
           </div>

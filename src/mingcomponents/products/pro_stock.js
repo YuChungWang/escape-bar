@@ -204,14 +204,9 @@ class PRO_STOCK extends Component{
                                 <div className={this.state.nowArray[index] ? "checked" : "unchecked"}></div>
                                 <div>{stock.TIME_ZONE}</div>
                                 <div className="number">
-                                    <div data-index={index} className="minus-btn" onClick={this.minusPeople}>
-                                        <div className="mb1"></div>
-                                    </div>
+                                    <div data-index={index} className="minus-btn" onClick={this.minusPeople}></div>
                                     {this.state.nowArray[index]? this.state.number : 0}人
-                                    <div data-index={index} className="plus-btn" onClick={this.plusPeople}>
-                                        <div className=""></div>
-                                        <div className="pb1"></div>
-                                    </div>
+                                    <div data-index={index} className="plus-btn" onClick={this.plusPeople}></div>
                                 </div>
                             </li>
                             )}

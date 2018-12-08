@@ -1,12 +1,43 @@
 import React, {Component} from 'react'
 import './pay_type.scss'
 
+const PAY_TYPE_LIST = [
+  {type:"credit_card", text:"信用卡線上付款"},
+  {type:"atm", text:"ATM轉帳"},
+  {type:"ibon", text:"超商付款"},
+]
+
 class PayType extends Component {
   constructor(props){
     super(props)
-    
+    this.state = {
+      payType : PAY_TYPE_LIST.map(c => false)
+    }
   }
-
+  selPayType = (index) =>{
+    let list = this.state.payType
+    list = list.map( c => c = false )
+    list[index] = true
+    this.setState({
+      payType: list
+    })
+    this.props.checkPayType(PAY_TYPE_LIST[index].type)
+  }
+  makePayTypeOption = () => {
+    let list = this.state.payType
+    let options = PAY_TYPE_LIST.map((option, index) => {
+      let className = list[index] ? "checked" : ""
+      return (
+        <div id={option.type} 
+        key={index} data-type={option.type} 
+        className={`option ${className}`} 
+        onClick={() => {this.selPayType(index)}}>
+          {option.text}
+        </div>
+      )
+    })
+    return options
+  }
   render(){
     return(
       <React.Fragment>
@@ -18,9 +49,7 @@ class PayType extends Component {
           <div>
             <h3>付款方式</h3>
             <div className="sel_pay_type">
-              <div id="sel_cd_card" className="option">信用卡線上付款</div>
-              <div id="sel_ATM" className="option">ATM轉帳</div>
-              <div id="sel_ibon" className="option">超商付款</div>
+              {this.makePayTypeOption()}
             </div>
           </div>
         </div>
