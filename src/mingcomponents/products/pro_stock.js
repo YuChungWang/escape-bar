@@ -14,7 +14,9 @@ class PRO_STOCK extends Component{
             stock: [],
             nowStocks: [],
             nowArray: [],
+            nowDateSid: null,
             nowDate: "",
+            timeZone: "",
             totalPriceShow : false,
             sites: [],
             siteDisplayNone: true,
@@ -37,15 +39,16 @@ class PRO_STOCK extends Component{
     }
     selDate = (stocks) => {
         let nowArray = stocks.map(c => c =false)
-        let nowDate = stocks.length ? stocks[0].TIME_ZONE : ""
+        let nowDate = stocks.length ? stocks[0].DATE : ""
         this.setState({
             number: 0,
             nowStocks: stocks,
             nowArray,
-            nowDate: nowDate,
+            nowDateSid: null,
+            nowDate,
+            timeZone: "",
             totalPriceShow: false
         })
-        console.log("nowArray:"+nowDate)
     }
     plusPeople = (evt) => {
         // evt.stopPropagation()
@@ -53,6 +56,8 @@ class PRO_STOCK extends Component{
         // evt.preventDefault()
         let {number} = this.state
         let index = evt.target.dataset.index
+        let sid = evt.target.dataset.sid
+        let timeZone = evt.target.dataset.tz
         let nowArray = this.state.nowArray.slice()
         if(!nowArray[index]){
             number -= 1
@@ -61,7 +66,9 @@ class PRO_STOCK extends Component{
         nowArray[index] = true
         this.setState({
             nowArray,
-            totalPriceShow: true
+            totalPriceShow: true,
+            nowDateSid: sid,
+            timeZone
         }, () => {
             if(number <= 0){
                 this.setState({
@@ -83,6 +90,8 @@ class PRO_STOCK extends Component{
     minusPeople = (evt) => {
         let {number} = this.state
         let index = evt.target.dataset.index
+        let sid = evt.target.dataset.sid
+        let timeZone = evt.target.dataset.tz
         let nowArray = this.state.nowArray.slice()
         if(!nowArray[index]){
             number += 1
@@ -91,7 +100,10 @@ class PRO_STOCK extends Component{
         nowArray[index] = true
         number -= 1
         this.setState({
-            nowArray
+            nowArray,
+            totalPriceShow: true,
+            nowDateSid: sid,
+            timeZone
         }, () => {
             if(number <= this.state.data.PEOPLE_MIN){
                 this.setState({
@@ -114,7 +126,7 @@ class PRO_STOCK extends Component{
         if(this.state.number !== 0){
             return <NavLink className="buy-btn" to={{
                 pathname: `/proList/products/reservation/${this.state.data.PRO_SEQ}`,
-                state: {id : '1'}
+                state: {id : this.state}
                 }}>立即預約</NavLink>
         }
         return <div className="buy-btn" onClick={this.warning}>立即預約</div>
@@ -178,6 +190,7 @@ class PRO_STOCK extends Component{
     }
     //site 以上選擇場館 
     render(){
+        // console.log(this.state.nowDateSid)
         let price = this.state.number*this.state.data.PRICE
         let totalPriceShow = this.state.totalPriceShow ? "" : "none"
         let siteDNone = this.state.siteDisplayNone ? "none" : ""
@@ -204,9 +217,9 @@ class PRO_STOCK extends Component{
                                 <div className={this.state.nowArray[index] ? "checked" : "unchecked"}></div>
                                 <div>{stock.TIME_ZONE}</div>
                                 <div className="number">
-                                    <div data-index={index} className="minus-btn" onClick={this.minusPeople}></div>
-                                    {this.state.nowArray[index]? this.state.number : 0}人
-                                    <div data-index={index} className="plus-btn" onClick={this.plusPeople}></div>
+                                    <div data-index={index} data-tz={stock.TIME_ZONE} data-sid={stock.SID} className="minus-btn" onClick={this.minusPeople}></div>
+                                    {this.state.nowArray[index] ? this.state.number : 0}人
+                                    <div data-index={index} data-tz={stock.TIME_ZONE} data-sid={stock.SID} className="plus-btn" onClick={this.plusPeople}></div>
                                 </div>
                             </li>
                             )}

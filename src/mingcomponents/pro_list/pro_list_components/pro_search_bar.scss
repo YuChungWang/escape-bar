@@ -82,7 +82,7 @@
                 height: 32px;
                 text-align: left;
                 text-indent: .5rem;
-                line-height: 32px;
+                line-height: 28px;
             }
             .option{
                 width: 100px;
@@ -125,6 +125,8 @@
         #search-btn{
             width:75px;
             height: 30px;
+            line-height: 26px;
+            text-align: center;
             border: none;
             background-color: #FF8E0A;
             border-radius: 5px;

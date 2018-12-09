@@ -297,7 +297,7 @@ class SearchBar extends Component{
                 <div className="" data-value="&& p.`PRICE` >= 600" data-text="600以上" onClick={this.selPrice}>600以上</div>
               </div>
             </div>
-            <button id="search-btn" onClick={this.onSearch}>搜尋</button>
+            <div id="search-btn" onClick={this.onSearch}>搜尋</div>
           </div>
         </div>
       </React.Fragment>

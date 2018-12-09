@@ -12,6 +12,7 @@ class ProBuy extends Component {
   constructor(props){
     super(props)
     this.state = {
+      data: this.props.location.state.id,
       payType: false,
       agreeCheck: false,
 
@@ -36,6 +37,7 @@ class ProBuy extends Component {
     }
   }
   render(){
+    console.log("data:"+this.state.data)
     return(
       <React.Fragment>
         <div id="pro_buy">
@@ -49,7 +51,7 @@ class ProBuy extends Component {
               <div id="pay-btn" onClick={this.payCheck}>確認付款</div>
             </div>
             <div className="body_r">
-              <ProDetail />
+              <ProDetail data={this.state.data} />
             </div>
           </div>
         </div>
