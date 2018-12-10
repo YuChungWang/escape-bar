@@ -120,7 +120,7 @@ class IndexBody extends Component {
                         
                     </div>
                     <div className="indexContainer monthTopic">
-                        <h3>本月主打</h3>
+                        <h3 className="subTitle">本月主打</h3>
                         <hr className="indexHr"></hr>
                         <div className="dp-flex-row monthTopicInside row">
                             <div className="col-7 p-0">
@@ -137,16 +137,16 @@ class IndexBody extends Component {
                     </div>
                     <div className="escapeRoomMap">
                         <div className="indexContainer">
-                            <h3>密室地圖</h3>
+                            <h3 className="subTitle">密室地圖</h3>
                             <hr className="indexHr"></hr>
-                            <h5 className="py-3">想知道你附近有哪些密室逃脫嗎？<br/>用密室地圖來找吧！場館與遊戲資訊一目了然！</h5>
+                            <h5 className="py-3 subRemark">想知道你附近有哪些密室逃脫嗎？<br/>用密室地圖來找吧！場館與遊戲資訊一目了然！</h5>
                             <div className="seeMap"><Link className="" to="/map"><Button color="danger" size="lg" className="indexBtn">馬上看地圖</Button></Link></div>
                         </div>
                     </div>
                     <div className="indexContainer grouping">
-                        <h3>火熱揪團中</h3>
+                        <h3 className="subTitle">火熱揪團中</h3>
                         <hr className="indexHr"></hr>
-                        <h5>找不到夠多朋友一起玩密室嗎～那還不趕快試試揪團功能來找隊友！？今晚吃雞，大吉大利。</h5>
+                        <h5 className="subRemark">找不到夠多朋友一起玩密室嗎～那還不趕快試試揪團功能來找隊友！？今晚吃雞，大吉大利。</h5>
                         <div className="dp-flex-row flex-jc-ar my-4">
                             <div className="groupingCard"></div>
                             <div className="groupingCard"></div>
@@ -155,7 +155,7 @@ class IndexBody extends Component {
                         <div className="seeMore"><Button color="success" size="lg" className="indexBtn">開始我的揪團</Button></div>
                     </div>
                     <div className="services">
-                        <h3>跟著逃脫吧一起闖關吧！</h3>
+                        <h3 className="subTitle">跟著逃脫吧一起闖關吧！</h3>
                         <div className="dp-flex-row flex-jc-ar py-4 servicesInside">
                             <div className="serviceFeature">
                                 <div className="serviceImgDiv">
@@ -167,7 +167,7 @@ class IndexBody extends Component {
                                 <div className="serviceImgDiv">
                                     <img className="serviceImg" src="/img/speed.png" alt=""></img>
                                 </div>
-                                <p className="mt-3">特色分類</p>
+                                <p className="mt-3"><Link className="linkClear" to="/proList">特色分類</Link></p>
                             </div>
                             <div className="serviceFeature">
                                 <div className="serviceImgDiv">

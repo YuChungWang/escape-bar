@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <setcion>
+        <section>
           <Header/>
           <Nav/>
           <Route exact path="/" component={IndexBody} />
@@ -32,7 +32,7 @@ class App extends Component {
           {/* <IndexBody/> */}
           {/* <EscapeRoomMap/> */}
           <Footer/>
-        </setcion>
+        </section>
       </BrowserRouter>
     );
   }

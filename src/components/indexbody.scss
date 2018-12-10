@@ -24,7 +24,7 @@ $bodyColor: #f4f4f4;
 
 .indexBody{
     position: relative;
-    // top: $spaceForHeaderNav;
+    top: $spaceForHeaderNav;
     width: 100%;
     background-color: $bodyColor;
     .indexContainer{
@@ -48,20 +48,21 @@ $bodyColor: #f4f4f4;
     }
 }
 
-h3{
+.subTitle{
     padding: 24px; 
     text-align: center;
 }
 
-h5{
+.subRemark{
     text-align: center;
 }
 
 .heroSection{
     height: calc(100vh - 48px - 64px); // calc(100vh - $spaceForHeaderNav) 減不動
-    background-image: url("/img/game/壞主意工作室_腦細胞入侵_04.jpg");
+    background-image: url("/img/heroimg.png");
     background-repeat: no-repeat; 
-    background-size: cover; 
+    background-size: cover;
+    background-position: right bottom;
     .searchBox{
         position: relative;
         left: 6%;
