@@ -218,8 +218,6 @@ class SearchBar extends Component{
     }
   }
   render(){
-    console.log("state.type:"+this.state.type)
-    console.log("props.type:"+this.props.type)
     return(
       <React.Fragment>
         <div id="pro_search_bar">

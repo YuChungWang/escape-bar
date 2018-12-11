@@ -25,6 +25,9 @@ class Products extends Component{
             data : data[0]
         })
     }
+    componentWillReceiveProps(){
+        
+    }
     render(){
         return(
             <React.Fragment>
