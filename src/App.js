@@ -15,6 +15,13 @@ import ProList from './mingcomponents/pro_list/pro_list.js';
 import ProBuy from './mingcomponents/pro_buy/pro_buy.js';
 //
 
+// kai
+import Register from './kaicomponents/register/Register';
+import Member from './kaicomponents/member/Member';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle';
+//
+
 class App extends Component {
   render() {
     return (
@@ -29,6 +36,12 @@ class App extends Component {
           <Route exact path="/proList" component={ProList} />
           <Route exact path="/proList/products/:ID" component={Products} /> 
           <Route path="/proList/products/reservation/:ID" component={ProBuy} />
+
+          {/* http://localhsot:3000/register */}
+          <Route path="/register" component={Register} />
+          {/* http://localhsot:3000/center */}
+          <Route path="/center" component={Member} />
+
           {/* <IndexBody/> */}
           {/* <EscapeRoomMap/> */}
           <Footer/>
