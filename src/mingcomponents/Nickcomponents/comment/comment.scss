@@ -1,0 +1,72 @@
+.all{
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+    width:700px;
+    border:5px solid #ccc;
+    left: 30%;
+    top:50%;
+    // margin-left: 25%;
+    margin-top: 5px;
+    box-shadow: 0px 5px 5px #000;
+    .box{
+        // width: 600px;
+        display:flex;
+        justify-content: space-around;
+        font-size: 0.8rem;
+        padding: 2px;
+        // border-top:1px solid orange;
+
+        // background-color: orange;
+        .pic{
+            background-color:  #F7882F;
+            
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            border-radius: 50%;
+            display: block;
+            border: 1px solid #ccc;
+            margin: 10px;
+            object-fit: cover;
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit:contain;    
+                    }
+            }
+      
+        .comment{
+            width: 450px;
+            height: 150px;
+            padding: 2px;
+            // border:1px solid #ccc;
+            // border-top:1px solid orange;
+            opacity: .5;
+            background-color: #ccc;
+            transition: .5s;
+            color: #000;
+            margin:5px;
+            text-align: left;
+            line-height: 2;
+        .title{
+            display: flex;
+            justify-content: space-between;
+                .name{
+                        width: 100px;
+                        height: 20px;
+                        text-align: left;
+                     }
+                .star{
+                        width: 200px;
+                        height: 20px;
+                    }
+              }
+              
+         
+        }
+        .comment:hover{
+            box-shadow: 0px 10px 10px #000;
+        }
+    }
+}

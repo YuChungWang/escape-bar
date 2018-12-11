@@ -7,6 +7,11 @@ import IndexBody from './components/IndexBody'
 import EscapeRoomMap from './components/Map'
 import Article from './components/Article'
 // import InfoWindow from './components/practice/InfoWindow'
+// import StarRatingComponent from 'react-star-rating-component';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+import '../node_modules/react-star-rating-component/dist/react-star-rating-component.min.js';
+import '../node_modules/react-star-rating-component/dist/react-star-rating-component.js';
 
 //ming
 import './App.scss';
@@ -20,6 +25,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <setcion>
+          
           <Header/>
           <Nav/>
           <Route exact path="/" component={IndexBody} />
