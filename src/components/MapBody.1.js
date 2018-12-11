@@ -153,6 +153,7 @@ class MapBody extends React.Component {
               icon = {{ url: iconBase + marker.s_logo }}
               onClick={this.onMarkerClick.bind(this,marker)}
             >
+            {/* {this.state.isOpen ? (<InfoWindow> <FaAnchor /> </InfoWindow>) : null}  */}
             {/* {this.state.isOpen && (
               <InfoWindow> <FaAnchor /> </InfoWindow>
             )}  */}

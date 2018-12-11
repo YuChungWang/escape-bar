@@ -1,5 +1,5 @@
 #pro_filter{
-    margin-top: 60px;
+    // margin-top: 60px;
     background-color: #F9F9F9;
     // display: flex;
     #pro_filter_btns{
@@ -12,6 +12,7 @@
             margin: 0;
         }
         #pro_sort{
+            
             position: absolute;
             z-index: 5;
             right: 0;
@@ -22,14 +23,15 @@
             border-radius: 5px;
             background: url(../../../images/down_arrow.svg) no-repeat right 5px center #fff;
             background-size: 12px;
-            -webkit-user-select: none;   /* for Chrome */
-            -moz-user-select: none;  /* for Firefox */ 
+            -webkit-user-select: none;  
+            -moz-user-select: none;  
             cursor: pointer;
+            outline:none;
             .first{
                 height: 32px;
                 text-align: left;
                 text-indent: .5rem;
-                line-height: 32px;
+                line-height: 28px;
             }
             .option{
                 width: 130px;
@@ -69,11 +71,12 @@
             padding: 0;
             border-radius: 5px;
             color: #fff;
-            line-height: 32px;
+            line-height: 28px;
             text-align: center;
             position: absolute;
             right: 150px;
-            display: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
         }
         .filter_open{
             display: block;
@@ -155,8 +158,10 @@
         width: 0;
         height: 0;
         border: none;
+        transition: 0s;
         .f-div{
             opacity: 0;
+            transition: .7s;
         }
     }
 }

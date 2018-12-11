@@ -12,7 +12,8 @@ class Article extends Component{
             articleTitle: "",
             articleContent: "",
             createdAt: ""
-        }
+        };
+
     }
 
     componentWillMount(){
@@ -39,17 +40,22 @@ class Article extends Component{
         })
         .catch(err=> console.log(err));
     }
+    
 
+
+      
 
     render(){
+
         return(
             <React.Fragment>
-                <section>
+                <section className="articleBody">
                     <div className="container">
                         <div className="postWrapperSpace"></div>
                         <div className="postWrapper my-5 p-4">
                             <h3>{this.state.articleTitle}</h3>
-                            <div className="">{this.state.articleContent}</div>
+                            {/* <div className="">{this.state.articleContent}</div> */}
+                            <div className="postContent" dangerouslySetInnerHTML={{ __html: this.state.articleContent}} />
                         </div>
                     </div>
                 </section>

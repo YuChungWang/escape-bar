@@ -2,7 +2,7 @@ $mainColor: #F7882F;
 $spaceForHeaderNav : 64px;
 $bodyColor: #f4f4f4;
 
-section {
+.articleBody {
     margin-top: $spaceForHeaderNav;
     .postWrapperSpace{
         height: 1em;
@@ -12,6 +12,13 @@ section {
         border-radius: 8px;
 
         margin: auto;
-        
+        .postContent{
+            
+            img{
+                display: block;
+                margin: auto;
+                height: 400px;
+            }
+        }
     }
 }

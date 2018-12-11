@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import {BrowserRouter, Route, Link, NavLink} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './main.scss'
 import './map.scss'
@@ -35,13 +36,13 @@ class GameInfo extends Component {
                             <div className="gameRight">
                                 <h4 className="gameTitle">{game.PRO_NAME}</h4>
                                 <div className="d-flex flex-row">
-                                    <div className="flex-grow-1"><FaStar className="gameRating"/><span> </span></div>
-                                    <div className=""><FaRegCommentDots className="gameRatingSamples"/><span> 則評價</span></div>
+                                    <div className="flex-grow-1"><FaStar className="gameRating"/><span> {game.rating}</span></div>
+                                    <div className=""><FaRegCommentDots className="gameRatingSamples"/><span> {game.comments} 則評價</span></div>
                                 </div>
                                 <div className="gameFeature">
-                                    <FaHashtag className="gameFeatureTag"/><span>{game.Feature1}</span>
-                                    <FaHashtag className="gameFeatureTag"/><span>{game.Feature2}</span>
-                                    <FaHashtag className="gameFeatureTag"/><span>{game.Feature3}</span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.FF1}</span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.FF2}</span>
+                                    <FaHashtag className="gameFeatureTag"/><span>{game.FF3}</span>
                                 </div>
                                 <div className="d-flex flex-row">
                                     <div className="flex-grow-1"><FaDollarSign/><span>{game.PRICE} 元起 </span></div>
