@@ -7,10 +7,13 @@ import ProPrice from './pro_price.js';
 import ProMap from './pro_map.js';
 import ProShare from './pro_share.js';
 import ProManu from './pro_manu.js';
-import ProComment from './pro_comment.js';
 import ProBuyRule from './pro_buy_rule.js';
 import ProStock from './pro_stock.js';
 import ProAd from './pro_ad.js';
+
+//Nick
+import PRO_COMMENT from '../Nickcomponents/comment/membercomment';
+import StarRatingComponent from 'react-star-rating-component';
 
 class Products extends Component{
     constructor(props){
@@ -31,10 +34,11 @@ class Products extends Component{
                 <div id="products">
                     <div id="pro_body">
                         <div className="pro_body_l">
+
                             <ProSlider id={this.state.data.PRO_SEQ}/>
                             <ProName data={this.state.data} changeSite={this.changeSite}/>
                             <ProInfo info={this.state.data.PRO_INFO}/>
-                            {/* <PRO_COMMENT/> */}
+                            <PRO_COMMENT id={this.state.data.PRO_SEQ}/>
                             <ProBuyRule/>
                         </div>
                         <div className="pro_body_r">

@@ -7,6 +7,10 @@ import IndexBody from './components/IndexBody'
 import EscapeRoomMap from './components/Map'
 import Article from './components/Article'
 // import InfoWindow from './components/practice/InfoWindow'
+import StarRatingComponent from 'react-star-rating-component';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 //ming
 import './App.scss';
