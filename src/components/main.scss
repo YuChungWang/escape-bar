@@ -2,6 +2,8 @@ $mainColor: #F7882F;
 $spaceForHeaderNav : 64px;
 // header = 64px, nav = 48px
 
+
+
 .header{
     position: fixed;
     background-color: #F7882F;
@@ -62,7 +64,7 @@ $spaceForHeaderNav : 64px;
 
 .footer{
     position: relative;
-    top: $spaceForHeaderNav;
+    // top: $spaceForHeaderNav;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -90,11 +92,12 @@ $spaceForHeaderNav : 64px;
 
 .copyright{
     position: relative;
-    top: $spaceForHeaderNav;
+    // top: $spaceForHeaderNav;
     background-color: black;
     color: #444444;
     h6{
         padding: 8px;
         text-align: center;
+        margin: 0;
     }
 }

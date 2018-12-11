@@ -1,7 +1,11 @@
 $mainColor: #F7882F;
 $spaceForHeaderNav : 64px;
 $bodyColor: #f4f4f4;
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');
 
+body{
+    font-family: 'Noto Sans TC', "Microsoft JhengHei", sans-serif;
+}
 
 .dp-flex-row{
     display: flex;
@@ -70,7 +74,7 @@ $bodyColor: #f4f4f4;
         width: 40%;
         border-radius: 16px;
         background-color: white;
-        opacity: 0.9;
+        opacity: 1;
         .keywordSgst{
             text-align: center;
             border: 1px solid #545871;
@@ -143,6 +147,7 @@ $bodyColor: #f4f4f4;
 
 .services{
     background-color: #F7C331;
+    padding-bottom: 64px;
     .servicesInside{
         width: 70%;
         margin: auto;

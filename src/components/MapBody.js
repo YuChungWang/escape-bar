@@ -115,7 +115,7 @@ class MapBody extends React.Component {
       <GoogleMapsWrapper
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkwdLLMRVXuU7Bzc5zF-sv4ocxizjstEk&v=3"
         loadingElement={<div style={{height: `100%`}}/>}
-        containerElement={<div style={{height: `100%`}}/>}
+        containerElement={<div style={{height: `90%`}}/>}
         mapElement={<div style={{height: `100%`}}/>}
         // defaultZoom={10}
         zoom = {this.props.zoom}
@@ -130,7 +130,6 @@ class MapBody extends React.Component {
           // streetViewControl: false,
           // disableDefaultUI: true
         }}
-        panTo={this.props.center}
         >
         
         

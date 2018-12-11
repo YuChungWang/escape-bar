@@ -46,7 +46,7 @@ class GameInfo extends Component {
                                 </div>
                                 <div className="d-flex flex-row">
                                     <div className="flex-grow-1"><FaDollarSign/><span>{game.PRICE} 元起 </span></div>
-                                    <div className=""><Button className="" color="warning">查看更多</Button></div>
+                                    <div className=""><NavLink to={{pathname: `/proList/products/${game.PRO_SEQ}`, state: {id: game.PRO_SEQ}}}><Button className="" color="warning">查看更多</Button></NavLink></div>
                                 </div>
                             </div>
                         </div>

@@ -12,13 +12,14 @@ const GoogleMapsWrapper = withScriptjs(withGoogleMap(props => {
   }}>{props.children}</GoogleMap>
 }));
 
-const iconBase = "../img/company/40/";
+
 
 class MapBody extends React.Component {
   constructor(props){
     super(props);
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.onToggleOpen = this.onToggleOpen.bind(this);
+    this.mapComponentRef = React.createRef();
   }
   state = {
     markers: [],
@@ -35,6 +36,8 @@ class MapBody extends React.Component {
           this.setState({ markers: res.data });
         })
         .catch(err=> console.log(err));
+
+    console.log(this.mapComponentRef.current)
   }
 
   _mapRef = null;
@@ -104,7 +107,8 @@ class MapBody extends React.Component {
       // gamesInfo: [{gameTitle: "淘寶有假貨", gamePriceMin: "81,000", gameImg: "CANPASS.png"}]
     // })
 
-    this.onToggleOpen();
+    // this.onToggleOpen();
+    // this.mapComponentRef.current.panTo(this.props.center)
   }
 
   onToggleOpen = () => {
@@ -122,6 +126,9 @@ class MapBody extends React.Component {
   }
 
   render() {
+    const node = this.mapComponentRef.current;
+    const iconBase = "../img/company/40/";
+    
     return (
       <GoogleMapsWrapper
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkwdLLMRVXuU7Bzc5zF-sv4ocxizjstEk&v=3"
@@ -138,7 +145,9 @@ class MapBody extends React.Component {
           mapTypeControl: false,
           // disableDefaultUI: true
         }}
-        panTo={this.props.center}
+        // ref={(map) => map && map.panTo({lat: 25.0112183,lng: 121.52067570000001})}
+        // panTo={this.props.center}
+        ref={this.mapComponentRef}
         >
         
         
