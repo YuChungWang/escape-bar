@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import $ from 'jquery';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import './charlie.scss';
 
 class companyList extends Component {
     constructor(props){

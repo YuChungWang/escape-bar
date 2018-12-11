@@ -12,6 +12,7 @@ class PRO_NAME extends Component {
             sitesOpen: false,
         }
     }
+    
     getSiteName = () => {
         let str = `p.\`PRO_NAME\` = '${this.props.data.PRO_NAME}' && p.\`CID\` = ${this.props.data.CID} `
         console.log("str:"+ str)
@@ -24,6 +25,7 @@ class PRO_NAME extends Component {
             sites
         }));
     }
+
     siteDisplayNone = () => {
         if(this.state.sites.length >= 2 && this.state.siteDisplayNone){
             this.setState({
@@ -31,6 +33,7 @@ class PRO_NAME extends Component {
             })
         }
     }
+
     openSites = () => {
         let {sitesOpen} = this.state
         sitesOpen = !sitesOpen
