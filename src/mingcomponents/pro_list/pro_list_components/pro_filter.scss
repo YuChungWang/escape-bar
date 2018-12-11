@@ -75,7 +75,8 @@
             text-align: center;
             position: absolute;
             right: 150px;
-            display: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
         }
         .filter_open{
             display: block;
@@ -157,8 +158,10 @@
         width: 0;
         height: 0;
         border: none;
+        transition: 0s;
         .f-div{
             opacity: 0;
+            transition: .7s;
         }
     }
 }

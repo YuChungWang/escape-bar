@@ -13,13 +13,16 @@ class ProList extends Component{
     this.state = {
       products: [],
       records: false,
+      homeRecord: false,
       type:"search",
+      homeType: "",
       sort: ""
     }
   }
   search = (data) => {
     this.setState({
-      type: "search"
+      type: "search",
+      homeType: ""
     })
     // let getProducts = [];
     data.sort = this.state.sort
@@ -40,13 +43,14 @@ class ProList extends Component{
       records: data,
     }));
     // .then(products => getProducts = products)
-    console.log("products:" + JSON.stringify(this.state.products));
-    console.log(this.state.products)
+    // console.log("products:" + JSON.stringify(this.state.products));
+    // console.log(this.state.products)
     console.log("records:" + this.state.records);
   }
   filter = (str) => {
     this.setState({
-      type: "filter"
+      type: "filter",
+      homeType: ""
     })
     fetch('http://localhost:3000/eb/pro_list/filter/' + str ,{
       method:'GET',
@@ -63,10 +67,36 @@ class ProList extends Component{
     }, ()=> {
       if(this.state.type === "search" && this.state.records){
         this.search(this.state.records)
+      }else if(this.state.homeType === "homeSearch"){
+        this.homeSearch(this.state.homeRecords)
       }
     })
   }
+  componentWillMount = () => {
+    if(this.props.location.state.type === 'homeSearch'){
+      let str =this.props.location.state.str
+      if(str !== ""){
+        this.homeSearch(str)
+      }
+    }
+    
+  }
+  homeSearch = (str) => {
+    let sort = this.state.sort
+    let newStr = str + sort 
+    fetch('http://localhost:3000/eb/pro_list/filter/' + newStr ,{
+      method:'GET',
+      mode:'cors',
+    })
+    .then(res => res.json())
+    .then(products => this.setState({
+      products: products,
+      homeRecords: str,
+      homeType: "homeSearch"
+    }))
+  }
   render(){
+    console.log("type:"+this.state.type)
     return(
       <React.Fragment>
         <div id="pro_list">

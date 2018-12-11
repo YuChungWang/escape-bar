@@ -21,7 +21,7 @@ class SearchBar extends Component{
       textResults: [],
       keywordOpen: "",
       sort: "",
-      type:"search"
+      type:"homeSearch"
     }
     
   }
@@ -53,7 +53,7 @@ class SearchBar extends Component{
         people: "", 
         price: "",
         text: "",
-        type: "filter"
+        type: "search"
       })
     }
   }
@@ -213,11 +213,13 @@ class SearchBar extends Component{
         people: "", 
         price: "",
         text: "",
-        type: "filter"
+        type: "search"
       })
     }
   }
   render(){
+    console.log("state.type:"+this.state.type)
+    console.log("props.type:"+this.props.type)
     return(
       <React.Fragment>
         <div id="pro_search_bar">
