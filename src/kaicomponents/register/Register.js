@@ -78,10 +78,10 @@ class Register extends Component {
                     // this.props.history.push("/") // 導到會員中心頁面
                     break;
                 case "密碼錯誤！":
-                    this.props.history.push('/register') // 導回註冊登入頁面
+                    this.props.history.push('/') // 導回首頁
                     break;
                 case "此帳號尚未註冊！":
-                    this.props.history.push('/register') // 導到註冊登入頁面
+                    this.props.history.push('/') // 導到首頁
                     break;
             }
 
