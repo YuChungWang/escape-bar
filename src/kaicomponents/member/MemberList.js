@@ -24,7 +24,6 @@ class MemberList extends Component {
                 {
                     this.props.members.map(member =>
                         <div className="row mb-3 mem-list-top">
-
                             <div className="col-2">
                                 {/* <img className="headshot rounded-circle" src={"../images/users/"+member.user_pic}></img> */}
                                 <img className="headshot rounded-circle" src={"http://localhost:3000/images/users/"+member.user_pic}></img>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Collect.scss';
 
 class CollectList extends Component {
@@ -54,14 +55,15 @@ class CollectList extends Component {
                                     </div>
                                 </div>
                                 
-                                <img className="collect_clogo" src={"../images/company/40/"+collect.s_logo}></img>
+                                <img className="collect_clogo" src={"../img/company/40/"+collect.s_logo}></img>
                                 {/* <h5 className="card-title">{collect.mcg_id}</h5> */}
                                 <h5 className="card-title">{collect.PRO_NAME}</h5>
-                                <a href="/" className="btn btn-primary">了解詳情</a>
+                                <NavLink to = {{pathname:`/proList/products/${collect.PRO_SEQ}`, state: {id: collect.PRO_SEQ}}} className="btn btn-primary">了解詳情</NavLink>
+                                
                                 <div className="row collect_info">
-                                    <div className="col-sm">{collect.GAME_TIME}分</div>
-                                    <div className="col-sm">{collect.PRICE}起</div>
                                     <div className="col-sm">{collect.city_name}</div>
+                                    <div className="col-sm">{collect.GAME_TIME}分</div>
+                                    <div className="col-sm"><span className="collect_price_style">${collect.PRICE}起</span></div>
                                 </div>
 
                             {/* <button type="button" className="btn btn-primary" data-dismiss="modal" data-id={collect.mcg_id} data-type="del" onClick={this.handler}>確定</button> */}

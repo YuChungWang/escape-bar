@@ -32,10 +32,10 @@ class GroupList extends Component {
                                 <img className="group_img" src={"../img/game/"+group.IMG_NAME}></img>
                             </div>
                             <div class="col-3">
-                                <div>遊戲名稱：{group.PRO_NAME}</div>
-                                <div>工作室名稱：{group.c_name}</div>
-                                <div>揪團時間：{moment(group.sel_time).format("YYYY/MM/DD")}</div>
-                                <div>揪團狀態：</div>
+                                <div><span className="group_title_items">遊戲名稱：</span>{group.PRO_NAME}</div>
+                                <div><span className="group_title_items">工作室名稱：</span>{group.c_name}</div>
+                                <div><span className="group_title_items">揪團時間：</span>{moment(group.sel_time).format("YYYY/MM/DD")}</div>
+                                <div><span className="group_title_items">揪團狀態：</span></div>
                                 <div class="row">
                                     <div class="col-4 text-center">
                                         <div>尋找</div>
@@ -55,8 +55,8 @@ class GroupList extends Component {
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div>距揪團截止，還有：<span className="group_date_style">{moment(group.t_deadline, "YYYYMMDD").fromNow()}</span></div>
-                                <span>已參與成員：</span>
+                                <div><span className="group_title_items">距揪團截止，還有：</span><span className="group_date_style">{moment(group.t_deadline, "YYYYMMDD").fromNow()}</span></div>
+                                <span className="group_title_items">已參與成員：</span>
                                 <div className="scrollme">
                                     <table className="table table-sm">
                                         <thead>
