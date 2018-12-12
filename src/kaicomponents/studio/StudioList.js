@@ -28,7 +28,7 @@ class StudioList extends Component {
                                 <div><span className="studio_cname">{studio.c_name}</span></div>
                                 <div className="studio_title_line mt-2 mb-3"></div>
                                 {/* <div>工作室簡介：{studio.c_intro}</div> */}
-                                <div>工作室網站：<a href={studio.c_website} target="_blank">{studio.c_website}</a></div>
+                                {/* <div>工作室網站：<a href={studio.c_website} target="_blank">{studio.c_website}</a></div> */}
                             </div>
                             {/* <div class="col-1">
 
