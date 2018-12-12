@@ -117,7 +117,7 @@ class PRO_STOCK extends Component{
     }
     componentWillReceiveProps(){
         this.getSiteName() 
-        this.getStock()
+        
     }
     componentWillMount(){
         // this.getSiteName() 
@@ -207,7 +207,7 @@ class PRO_STOCK extends Component{
         let sitesClassName = this.state.sitesOpen ? "open" : ""
         let siteName = this.state.siteDisplayNone ? this.props.data.s_name : this.props.data.site_name
         let alertClassName = this.state.alertStatus ? "" : "none"
-        // this.getStock()
+        this.getStock()
         return(
             <React.Fragment>
                 <div id="pro_stock">
@@ -221,7 +221,7 @@ class PRO_STOCK extends Component{
                     </div>
                     <div id="pro_stock_date">
                         <h4>預約日期與時段</h4>
-                        {/* <DatePicker2 stock={this.state.stock} selDate={this.selDate}/> */}
+                        <DatePicker2 stock={this.state.stock} selDate={this.selDate}/>
                         <ul>
                             {this.state.nowStocks.map((stock, index) => 
                             <li key={index} className={this.state.nowArray[index] ? "checked" : ""}>
