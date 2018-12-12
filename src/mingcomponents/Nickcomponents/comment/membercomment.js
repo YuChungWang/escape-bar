@@ -78,7 +78,7 @@ add = (comment) => {
                         
                 
                     {this.state.comments.map(comment => 
-                      <div className="box row" key={comment.sid}>
+                      <div className="box " key={comment.sid}>
                         <div className=" pic "><img className=" img " src={`/img/${comment.user_pic}`}/></div>
                             <div className="comment">
                                 
