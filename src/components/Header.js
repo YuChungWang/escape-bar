@@ -26,7 +26,7 @@ class Header extends Component {
                 </li> */}
 
                 <li className="nav-item">
-                    <button type="button" className="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" className="btn btn-outline-light login-style2" data-toggle="modal" data-target="#exampleModal">
                     登入|註冊
                     </button>
                     <br />
@@ -38,18 +38,17 @@ class Header extends Component {
                         </div>
                     </div>
                 </li>
+
             </ul>
         )
 
         const userLink = (
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/center">會員中心</Link>
-                </li>
-                <li className="nav-item">
-                    <a href="" onClick={this.logout.bind(this)} className="nav-link">登出</a>
-                </li>
-            </ul>
+            <React.Fragment>
+                <div className="login-style">
+                    <Link to="" onClick={this.logout.bind(this)}><span className="login-style">登出</span></Link>
+                    <Link to="/center"><span className="login-style">會員中心</span></Link>
+                </div>
+            </React.Fragment>
         )
 
         return(
@@ -63,6 +62,9 @@ class Header extends Component {
                         <span> | </span>
                         <span>註冊</span> */}
                     </div>
+                    
+                        {localStorage.getItem('userId') ? userLink : loginRegLink}
+                        
                 </header>
 
                 {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">

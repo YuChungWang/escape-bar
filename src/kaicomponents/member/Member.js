@@ -117,12 +117,12 @@ class Member extends Component {
                         {thing ? (<MemberModify modifyType={this.state.type} modifyData={this.state.member} memberUpdate={this.updateHandler} />) : (null)}
 
                         <div className="mem_sub_nav">
-                            <Link to={`${this.props.match.url}/labby`}><span className="sub_nav_items">個人主頁 | </span></Link>
-                            <Link to={`${this.props.match.url}/order`}><span className="sub_nav_items">我的訂單 | </span></Link>
-                            <Link to={`${this.props.match.url}/group`}><span className="sub_nav_items">我的揪團 | </span></Link>
-                            <Link to={`${this.props.match.url}/collect`}><span className="sub_nav_items">收藏清單 | </span></Link>
-                            <Link to={`${this.props.match.url}/studio`}><span className="sub_nav_items">追蹤工作室 | </span></Link>
-                            <Link to={`${this.props.match.url}/record`}><span className="sub_nav_items">遊戲紀錄</span></Link>
+                            <Link to={`${this.props.match.url}/labby`}><span className="sub_nav_items pr-3 pl-3">個人主頁</span></Link>
+                            <Link to={`${this.props.match.url}/order`}><span className="sub_nav_items pr-3 pl-3">我的訂單</span></Link>
+                            <Link to={`${this.props.match.url}/group`}><span className="sub_nav_items pr-3 pl-3">我的揪團</span></Link>
+                            <Link to={`${this.props.match.url}/collect`}><span className="sub_nav_items pr-3 pl-3">收藏清單</span></Link>
+                            <Link to={`${this.props.match.url}/studio`}><span className="sub_nav_items pr-3 pl-3">追蹤工作室</span></Link>
+                            <Link to={`${this.props.match.url}/record`}><span className="sub_nav_items pr-3 pl-3">遊戲紀錄</span></Link>
                         </div>
 
                         <Route exact path={`${this.props.match.url}/`} component={Labby} />

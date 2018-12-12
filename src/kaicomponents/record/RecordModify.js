@@ -91,7 +91,7 @@ class RecordModify extends Component {
                         <div class="row-4">
                             <div class="col">
                                 <div className="form-group">
-                                    <label htmlFor="record_pic">遊玩照片</label>
+                                    <label htmlFor="record_pic">闖關照片</label>
                                     {/* <input type="text" id="record_pic" value={this.state.record_pic} onChange={this.handleChange} className="form-control" placeholder="record_pic" /> */}
                                     <input type="file" id="record_pic" name="record_pic" onChange={this.handleChange} className="form-control" />
                                 </div>

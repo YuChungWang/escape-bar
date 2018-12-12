@@ -7,8 +7,8 @@ $spaceForHeaderNav : 64px;
     background-color: #F7882F;
     height: $spaceForHeaderNav;
     width: 100vw;
-    color: white;
-    z-index: 999;
+    // color: white;
+    z-index: 1050;
     .mainLogo{
         display: block;
         position: relative;
@@ -97,4 +97,37 @@ $spaceForHeaderNav : 64px;
         padding: 8px;
         text-align: center;
     }
+}
+
+.login-style {
+    color: white;
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
+a:hover .login-style {
+    color: bisque;
+}
+
+.login-style {
+    display: block;
+    position: relative;
+    float: right;
+    top: 50%;
+    transform:translateY(-50%);
+    right: 10%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-style2 {
+    display: block;
+    position: relative;
+    float: right;
+    top: 50%;
+    transform:translateY(-50%);
+    right: 10%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
 }

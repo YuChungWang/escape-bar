@@ -58,8 +58,9 @@ class OrderForm extends Component {
                         <textarea rows={3} value={email.text} style={textArea}
                             onChange={e => this.setState({ email: { ...email, text: e.target.value } })} />
                         <div style={spacer} /> */}
-
-                        <button className="btn btn-info" onClick={this.sendEmail}> 寄送通知 </button>
+                        <div className="text-center">
+                            <button className="btn btn-info" onClick={this.sendEmail}> 寄送通知 </button>
+                        </div>
                     </div>
                 </div>
 
