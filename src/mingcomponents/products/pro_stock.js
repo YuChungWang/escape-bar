@@ -20,7 +20,8 @@ class PRO_STOCK extends Component{
             totalPriceShow : false,
             sites: [],
             siteDisplayNone: true,
-            sitesOpen: false
+            sitesOpen: false,
+            alertStatus: false
         }
     }
     getStock = () => {
@@ -48,12 +49,10 @@ class PRO_STOCK extends Component{
             nowDate,
             timeZone: "",
             totalPriceShow: false
+ 
         })
     }
     plusPeople = (evt) => {
-        // evt.stopPropagation()
-        // evt.nativeEvent.stopImmediatePropagation()
-        // evt.preventDefault()
         let {number} = this.state
         let index = evt.target.dataset.index
         let sid = evt.target.dataset.sid
@@ -116,8 +115,12 @@ class PRO_STOCK extends Component{
             })
         })
     }
-    componentWillMount(){
+    componentWillReceiveProps(){
         this.getSiteName() 
+        this.getStock()
+    }
+    componentWillMount(){
+        // this.getSiteName() 
     }
     componentDidUpdate(){
         this.siteDisplayNone()
@@ -132,7 +135,14 @@ class PRO_STOCK extends Component{
         return <div className="buy-btn" onClick={this.warning}>立即預約</div>
     }
     warning = () => {
-        alert("請先選擇日期與人數！")
+        this.setState({
+            alertStatus: true
+        })
+    }
+    alertClose = () => {
+        this.setState({
+            alertStatus: false
+        })
     }
     //site 選擇場館 
     getSiteName = () => {
@@ -196,7 +206,8 @@ class PRO_STOCK extends Component{
         let siteDNone = this.state.siteDisplayNone ? "none" : ""
         let sitesClassName = this.state.sitesOpen ? "open" : ""
         let siteName = this.state.siteDisplayNone ? this.props.data.s_name : this.props.data.site_name
-        this.getStock()
+        let alertClassName = this.state.alertStatus ? "" : "none"
+        // this.getStock()
         return(
             <React.Fragment>
                 <div id="pro_stock">
@@ -210,7 +221,7 @@ class PRO_STOCK extends Component{
                     </div>
                     <div id="pro_stock_date">
                         <h4>預約日期與時段</h4>
-                        <DatePicker2 stock={this.state.stock} selDate={this.selDate}/>
+                        {/* <DatePicker2 stock={this.state.stock} selDate={this.selDate}/> */}
                         <ul>
                             {this.state.nowStocks.map((stock, index) => 
                             <li key={index} className={this.state.nowArray[index] ? "checked" : ""}>
@@ -240,6 +251,9 @@ class PRO_STOCK extends Component{
                 <div id="pro_stock_buy" className="dd-flex">
                     <div className="buy-btn">我要揪團</div>
                     {this.checkRedirect()}
+                </div>
+                <div className={`alert ${alertClassName}`} onClick={this.alertClose}>
+                    <div className="alert_frame">請先選擇日期與人數哦！</div>
                 </div>
             </React.Fragment>
         )
