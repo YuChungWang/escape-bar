@@ -16,7 +16,13 @@ class Nav extends Component {
         localStorage.removeItem('userId')
         this.props.history.push("/indexbody"); // 導到首頁
     }
-
+    // componentDidUpdate(){
+        
+    // }
+    // refresh = () => {
+    //     let logType = localStorage.getItem('userId') ? userLink : loginRegLink
+    //     return logType
+    // }
     render(){
 
         const loginRegLink = (
@@ -64,6 +70,7 @@ class Nav extends Component {
                     <div className="navItem">揪團一起玩</div>
 
                     {localStorage.getItem('userId') ? userLink : loginRegLink}
+                    {/* {this.this.refresh()} */}
                 </nav>
                     
                 {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">

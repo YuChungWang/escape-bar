@@ -62,126 +62,127 @@ $blue_theme: #70a1ff;
 }
 
 
-.inner-container {
-    transition: visibility 0.2s ease-out;
-}
 
-.inner-container.show {
-    visibility: visible;
-}
+// .inner-container {
+//     transition: visibility 0.2s ease-out;
+// }
 
-//Header
-.header {
-    text-align: center;
-    padding: 5px;
-    margin-bottom: 17px;
-    /* margin-left: 35px; */
-    /* margin-right: 35px; */
-    font-family: Ozxgen, sans-serif;
-    font-size: 22px;
-    border-bottom: 2px solid $blue_theme;
-}
+// .inner-container.show {
+//     visibility: visible;
+// }
 
-.box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+// //Header
+// .header {
+//     text-align: center;
+//     padding: 5px;
+//     margin-bottom: 17px;
+//     /* margin-left: 35px; */
+//     /* margin-right: 35px; */
+//     font-family: Ozxgen, sans-serif;
+//     font-size: 22px;
+//     // border-bottom: 2px solid $blue_theme;
+// }
 
-.input-group {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
+// .box {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+// }
 
-//Label
-.login-label {
-    font-family: Oxygen, sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    padding-left: 5px;
-}
+// .input-group {
+//     display: flex;
+//     flex-direction: column;
+//     margin-top: 5px;
+//     margin-bottom: 5px;
+// }
 
-//Input
-.login-input {
-    height: 2.1em;
-    border-radius: 3px;
-    border: 1px solid $blue_theme;
-    transition: border 0.4s ease-out;
-    padding: 13px;
-    font-family: Oxygen, sans-serif;
-    font-size: 19px;
-    color: #3e3e42;
-    background: rgba(15, 15, 15, 0.01);
-}
+// //Label
+// .login-label {
+//     font-family: Oxygen, sans-serif;
+//     font-size: 20px;
+//     font-weight: 600;
+//     padding-left: 5px;
+// }
 
-.login-input:hover {
-    border: 2px solid $blue_theme;
-}
+// //Input
+// .login-input {
+//     height: 2.1em;
+//     border-radius: 3px;
+//     border: 1px solid $blue_theme;
+//     transition: border 0.4s ease-out;
+//     padding: 13px;
+//     font-family: Oxygen, sans-serif;
+//     font-size: 19px;
+//     color: #3e3e42;
+//     background: rgba(15, 15, 15, 0.01);
+// }
 
-.login-input:focus {
-    border: 2px solid #6565e7;
-    box-shadow: 0px 0px 20px rgba(15, 15, 15, 0.2);
-}
+// .login-input:hover {
+//     border: 2px solid $blue_theme;
+// }
 
-//Input Placeholder
-.login-input::placeholder {
-    font-family: Oxygen, sans-serif;
-    font-size: 16px; //color: rgba(46, 213, 116, 0.839);
-    color: rgba(15, 15, 15, 0.4);
-}
+// .login-input:focus {
+//     border: 2px solid #6565e7;
+//     box-shadow: 0px 0px 20px rgba(15, 15, 15, 0.2);
+// }
 
-.login-btn {
-    padding: 2px 30px;
-    /* background-color: #417cef; */
-    border: 0;
-    font-size: 18px;
-    border-radius: 3px;
-    font-family: Oxygen, sans-serif;
-    background-color: rgba(15, 15, 15, 0.03);
-    margin-top: 20px;
-    border: 2px solid #417cef;
-    transition: background-color 0.3s ease-out;
-    cursor: pointer;
-}
+// //Input Placeholder
+// .login-input::placeholder {
+//     font-family: Oxygen, sans-serif;
+//     font-size: 16px; //color: rgba(46, 213, 116, 0.839);
+//     color: rgba(15, 15, 15, 0.4);
+// }
 
-.login-btn:hover,
-.login-btn:focus {
-    background-color: #417cef;
-    color: white;
-}
+// .login-btn {
+//     padding: 2px 30px;
+//     /* background-color: #417cef; */
+//     border: 0;
+//     font-size: 18px;
+//     border-radius: 3px;
+//     font-family: Oxygen, sans-serif;
+//     background-color: rgba(15, 15, 15, 0.03);
+//     margin-top: 20px;
+//     border: 2px solid #417cef;
+//     transition: background-color 0.3s ease-out;
+//     cursor: pointer;
+// }
 
-.danger-error {
-    color: #e74c3c;
-    font-size: 16px;
-}
+// .login-btn:hover,
+// .login-btn:focus {
+//     background-color: #417cef;
+//     color: white;
+// }
 
-//Password
-.password-state {
-    display: flex;
-    flex-direction: row;
-    margin-top: 20px;
-}
+// .danger-error {
+//     color: #e74c3c;
+//     font-size: 16px;
+// }
 
-.pwd {
-    height: 6px;
-    flex: 1;
-    visibility: hidden;
-}
+// //Password
+// .password-state {
+//     display: flex;
+//     flex-direction: row;
+//     margin-top: 20px;
+// }
 
-.pwd-weak {
-    background-color: #e74c3c;
-}
+// .pwd {
+//     height: 6px;
+//     flex: 1;
+//     visibility: hidden;
+// }
 
-.pwd-medium {
-    background-color: #3498db;
-}
+// .pwd-weak {
+//     background-color: #e74c3c;
+// }
 
-.pwd-strong {
-    background-color: #2ecc71;
-}
+// .pwd-medium {
+//     background-color: #3498db;
+// }
 
-.show {
-    visibility: visible;
-}
+// .pwd-strong {
+//     background-color: #2ecc71;
+// }
+
+// .show {
+//     visibility: visible;
+// }

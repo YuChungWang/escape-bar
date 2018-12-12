@@ -74,8 +74,8 @@ class Register extends Component {
                     this.setState({ user:user.session });
                     localStorage.setItem('userId', JSON.stringify(user.session)); // 將會員編號存於 localStorage
                     // cookie.set('user', JSON.stringify(user.session), { path: '/' });
-
-                    this.props.history.push('/center') // 導到會員中心頁面
+                    window.location.href=""; // 導回當前頁面
+                    // this.props.history.push("/") // 導到會員中心頁面
                     break;
                 case "密碼錯誤！":
                     this.props.history.push('/register') // 導回註冊登入頁面
