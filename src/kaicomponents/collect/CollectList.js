@@ -57,9 +57,9 @@ class CollectList extends Component {
                                 <img className="collect_clogo" src={"../images/company/40/"+collect.s_logo}></img>
                                 {/* <h5 className="card-title">{collect.mcg_id}</h5> */}
                                 <h5 className="card-title">{collect.PRO_NAME}</h5>
-                                <a href="/" className="btn btn-primary">Show More</a>
+                                <a href="/" className="btn btn-primary">了解詳情</a>
                                 <div className="row collect_info">
-                                    <div className="col-sm">{collect.GAME_TIME}分鐘</div>
+                                    <div className="col-sm">{collect.GAME_TIME}分</div>
                                     <div className="col-sm">{collect.PRICE}起</div>
                                     <div className="col-sm">{collect.city_name}</div>
                                 </div>

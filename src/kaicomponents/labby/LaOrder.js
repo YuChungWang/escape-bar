@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import moment from 'moment';
 import './LaOrder.scss';
 
+moment.locale('zh-tw');
+
 class LaOrder extends Component {
     constructor(props){
         super(props)
