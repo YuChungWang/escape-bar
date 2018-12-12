@@ -71,14 +71,13 @@ class IndexBody extends Component {
         })
     }
     makeSearchString = () => {
-        let {city, people, price, cate, text} = this.state
-        let text2 = ""
-        if(text !== ""){
-            // text2 = `&& (p.\`PRO_NAME\` LIKE '%${text}%' || com.\`c_name\` LIKE '%${text}%') `
-            text2 = " && (p.`PRO_NAME` LIKE '%" + text + "%' || com.`c_name` LIKE '%" + text + "%') "
+        let {city, people, price, cate} = this.state
+        // if(text !== ""){
+            // text = `&& ( p.\`PRO_NAME\` LIKE '% ${text} %' || com.\`c_name\` LIKE '% ${text} %' ) `
+            // text2 = " && (p.`PRO_NAME` LIKE '%" + text + "%' || com.`c_name` LIKE '%" + text + "%') "
             // text2 = " && p.`PRICE` > 200 "
-        }
-        let str = city + people + price + cate + text2
+        // }
+        let str = city + people + price + cate 
         console.log(str)
         this.setState({
             searchStr: str
@@ -216,8 +215,7 @@ class IndexBody extends Component {
                                     </div>
                                 </div>
                                 <div className="searchBtnDiv dp-flex-row px-3 my-2 w-50">
-                                    {/* <Button className="searchBtn indexBtn" onSubmit={this.homeSearch}>搜出好遊戲</Button> */}
-                                    <NavLink className="searchBtn indexBtn" to={{pathname:`/proList`, state: {str: this.state.searchStr, type: 'homeSearch'}}}>搜出好遊戲</NavLink>
+                                    <NavLink className="searchBtn indexBtn" to={{pathname:`/proList`, state: {str: {str: this.state.searchStr, text: this.state.text}, type: 'homeSearch'}}}>搜出好遊戲</NavLink>
                                 </div>
                             </div>
                         </div>

@@ -158,8 +158,8 @@
         }
     }
     
-}
-#pro_stock_price{
+  }
+  #pro_stock_price{
     margin-top: 10px;
     // display: none;
     width: 100%;
@@ -198,11 +198,11 @@
             color: #F00A6B
         }
     }
-}
-#pro_stock_price.none{
+  }
+  #pro_stock_price.none{
     display: none;
-}
-#pro_stock_buy{
+  }
+  #pro_stock_buy{
     margin-top: 10px;
     justify-content: space-between;
     .buy-btn{
@@ -219,9 +219,39 @@
         text-align: center;
         line-height: 40px;
     }
-}
-.dd-flex{
+  }
+  .dd-flex{
     display: flex;
     align-items: center;
     justify-content: center;
-}
+  }
+  .alert{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    cursor: pointer;
+    .alert_frame{
+        border-radius: 10px;
+        width: 300px;
+        height: 170px;
+        position: relative;
+        background-color: rgba($color: #ffffff, $alpha: .85);
+        line-height: 170px;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 550;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+    }
+  }
+  .alert.none{
+    display: none;
+  }

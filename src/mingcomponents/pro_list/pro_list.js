@@ -13,7 +13,7 @@ class ProList extends Component{
     this.state = {
       products: [],
       records: false,
-      homeRecord: false,
+      homeRecords: false,
       type:"search",
       homeType: "",
       sort: ""
@@ -67,7 +67,7 @@ class ProList extends Component{
     }, ()=> {
       if(this.state.type === "search" && this.state.records){
         this.search(this.state.records)
-      }else if(this.state.homeType === "homeSearch"){
+      }else if(this.state.homeRecords){
         this.homeSearch(this.state.homeRecords)
       }
     })
@@ -75,28 +75,29 @@ class ProList extends Component{
   componentWillMount = () => {
     if(this.props.location.state.type === 'homeSearch'){
       let str =this.props.location.state.str
-      if(str !== ""){
+      // if(str !== ""){
         this.homeSearch(str)
-      }
+      // }
     }
     
   }
   homeSearch = (str) => {
+    let records = Object.assign({}, str)
     let sort = this.state.sort
-    let newStr = str + sort 
-    fetch('http://localhost:3000/eb/pro_list/filter/' + newStr ,{
+    str.str = str.str + sort 
+    console.log("NEW str:"+ records.str + str.text)
+    fetch('http://localhost:3000/eb/pro_list/homeSearch/' + JSON.stringify(str) ,{
       method:'GET',
       mode:'cors',
     })
     .then(res => res.json())
     .then(products => this.setState({
       products: products,
-      homeRecords: str,
+      homeRecords: records,
       homeType: "homeSearch"
     }))
   }
   render(){
-    console.log("type:"+this.state.type)
     return(
       <React.Fragment>
         <div id="pro_list">
