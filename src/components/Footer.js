@@ -14,7 +14,7 @@ class Footer extends Component {
             <React.Fragment>
                 <footer className="footer">
                     <ul className="footerList">主要功能
-                        <li className="footerItem">找遊戲</li>
+                        <Link className="" to="/proList"><li className="footerItem">找遊戲</li></Link>
                         <li className="footerItem">找工作室</li>
                         <Link className="" to="/map"><li className="footerItem">用地圖找</li></Link>
                         <li className="footerItem">揪團一起玩</li>

@@ -24,7 +24,7 @@ $bodyColor: #f4f4f4;
 
 .indexBody{
     position: relative;
-    // top: $spaceForHeaderNav;
+    top: $spaceForHeaderNav;
     width: 100%;
     background-color: $bodyColor;
     .indexContainer{
@@ -48,20 +48,21 @@ $bodyColor: #f4f4f4;
     }
 }
 
-h3{
+.subTitle{
     padding: 24px; 
     text-align: center;
 }
 
-h5{
+.subRemark{
     text-align: center;
 }
 
 .heroSection{
     height: calc(100vh - 48px - 64px); // calc(100vh - $spaceForHeaderNav) 減不動
-    background-image: url("/img/game/壞主意工作室_腦細胞入侵_04.jpg");
+    background-image: url("/img/heroimg.png");
     background-repeat: no-repeat; 
-    background-size: cover; 
+    background-size: cover;
+    background-position: right bottom;
     .searchBox{
         position: relative;
         left: 6%;
@@ -70,6 +71,41 @@ h5{
         border-radius: 16px;
         background-color: white;
         opacity: 0.9;
+        .dp-flex-col{
+            position: relative;
+            .keyword{
+                // margin-le/ft: 20px;
+                position: absolute;
+                top: 70px;
+                z-index: 15;
+                width: 100%;
+                max-height: 350px;
+                background-color: #fff;
+                box-shadow: 0px 1px 5px rgba(0, 0, 0, .3);
+                opacity: 1;
+                overflow: auto;
+                .text_results{
+                    width: 100%;
+                    height: 25px;
+                    cursor: pointer;
+                    overflow: hidden;
+                    text-indent: 10px;
+                    color: #545871;
+                    .g_name{
+                        color: #3a6a9e;
+                        font-weight: 550;
+                    }
+                }
+                .text_results:hover{
+                    background-color: rgba(255, 141, 10, 0.623);
+                }
+                .text_results.close{
+                    height: 0;
+                    transition: none;
+                }
+            }
+            
+        }
         .keywordSgst{
             text-align: center;
             border: 1px solid #545871;
@@ -86,6 +122,9 @@ h5{
                 border-radius: 24px;
                 border: 2px transparent;
                 align-self: center;
+                text-align: center;
+                text-decoration: none;
+                line-height: 70px;
                 color: white;
                 background-color: #545871;
                 width: 70%;

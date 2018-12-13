@@ -1,11 +1,14 @@
 #products{
     margin-top: 64px;
     background-color: #F9F9F9;
+    font-family: '微軟正黑體';
+
     #pro_body{
         width: 80%;
         margin: auto;
         display: flex;
         flex-wrap: wrap;
+    
         
         .pro_body_l{
             width: 60%;

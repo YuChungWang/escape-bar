@@ -71,7 +71,7 @@ class PRO_SLIDER extends Component{
         
     }
     render(){
-        console.log(this.state.img)
+        // console.log(this.state.img)
         return(
             <React.Fragment>
                 <div id="l_slider">
@@ -79,7 +79,7 @@ class PRO_SLIDER extends Component{
                         {/* <li>1</li>
                         <li>2</li>
                         <li>3</li> */}
-                        {this.state.img.map(img => <li style={{backgroundImage: `url(${require('../../images/p_img/' + img.IMG_NAME)})`}}></li>)}
+                        {this.state.img.map((img, i) => <li key={i} style={{backgroundImage: `url(${require('../../images/p_img/' + img.IMG_NAME)})`}}></li>)}
                     </ul>  
                     <div  className="l_btn_next l_btn" onClick={this.l_sliderNext}>next</div>
                     <div  className="l_btn_prev l_btn" onClick={this.l_sliderPrev}>prev</div>
