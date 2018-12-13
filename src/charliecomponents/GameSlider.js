@@ -19,7 +19,7 @@ class GameSlider extends Component{
             this.props.productsInfoAll.map((products, i) =>
                 <NavLink className="pro_card" key={products.PRO_SEQ} to={{pathname: `/proList/products/${products.PRO_SEQ}`,state: {id: products.PRO_SEQ}}}>
                     <img key={`key-${i}`} src={`/img/game/${products.IMG_NAME}`} className="products_images"/>
-                    <p>{`${products.P_ID === this.props.sid ? '此分館遊戲遊戲' : ''}`}</p>
+                    {/* <p>{`${products.P_ID === this.props.sid ? '此分館遊戲遊戲' : ''}`}</p> */}
                 </NavLink>
             )
         )
@@ -29,14 +29,13 @@ class GameSlider extends Component{
         const items = this.galleryItems();
         return(
             <React.Fragment>
-                <h2>123</h2>
                 <AliceCarousel
                     items={items}
                     duration={1000}
                     autoPlay={true}
                     startIndex = {1}
                     fadeOutAnimation={true}
-                    mouseDragEnabled={true}
+                    mouseDragEnabled={false}
                     playButtonEnabled={false}
                     autoPlayInterval={5000}
                     autoPlayDirection="ltr"

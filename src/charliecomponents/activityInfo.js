@@ -12,7 +12,7 @@ class activityInfo extends Component {
             value: 1,
             btnActive: true,
             // 假設的userid，需由登入系統判定
-            user: 'u021',
+            user: 'u087',
         };
         this.tid = props.match.params.id;
     }
@@ -98,9 +98,7 @@ class activityInfo extends Component {
                     t_deadline: this.myTime(this.state.activity.t_deadline),
                 })
             },function(){
-
                 const now = this.NOW();
-                console.log(now);
                 fetch('http://localhost:3000/startActivity/activity_joinRecord/',{
                     method: 'POST',
                     body: JSON.stringify({
@@ -112,26 +110,20 @@ class activityInfo extends Component {
                     headers: new Headers({'Content-Type':'application/json'})
                 }).then(res=>res.json())
                 .then(data=>{
-                    console.log(data.message);
-                });
-
-                fetch('http://localhost:3000/startActivity/activity_list/' + this.tid,{
-                method: 'PUT',
-                body: JSON.stringify(this.state.activity),
-                headers: new Headers({
-                    'Content-Type': 'application/json'
-                }),
-                }).then(res=>res.json())
-                .then(data=>{
                     alert(data.message);
-                    this.reGetActivity();
                 });
 
-                if(this.state.activity.current_people === this.state.activity.goal_people){
-                    this.setState({
-                        btnActive : false
-                    })
-                };
+                // fetch('http://localhost:3000/startActivity/activity_list/' + this.tid,{
+                // method: 'PUT',
+                // body: JSON.stringify(this.state.activity),
+                // headers: new Headers({
+                //     'Content-Type': 'application/json'
+                // }),
+                // }).then(res=>res.json())
+                // .then(data=>{
+                //     alert(data.message);
+                //     this.reGetActivity();
+                // });
             })
         }
     }
@@ -150,7 +142,7 @@ class activityInfo extends Component {
                             <div className="col-4">
                                 <div className="mx-2">
                                     <p>由<strong>{this.state.member.nickname}</strong> 發起的揪團活動</p>
-                                    
+                                    <hr></hr>
                                     {/* 設工作室及遊戲的超連結 */}
                                     <h2>{this.state.activity.PRO_NAME}</h2>
                                     <p id="activityInfo_s_name">{this.state.activity.s_name}</p>
@@ -158,16 +150,16 @@ class activityInfo extends Component {
                                         <tbody>
                                             <tr>
                                                 <td><i className="fas fa-map-marker-alt fa-xs mb-1"></i></td>
-                                                <td>{this.state.activity.s_add}</td>
+                                                <td className="ml-2">{this.state.activity.s_add}</td>
                                             </tr>
                                             <tr>
                                                 <td><i className="far fa-clock fa-xs"></i></td>
-                                                <td>{this.myTimeShow(this.state.activity.sel_time)}</td>
+                                                <td className="ml-2">{this.myTimeShow(this.state.activity.sel_time)}</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <hr></hr>
-                                    <div className="row">
+                                    
+                                    <div className="row mt-4">
                                         <div className="col-4">
                                             <div className="circleProgress" id="circleProgress">
                                                 <strong></strong>
