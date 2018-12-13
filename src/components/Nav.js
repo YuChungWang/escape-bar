@@ -52,19 +52,12 @@ class Nav extends Component {
         return(
             <React.Fragment>
                 <nav className="navList">
-<<<<<<< HEAD
+              
                     <div className="navItem"><Link className="linkClear" to="/companyList">工作室列表</Link></div>
-                    <div className="navItem"><NavLink className="linkClear" to="/proList">遊戲列表</NavLink></div>
-                    <div className="navItem"><Link className="linkClear" to="/article/topic201812">本月主打</Link></div>
-                    <div className="navItem"><Link className="linkClear" to="/map">密室地圖</Link></div>
-                    <div className="navItem"><Link className="linkClear" to="/startActivity">揪團一起玩</Link></div>
-                </nav>                
-=======
-                    <div className="navItem">工作室列表</div>
                     <div className="navItem"><NavLink className="linkClear" to={{pathname: `/proList`, state: {str: `nav`, type: `nav`}}}>遊戲列表</NavLink></div>
                     <div className="navItem"><Link className="linkClear" to="/article/topic201812">本月主打</Link></div>
                     <div className="navItem"><Link className="linkClear" to="/map">密室地圖</Link></div>
-                    <div className="navItem">揪團一起玩</div>
+                    <div className="navItem"><Link className="linkClear" to="/startActivity">揪團一起玩</Link></div>
 
                     {/* {localStorage.getItem('userId') ? userLink : loginRegLink} */}
                 </nav>
@@ -84,7 +77,6 @@ class Nav extends Component {
                     </div>
                 </nav> */}
 
->>>>>>> 1ee16d4f7a930715a37e5ba64af8fb6963e9ba28
             </React.Fragment>
         );
     }

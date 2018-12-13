@@ -26,7 +26,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 
 //Charlie
-<<<<<<< HEAD
 import startActivity from './charliecomponents/startActivity';
 import activityInfo from './charliecomponents/activityInfo';
 import companyList from './charliecomponents/companyList';
@@ -35,14 +34,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-=======
-// import startActivity from './component/startActivity';
-// import activityInfo from './component/activityInfo';
-// import companyList from './component/companyList';
-// import companyInfo from './component/companyInfo';
-// import "slick-carousel/slick/slick.css"; 
-// import "slick-carousel/slick/slick-theme.css";
->>>>>>> 1ee16d4f7a930715a37e5ba64af8fb6963e9ba28
 //
 
 class App extends Component {
@@ -63,12 +54,13 @@ class App extends Component {
           {/* http://localhsot:3000/register */}
           <Route path="/register" component={Register} />
           {/* http://localhsot:3000/center */}
-          <Route path="/center" component={Member} />
+          <Route exact path="/center" component={Member} />
 
-          {/* <Route exact path="/startActivity" component={startActivity}/>
+          <Route exact path="/startActivity" component={startActivity}/>
           <Route path="/startActivity/activityInfo/:id" component={activityInfo}/>
           <Route exact path="/companyList" component={companyList}/>
-          <Route path="/companyList/companyInfo/:cid/:city_id" component={companyInfo}/> */}
+          <Route path="/companyList/companyInfo/:cid/:city_id" component={companyInfo}/>
+          
           {/* <IndexBody/> */}
           {/* <EscapeRoomMap/> */}
           <Footer/>
