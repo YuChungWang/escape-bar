@@ -52,7 +52,7 @@ class App extends Component {
           <Route path="/proList/products/reservation/:ID" component={ProBuy} />
 
           {/* http://localhsot:3000/register */}
-          <Route path="/register" component={Register} />
+          <Route exact path="/register" component={Register} />
           {/* http://localhsot:3000/center */}
           <Route exact path="/center" component={Member} />
 
