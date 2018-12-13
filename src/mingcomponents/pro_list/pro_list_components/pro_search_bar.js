@@ -21,7 +21,7 @@ class SearchBar extends Component{
       textResults: [],
       keywordOpen: "",
       sort: "",
-      type:"search"
+      type:"homeSearch"
     }
     
   }
@@ -53,7 +53,7 @@ class SearchBar extends Component{
         people: "", 
         price: "",
         text: "",
-        type: "filter"
+        type: "search"
       })
     }
   }
@@ -213,7 +213,7 @@ class SearchBar extends Component{
         people: "", 
         price: "",
         text: "",
-        type: "filter"
+        type: "search"
       })
     }
   }
