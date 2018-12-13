@@ -31,17 +31,6 @@ class companyInfo extends Component {
     console.log('Item`s position after changes: ', e.item);
     console.log('Slide`s position after changes: ', e.slide);
     };
-      
-    galleryItems() {
-        return (
-            this.state.productsInfoAll.map((products, i) =>
-                <NavLink className="pro_card" key={products.PRO_SEQ} to={{pathname: `/proList/products/${products.PRO_SEQ}`,state: {id: products.PRO_SEQ}}}>
-                    <img key={`key-${i}`} src={`/img/game/${products.IMG_NAME}`} className="products_images"/>
-                    <p>{`${products.P_ID === this.state.sid ? '此分館遊戲遊戲' : ''}`}</p>
-                </NavLink>
-            )
-        )
-    };
 
     selectedHandler = (evt) =>{
         this.setState({
@@ -58,10 +47,9 @@ class companyInfo extends Component {
     }
 
     render(){
-        const items = this.galleryItems();
         return(
             <React.Fragment>
-                <div className="container mt-5">
+                <div className="container bangSetMore">
                     <div className="row">
                         <div className="col-4">
                             <div className="c_logo_limit">
@@ -88,10 +76,9 @@ class companyInfo extends Component {
                                     <p>地址：{this.state.markersInfo.s_add}</p>
                                     <p style={{display: this.state.markersInfo.s_tel === '' ? 'none' : 'block' }}>電話：{this.state.markersInfo.s_tel}</p>
                                     <p>營業時間：{this.state.markersInfo.s_ophr}</p>
-                                    <p style={{display: this.state.companyInfo.c_website === '' ? 'none' : 'block' }}>工作室網站：<a href={this.state.companyInfo.c_website}>{this.state.companyInfo.c_website}</a></p>
+                                    <a href={this.state.companyInfo.c_website} style={{display: this.state.companyInfo.c_website === '' ? 'none' : 'block' }}><button className="btn btn-primary" id="companyBtn">點擊前往工作室網站</button></a>
                                 </div>
                                 <div className="col-6">
-                                    {/* <div className="fb-page" data-href={this.state.companyInfo.c_facebook} data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-height="120" data-width="340" data-hide-cta="true" ><blockquote cite="https://www.facebook.com/facebook" className="fb-xfbml-parse-ignore" ><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div> */}
                                     <FacebookProvider appId="801282820265015">
                                         <Page href={this.state.companyInfo.c_facebook} hide_cta="true" height="300" tabs="timeline" />
                                     </FacebookProvider>
@@ -106,21 +93,6 @@ class companyInfo extends Component {
                         <h5>工作室遊戲：</h5>
                     </div>
                         <GameSlider productsInfoAll={this.state.productsInfoAll} sid={this.state.sid}/>
-                        <AliceCarousel
-                            items={items}
-                            duration={1000}
-                            autoPlay={true}
-                            startIndex = {1}
-                            fadeOutAnimation={true}
-                            mouseDragEnabled={true}
-                            playButtonEnabled={false}
-                            autoPlayInterval={5000}
-                            autoPlayDirection="ltr"
-                            responsive={this.responsive}
-                            disableAutoPlayOnAction={true}
-                            onSlideChange={this.onSlideChange}
-                            onSlideChanged={this.onSlideChanged}
-                        />
                     <div className="mb-5">
                     </div>
                 </div>
