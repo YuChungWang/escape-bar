@@ -4,7 +4,7 @@ import { FacebookProvider, Page } from 'react-facebook';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/src/alice-carousel.scss";
 import './charlie.scss';
-import companyInfoGameSlider from './companyInfoGameSlider';
+import GameSlider from './GameSlider';
 
 class companyInfo extends Component {
     constructor(props){
@@ -21,12 +21,6 @@ class companyInfo extends Component {
         this.cid = props.match.params.cid;
         this.city_id = props.match.params.city_id;
     }
-    
-    responsive = {
-        0: { items: 1 },
-        600: { items: 2 },
-        1024: { items: 3 },
-    };
 
     onSlideChange(e) {
         console.log('Item`s position during a change: ', e.item);
@@ -111,7 +105,7 @@ class companyInfo extends Component {
                     <div className="c_games mt-5">
                         <h5>工作室遊戲：</h5>
                     </div>
-                        <companyInfoGameSlider productsInfoAll={this.state.productsInfoAll} sid={this.state.sid}/>
+                        <GameSlider productsInfoAll={this.state.productsInfoAll} sid={this.state.sid}/>
                         <AliceCarousel
                             items={items}
                             duration={1000}
