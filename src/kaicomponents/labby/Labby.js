@@ -39,27 +39,27 @@ class Labby extends Component {
 
                 <React.Fragment>
 
-                    <h4 className='labby mt-3'>我的訂單</h4>
+                    <h4 className='labby_title mt-3'>我的訂單</h4>
                     <div className="title_line mb-2"></div>
                     {/* <LaOrder order = {this.state.order}/> */}
                     {isOrderData ? (<LaOrder order = {this.state.order} />) : (<UserFirst />)}
 
-                    <h4 className='labby mt-3'>我的揪團</h4>
+                    <h4 className='labby_title mt-3'>我的揪團</h4>
                     <div className="title_line mb-2"></div>
                     {/* <LaGroup group = {this.state.group}/> */}
                     {isGroupData ? (<LaGroup group = {this.state.group} />) : (<UserFirst />)}
 
-                    <h4 className='labby mt-3'>收藏清單</h4>
+                    <h4 className='labby_title mt-3'>收藏清單</h4>
                     <div className="title_line mb-2"></div>
                     {/* <LaCollect collect = {this.state.collect}/> */}
                     {isCollectData ? (<LaCollect collect = {this.state.collect} />) : (<UserFirst />)}
 
-                    <h4 className='labby mt-3'>追蹤工作室</h4>
+                    <h4 className='labby_title mt-3'>追蹤工作室</h4>
                     <div className="title_line mb-2"></div>
                     {/* <LaStudio studio = {this.state.studio}/> */}
                     {isStudioData ? (<LaStudio studio = {this.state.studio} />) : (<UserFirst />)}
 
-                    <h4 className='labby mt-3'>遊戲紀錄</h4>
+                    <h4 className='labby_title mt-3'>遊戲紀錄</h4>
                     <div className="title_line mb-2"></div>
                     {/* <LaRecord record = {this.state.record}/> */}
                     {isRecordData ? (<LaRecord record = {this.state.record} />) : (<UserFirst />)}

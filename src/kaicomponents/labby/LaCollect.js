@@ -31,9 +31,9 @@ class LaCollect extends Component {
                         }
                     </div>
                     <div class="row">
-                        <div class="col-10"></div>
-                        <div class="col-2 align-self-center">
-                            <Link to="/center/collect"><button className="btn btn-warning">查看我的收藏</button></Link>
+                        <div class="col-4 col-sm-10 col-md-10 col-lg-10 col-xl-10"></div>
+                        <div class="col-8 col-sm-2 col-md-2 col-lg-2 col-xl-2 align-self-center">
+                            <Link to="/center/collect"><button className="btn btn-warning btn_style">查看我的收藏</button></Link>
                         </div>
                     </div>
             </React.Fragment>

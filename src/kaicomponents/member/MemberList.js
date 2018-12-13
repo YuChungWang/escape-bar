@@ -24,12 +24,12 @@ class MemberList extends Component {
                 {
                     this.props.members.map(member =>
                         <div className="row mb-3 mem-list-top">
-                            <div className="col-2">
+                            <div className="col-4 col-sm-4 col-md-2 col-lg-2 col-xl-2">
                                 {/* <img className="headshot rounded-circle" src={"../images/users/"+member.user_pic}></img> */}
                                 <img className="headshot rounded-circle" src={"http://localhost:3000/images/users/"+member.user_pic}></img>
                             </div>
 
-                            <div className="col-10">
+                            <div className="col-8 col-sm-8 col-md-10 col-lg-10 col-xl-10">
                                 <div>Hi, <span className="nickname_style">{member.nickname}</span></div>
                                 <div className="mb-2">{member.email}</div>
                                 <div><button className="btn btn-info" data-id={member.uid} data-type="edit" onClick={this.handler}>編輯個人資料</button></div>

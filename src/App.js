@@ -24,6 +24,7 @@ import Register from './kaicomponents/register/Register';
 import Member from './kaicomponents/member/Member';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
+
 //Charlie
 // import startActivity from './component/startActivity';
 // import activityInfo from './component/activityInfo';
