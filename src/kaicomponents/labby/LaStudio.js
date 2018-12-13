@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './LaStudio.scss';
 
 class LaStudio extends Component {
@@ -15,7 +15,9 @@ class LaStudio extends Component {
                             this.props.studio.map(studio =>
 
                                 <div className="las-items mb-2">
-                                    <a href={studio.c_facebook} target="_blank"><img className="las-circle" src={"../img/company/origin/"+studio.c_logo}></img></a>
+                                    <NavLink to={{pathname: `/companyList/companyInfo/${studio.cid}/${studio.city_id}`,state: {sid: studio.sid}}}>
+                                        <img className="las-circle" src={"../img/company/origin/"+studio.c_logo}></img>
+                                    </NavLink>
                                     <div className="las-center">{studio.c_name}</div>
                                 </div>
 

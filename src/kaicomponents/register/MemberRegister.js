@@ -10,7 +10,7 @@ class MemberRegister extends Component {
             email:"",
             password:"",
             password2:"",
-            nickname:"",
+            nickname:"逃脫勇者",
             gender:"",
             birthday:"",
             city_id:"",

@@ -54,7 +54,7 @@ class App extends Component {
           {/* http://localhsot:3000/register */}
           <Route path="/register" component={Register} />
           {/* http://localhsot:3000/center */}
-          <Route exact path="/center" component={Member} />
+          <Route path="/center" component={Member} />
 
           <Route exact path="/startActivity" component={startActivity}/>
           <Route path="/startActivity/activityInfo/:id" component={activityInfo}/>

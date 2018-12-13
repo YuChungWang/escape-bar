@@ -103,7 +103,8 @@ class MemberModify extends Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="birthday">生日</label>
-                                <input type="text" id="birthday" value={moment(this.state.birthday).format("YYYY/MM/DD")} onChange={this.handleChange} className="form-control" placeholder="1990/01/01" />
+                                <input type="text" id="birthday" value={this.state.birthday} onChange={this.handleChange} className="form-control" placeholder="1990/01/01" />
+                                {/* <input type="text" id="birthday" value={moment(this.state.birthday).format("YYYY/MM/DD")} onChange={this.handleChange} className="form-control" placeholder="1990/01/01" /> */}
                                 {/* <input type="date" id="birthday" value={this.state.birthday} onChange={this.handleChange} className="form-control" placeholder="1990/01/01" /> */}
 
                             </div>
