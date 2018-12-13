@@ -25,3 +25,26 @@
 .lac_title {
     margin-top: -50px;
 }
+
+@media screen and (max-width: 376px){
+    .laccard {
+        width: 120px;
+    }
+    .lacimg {
+        width: 100%;
+        height: 80px;
+    }
+    .lacclogo {
+        width: 10px;
+        height: 10px;
+    }
+    .lac-circle {
+        margin-top: -190px;
+        margin-left: 40px;
+    }
+    .card-text {
+        text-align: center;
+        margin-top: 25px;
+        font-size: 12px;
+    }
+}
