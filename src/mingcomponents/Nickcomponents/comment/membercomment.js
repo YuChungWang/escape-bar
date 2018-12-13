@@ -45,7 +45,7 @@ add = (comment) => {
           this.getComments();
           this.getRating();
           this.getCount();
-          this.getMember();
+        //   this.getMember();
       })
 
     }
@@ -60,10 +60,12 @@ add = (comment) => {
     return (
         <React.Fragment>
             <div className="all">
-                <div className="d-flex justify-content-around border-bottom">
-                <h5>網友評論評分:</h5>{this.state.rating.map(rating =>
+                <div className="row border-bottom">
+
+                <div className=" "><h5>網友評論評分:</h5></div>
+                {this.state.rating.map(rating =>
                     
-                    <div>
+                    <div className="">
                        <StarRatingComponent 
                             name="rate1"   
                             starCount={5}  
@@ -71,7 +73,7 @@ add = (comment) => {
                             renderStarIcon={() =><span class="fa fa-star"></span>}/>
                     </div>)}
 
-                    {this.state.count.map(count => <h5>總共有{count.count}則評價</h5>)}
+                    {this.state.count.map(count => <div className="col-4 "><h5>總共有{count.count}則評價</h5></div>)}
                 </div>
                         
 
@@ -128,7 +130,7 @@ componentDidMount() {
     this.myTime();
     this.getRating();
     this.getCount();
-    // this.getMember()
+    
   }
   
 getComments() {
