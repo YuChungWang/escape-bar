@@ -5,6 +5,10 @@ import './Collect.scss';
 class CollectList extends Component {
     constructor(props){
         super(props)
+       // console.log(this.props.collects);
+        this.state = {
+            collects:this.props.collects
+        };
     }
 
     handler = (evt) => {
@@ -22,7 +26,7 @@ class CollectList extends Component {
                 {/* bootstrap card */}
                 {
                     this.props.collects.map(collect =>
-                        <div className="card colcard text-center mr-3 ml-3 mb-5 mt-3">
+                        <div className="card colcard text-center mr-3 ml-3 mb-5 mt-3" key={collect.PRO_SEQ}>
 
                             <div>
                                 <div>
@@ -59,8 +63,7 @@ class CollectList extends Component {
                                 <h5 className="card-title">{collect.PRO_NAME}</h5>
                                 
                                 <NavLink to = {{pathname:`/proList/products/${collect.PRO_SEQ}`, state: {id: collect.PRO_SEQ}}} className="btn btn-primary">了解詳情</NavLink>
-                                {/* <NavLink to= {{pathname: `/proList/products/${products.PRO_SEQ}`,state: {id: products.SID}}}><img key={`key-${i}`} src={`/img/game/${products.IMG_NAME}`} className="products_images"/></NavLink> */}
-
+                                
                                 <div className="row collect_info">
                                     <div className="col-sm">{collect.city_name}</div>
                                     <div className="col-sm">{collect.GAME_TIME}分</div>

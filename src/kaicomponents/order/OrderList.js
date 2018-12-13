@@ -39,7 +39,7 @@ class OrderList extends Component {
                                 <div><span className="order_title_items name_style">遊戲地址：</span>{member.s_add}</div>
                                 <div><span className="order_title_items name_style">訂單狀態：</span><span className="order_status_item">{member.STATUS_NAME}</span></div>
                             </div>
-                            <div class="col-4"></div>
+                            {/* <div class="col-4"></div> */}
                             <div class="col-8 col-sm-2 col-md-2 col-lg-2 col-xl-2 align-self-center">
 
                                 {/* 通知好友 */}
