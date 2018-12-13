@@ -55,12 +55,12 @@ class companyList extends Component {
     render(){    
         return(
             <React.Fragment>
-                <div >
+                <div>
                     <AnchorLink href='#top' className="topClass">
                         <i className="fas fa-angle-double-up fa-2x fasCenter"></i>
                     </AnchorLink>
                 </div>
-                <div className="bannerCompanyList" >
+                <div className="bannerCompanyList bangSet">
                     <div className="container my-3" id="top">
                         <div className="row">
                             <div className="taiwan_map col-4 offset-2 decorationNone">

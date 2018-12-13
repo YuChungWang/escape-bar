@@ -1,8 +1,18 @@
+.bangSetMore{
+  margin-top: 200px;
+}
+
+.bangSet{
+  margin-top: 72px;
+}
+
+
 /* startActivity.js */
 .bannerStartActivity{
-    position: relative;
-    height: 400px;
-    width: 1664px;
+    height: calc(60vh - 48px - 64px);
+    // max-width: 1664px;
+    background-image: url("/img/banner_startActivity.jpg");
+    background-size: cover;
   }
   
   .bannerStartActivityImg{
@@ -10,12 +20,12 @@
     max-width: 100%; 
     width: auto;
     height: auto;
-    position: absolute;  
     top: 0;  
     bottom: 0;  
     left: 0;  
     right: 0;  
     margin: auto;
+    object-fit: cover;
   }
   
   .z_Info{
@@ -157,16 +167,25 @@
   .height{
     height: 0px;
     border: 1px solid #000;
-    transition: width 2s ease, height 2s ease;  
+    transition: width 1.5s ease, height 1.5s ease;  
   }
 
-  .heightTest{
+  .imgBoxSet{
     height: 200px;
-    animation: opacity2 5s;
     width: 400px;
+    object-fit: contain;
+  }
+
+  .imgSet{
+    height: 100%;
+  }
+
+  .heightSet{
+    height: 200px;
+    animation: opacityShow 5s;
   }
   
-  @keyframes opacity2 {
+  @keyframes opacityShow {
     0%   {opacity: 0;}
     100% {opacity: 1;}
   }

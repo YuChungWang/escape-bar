@@ -61,7 +61,7 @@ class companyInfo extends Component {
         const items = this.galleryItems();
         return(
             <React.Fragment>
-                <div className="container mt-5">
+                <div className="container mt-5 bangSet">
                     <div className="row">
                         <div className="col-4">
                             <div className="c_logo_limit">

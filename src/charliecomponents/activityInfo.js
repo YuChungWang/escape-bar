@@ -132,8 +132,6 @@ class activityInfo extends Component {
                         btnActive : false
                     })
                 };
-
-                
             })
         }
     }
@@ -141,69 +139,60 @@ class activityInfo extends Component {
     render(){
         return(
             <React.Fragment>
-                <div className="container mt-4">
-                    <p>您要瀏覽 tid = {this.tid} 的揪團資訊</p>
-                    <div className="row" id="activityInfoBox">
-                        <div className="col-8">
-                            <figure className="" className="gameFigure">
-                                <img className="activityInfoGameImg" src={`/images/${this.state.activity.IMG_NAME}`} alt="game_pic" />
-                            </figure>
-                        </div>
-                        <div className="col-4">
-                            <div className="mx-2">
-                                <p>由<strong>{this.state.member.nickname}</strong> 發起的揪團活動</p>
-                                <hr></hr>
-                                {/* 設工作室及遊戲的超連結 */}
-                                <h2>{this.state.activity.game_title}</h2>
-                                <p id="activityInfo_s_name">{this.state.activity.s_name}</p>
-                                <table className="mx-1" id="activityInfo_detail">
-                                    <tbody>
-                                        <tr>
-                                            <td><i className="fas fa-map-marker-alt fa-xs mb-1"></i></td>
-                                            <td>12212</td>
-                                        </tr>
-                                        <tr>
-                                            <td><i className="far fa-clock fa-xs"></i></td>
-                                            <td>{this.myTimeShow(this.state.activity.sel_time)}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                
-                                <div className="row">
-                                    {/* <img src="..." alt="logo" className="col-2" id="studioFigure"/> */}
-                                    <div className="col-8">
-                                        
-                                    </div>
-                                </div>
-                                
-                                <div className="row">
-                                    <div className="col-4">
-                                        <div className="circleProgress" id="circleProgress">
-                                            <strong></strong>
+                <div className="bangSetMore">
+                    <div className="container mt-4 bangSet">
+                        <div className="row" id="activityInfoBox">
+                            <div className="col-8">
+                                <figure className="" className="gameFigure">
+                                    <img className="activityInfoGameImg" src={`/img/game/${this.state.activity.IMG_NAME}`} alt="game_pic" />
+                                </figure>
+                            </div>
+                            <div className="col-4">
+                                <div className="mx-2">
+                                    <p>由<strong>{this.state.member.nickname}</strong> 發起的揪團活動</p>
+                                    
+                                    {/* 設工作室及遊戲的超連結 */}
+                                    <h2>{this.state.activity.PRO_NAME}</h2>
+                                    <p id="activityInfo_s_name">{this.state.activity.s_name}</p>
+                                    <table className="mx-1" id="activityInfo_detail">
+                                        <tbody>
+                                            <tr>
+                                                <td><i className="fas fa-map-marker-alt fa-xs mb-1"></i></td>
+                                                <td>{this.state.activity.s_add}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><i className="far fa-clock fa-xs"></i></td>
+                                                <td>{this.myTimeShow(this.state.activity.sel_time)}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr></hr>
+                                    <div className="row">
+                                        <div className="col-4">
+                                            <div className="circleProgress" id="circleProgress">
+                                                <strong></strong>
+                                            </div>
+                                        </div>
+                                        <div className="col-8" id="progressInfo">
+                                            <p id="activity_goal_people">目標人數&nbsp;{this.state.activity.goal_people}&nbsp;名玩家</p>
+                                            <h4>剩下 {this.state.activity.ask_people}  名缺額</h4>
                                         </div>
                                     </div>
-                                    <div className="col-8" id="progressInfo">
-                                        <p id="activity_goal_people">目標人數&nbsp;{this.state.activity.goal_people}&nbsp;名玩家</p>
-                                        <h4>剩下 {this.state.activity.ask_people}  名缺額</h4>
-                                    </div>
-                                </div>
 
-                                <div className="row mt-4" id="setPeopleBox">
-                                    <p className="col-4">設定人數：</p>
-                                    <div className="col-8 row align-items-center">
-                                        <div className="cssCircle" onClick={this.minusHandler}>&#8211;</div>
-                                        <input type="text" id="count" className="text-center" value={this.state.activity.current_people === this.state.activity.goal_people ? '0' : this.state.value} size="8" onChange={this.changeHandler}/>
-                                        <div className="cssCircle" onClick={this.plusHandler}>&#43;</div>
+                                    <div className="row mt-4" id="setPeopleBox">
+                                        <p className="col-4">設定人數：</p>
+                                        <div className="col-8 row align-items-center">
+                                            <div className="cssCircle" onClick={this.minusHandler}>&#8211;</div>
+                                            <input type="text" id="count" className="text-center" value={this.state.activity.current_people === this.state.activity.goal_people ? '0' : this.state.value} size="8" onChange={this.changeHandler}/>
+                                            <div className="cssCircle" onClick={this.plusHandler}>&#43;</div>
+                                        </div>
                                     </div>
+                                        {/* 修改設定，若該帳號已寄送揪團，則顯示參與成功 */}
+                                    <button className={`btn btn-primary mt-3 col-12 ${this.state.activity.current_people === this.state.activity.goal_people ? 'disabled' : ''}`} id="hostNewActivityBtn" onClick={this.joinHandler}>{this.state.activity.current_people === this.state.activity.goal_people ? '揪團已額滿' : '參與揪團'}</button>
                                 </div>
-                                    {/* 修改設定，若該帳號已寄送揪團，則顯示參與成功 */}
-                                <button className={`btn btn-primary mt-3 col-12 ${this.state.activity.current_people === this.state.activity.goal_people ? 'disabled' : ''}`} id="hostNewActivityBtn" onClick={this.joinHandler}>{this.state.activity.current_people === this.state.activity.goal_people ? '揪團已額滿' : '參與揪團'}</button>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="mt-4" id="activityInfo_selectBar">
-                    
                 </div>
             </React.Fragment>
         );
