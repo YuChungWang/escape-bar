@@ -122,8 +122,8 @@ class IndexBody extends Component {
                 <section className="indexBody">
                     <div className="heroSection">
                         <div className="searchBox py-4 px-4">
-                            <h2 className="">找真人實境遊戲就在逃脫吧！</h2>
-                            <h4 className="">國內近100間工作室，數百款各類實境解謎、密室逃脫遊戲資訊與網友評價，一網打盡。</h4>
+                            <h2 className="slogan">找真人實境遊戲就在逃脫吧！</h2>
+                            <h4 className="subSlogan">國內近100間工作室，數百款各類實境解謎、密室逃脫遊戲資訊與網友評價，一網打盡。</h4>
                             <div className="dp-flex-col">
                                 <Label for="inputQuery">馬上搜尋看看：</Label>
                                 <Input type="text" name="inputQuery" id="inputQuery" className="inputQuery" onChange={this.keywordDown} tabIndex={0} onBlur={this.closeInput} value={this.state.text} placeholder="請輸入遊戲或工作室名稱..."></Input>
@@ -206,12 +206,12 @@ class IndexBody extends Component {
                                 <div className="dp-flex-col w-50">
                                     <span className="">或者試試熱門關鍵字：</span>
                                     <div className="dp-flex-row flex-jc-ar my-2">
-                                        <div className="keywordSgst mx-1 py-2 px-4">戶外遊戲</div>
-                                        <div className="keywordSgst mx-1 py-2 px-4">親子同遊</div>
+                                        <span className="keywordSgst">機關重重</span>
+                                        <span className="keywordSgst">親子同遊</span>
                                     </div>
                                     <div className="dp-flex-row flex-jc-ar my-2">
-                                        <div className="keywordSgst mx-1 py-2 px-4">新手入門</div>
-                                        <div className="keywordSgst mx-1 py-2 px-4">恐怖驚悚</div>
+                                        <span className="keywordSgst">新手入門</span>
+                                        <span className="keywordSgst">恐怖驚悚</span>
                                     </div>
                                 </div>
                                 <div className="searchBtnDiv dp-flex-row px-3 my-2 w-50">
@@ -225,14 +225,17 @@ class IndexBody extends Component {
                         <h3 className="subTitle">本月主打</h3>
                         <hr className="indexHr"></hr>
                         <div className="dp-flex-row monthTopicInside row">
-                            <div className="col-7 p-0">
+                            <div className="col-6 p-0">
                                 <img className="monthTopicImg" src="/img/xmas.jpg" alt=""></img>
                             </div>
-                            <div className="col-5">
+                            <div className="col-6">
                                 <h4>聖誕節</h4>
-                                <p>聖誕節是基督教用來紀念耶穌降生的節日，西方基督教通常將此節日定於12月25日。亦有人則稱之為耶誕節（意為耶穌誕辰日）[1]。
-                                    <br/><br/>將聖誕節作為基督教禮儀年曆的重要節日，教會透過將臨期或降臨期來準備，並以八日慶典與禮儀節期延續慶祝。聖誕節也是許多國家和地區、尤其是西方國家等以基督教文化為主流之地區的公共假日；在教會以外的場合，聖誕節已轉化成一種民俗節日，並常與日期相近的公曆新年合稱「聖誕與新年季」。
-                                </p>
+                                <p>說到十二月，大家會想到什麼呢？<br/>
+                                    沒錯，心裡是不是馬上浮現出了「叮叮噹～叮叮噹～鈴聲多響亮」的旋律呢？<br/>
+                                    雖然聖誕節是來自西方的宗教節日，但是在台灣這麼international的環境，近年過聖誕的氣氛也是非常濃厚！！<br/>
+                                    而聖誕節看似是專屬於情侶的節日，其實在西方國家都是利用此時的假期與家人好好團聚一番～～<br/>
+                                    而在這一年的尾聲，是不是也應該跟好朋友來一場暖心的密室逃脫呢～？<br/>
+                                    小編幫大家整理了與聖誕節相關的主題，趕緊來看看有沒有你還沒玩過的！</p>
                                 <div className="seeMore"><Link className="" to="/article/topic201812"><Button color="warning" size="lg" className="indexBtn">看更多</Button></Link></div>
                             </div>
                         </div>
@@ -250,14 +253,86 @@ class IndexBody extends Component {
                         <hr className="indexHr"></hr>
                         <h5 className="subRemark">找不到夠多朋友一起玩密室嗎～那還不趕快試試揪團功能來找隊友！？今晚吃雞，大吉大利。</h5>
                         <div className="dp-flex-row flex-jc-ar my-4">
-                            <div className="groupingCard"></div>
-                            <div className="groupingCard"></div>
-                            <div className="groupingCard"></div>
+                            <div className="groupingCard">
+                                <div className="groupGameImgBox">
+                                    <img className="groupGameImg" src="../img/game/玩笑實驗室_炸鬥府_01.jpg"></img>
+                                </div>
+                                <div className="groupGameCompany">
+                                    <div className="groupGameTitle">炸鬥府</div>
+                                    <div className="groupCompany">玩笑實驗室</div>
+                                </div>
+                                <div className="groupInfo">
+                                    <div className="groupHolder">
+                                        <img className="groupHolderImg" src="../img/user/1.png"></img>
+                                    </div>
+                                    <div className="groupHolderId">發起人：Bulbasaur</div>
+                                    <div className="groupHoldingInfo d-flex flex-column">
+                                        <div className="d-flex justify-content-around">
+                                            <div><i class="fas fa-map-marker-alt"></i><span> 台北市</span></div>
+                                            <div><i class="fas fa-user"></i><span> 還缺 </span><span>3</span><span> 人</span></div>
+                                        </div>
+                                        <div className="d-flex justify-content-around align-items-center my-2">
+                                            <div><span className="deadLine">即將截止！</span></div>
+                                            <div><button className="btn btn-warning btn-lg">快去看看</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="groupingCard">
+                                <div className="groupGameImgBox">
+                                    <img className="groupGameImg" src="../img/game/Qhat帽子烤_翻箱倒櫃_01.jpg"></img>
+                                </div>
+                                <div className="groupGameCompany">
+                                    <div className="groupGameTitle">翻箱倒櫃2.0</div>
+                                    <div className="groupCompany">QhAt帽子烤工廠</div>
+                                </div>
+                                <div className="groupInfo">
+                                    <div className="groupHolder">
+                                        <img className="groupHolderImg" src="../img/user/25.png"></img>
+                                    </div>
+                                    <div className="groupHolderId">發起人：Pikachu</div>
+                                    <div className="groupHoldingInfo d-flex flex-column">
+                                        <div className="d-flex justify-content-around">
+                                            <div><i class="fas fa-map-marker-alt"></i><span> 台北市</span></div>
+                                            <div><i class="fas fa-user"></i><span> 還缺 </span><span className="deadLine">2</span><span> 人</span></div>
+                                        </div>
+                                        <div className="d-flex justify-content-around align-items-center my-2">
+                                            <div><span className="">還有 10 天</span></div>
+                                            <div><button className="btn btn-warning btn-lg">快去看看</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="groupingCard">
+                                <div className="groupGameImgBox">
+                                    <img className="groupGameImg" src="../img/game/笨蛋工作室_羅伯班克_1.jpg"></img>
+                                </div>
+                                <div className="groupGameCompany">
+                                    <div className="groupGameTitle">羅伯班克</div>
+                                    <div className="groupCompany">笨蛋工作室</div>
+                                </div>
+                                <div className="groupInfo">
+                                    <div className="groupHolder">
+                                        <img className="groupHolderImg" src="../img/user/7.png"></img>
+                                    </div>
+                                    <div className="groupHolderId">發起人：Squirtle</div>
+                                    <div className="groupHoldingInfo d-flex flex-column">
+                                        <div className="d-flex justify-content-around">
+                                            <div><i class="fas fa-map-marker-alt"></i><span> 台中市</span></div>
+                                            <div><i class="fas fa-user"></i><span> 還缺 </span><span>5</span><span> 人</span></div>
+                                        </div>
+                                        <div className="d-flex justify-content-around align-items-center my-2">
+                                            <div><span className="">還有 21 天</span></div>
+                                            <div><button className="btn btn-warning btn-lg">快去看看</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="seeMore"><Button color="success" size="lg" className="indexBtn">開始我的揪團</Button></div>
                     </div>
                     <div className="services">
-                        <h3 className="subTitle">跟著逃脫吧一起闖關吧！</h3>
+                        <h3 className="subTitle">讓逃脫吧陪你一起闖關吧！</h3>
                         <div className="dp-flex-row flex-jc-ar py-4 servicesInside">
                             <div className="serviceFeature">
                                 <div className="serviceImgDiv">
