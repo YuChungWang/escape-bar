@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from "react-router-dom";
 import './charlie.scss';
+import GameInfo from './GameInfo'
 
 class startActivity extends Component {
   constructor(props){
@@ -21,6 +22,16 @@ class startActivity extends Component {
       text_keyDown: '',
       selectOption: [],
       PRO_SEQ: '',
+      infoShow: '',
+      game: [],
+      PEOPLE_MAX: '',
+      PEOPLE_MIN: '',
+      PRICE: '',
+      GAME_TIME: '',
+      IMG_NAME: '',
+      sel_time1: '',
+      sel_time2: '',
+      heightTest: '',
     }
   }
 
@@ -54,11 +65,42 @@ class startActivity extends Component {
     });
   }
 
+  // selectedHandler = (evt) => {
+  //   this.setState({
+  //     pro_seq: evt.target.value,
+  //     infoShow: 'infoShow'
+  //   },function(){
+  //     fetch('http://localhost:3000/startActivity/gameInfo/' + this.state.pro_seq,{
+  //       method: 'GET',
+  //     }).then(res=>res.json())
+  //     .then(gameInfo => this.setState({
+  //       PEOPLE_MAX: gameInfo.PEOPLE_MAX
+  //     },function(){
+  //       console.log(this.state)
+  //     }))
+  //   });
+  //   console.log(this.state)
+  // }
+
   changeHandler = (evt) =>{
     const inputName = evt.target.name;
     const inputValue = evt.target.value;
     this.setState({
       [inputName]:inputValue,
+    })
+  }
+
+  timeChangeHandler = (evt) =>{
+    const inputName = evt.target.name;
+    const inputValue = evt.target.value;
+    this.setState({
+      [inputName]:inputValue,
+    })
+  }
+
+  timeChangeHandler2 = (evt) =>{
+    this.setState({
+      sel_time2: evt.target.value,
     })
   }
 
@@ -96,17 +138,17 @@ class startActivity extends Component {
 
     var hostActivity ={
       act_uid: 4, //＊記得修改：登入會員id由會員資料庫撈取資料
-      pro_name: this.state.pro_name,
-      s_name: this.state.s_name,
-      sel_time: this.state.sel_time,
+      PRO_SEQ: this.state.PRO_SEQ,
+      sel_time: this.state.sel_time1 + ' ' + this.state.sel_time2,
       default_people: this.state.default_people,
       ask_people: this.state.ask_people,
       current_people: this.state.default_people,
       // goal_people應由設定產生，需調整
-      goal_people: this.state.default_people + this.state.ask_people,
+      goal_people: parseInt(this.state.default_people) + parseInt(this.state.ask_people),
       t_created_at: now,
-      t_deadline: this.state.t_deadline
+      t_deadline: this.state.t_deadline + ' ' + '12:00:00'
     }
+    console.log(hostActivity);
     fetch("http://localhost:3000/startActivity/activity_list",{
           method: 'POST',
           body: JSON.stringify(hostActivity),
@@ -123,11 +165,11 @@ class startActivity extends Component {
     return(
       <React.Fragment>
         <div className="card d-flex align-items-center justify-content-center mb-4 bannerStartActivity">
-          <img className="bannerStartActivityImg" src="images/banner_startActivity.jpg"/>
+          <img className="bannerStartActivityImg" src="img/banner_startActivity.jpg"/>
           <div className="z_Info d-flex flex-column justify-content-center align-items-center">
             <h2>找不到人一起玩密室逃脫嗎？</h2>
             <h2>快來試試揪團功能</h2>
-            <button type="button" className="btn btn-primary mt-3" id="hostNewActivityBtn" data-toggle="modal" data-target="#exampleModalCenter" data-backdrop="static">
+            <button type="button" className="btn btn-primary mt-3" id="hostNewActivityBtn" data-toggle="modal" data-target="#exampleModalCenter1" data-backdrop="static">
             開啟新的揪團
             </button>
           </div>
@@ -141,7 +183,7 @@ class startActivity extends Component {
             {this.state.activities.map(activities =>
             <div className="my-3 col-md-4" key={activities.tid}>
               <div className="card bg-light mx-2">
-                <img className="card-img-top gameImg" src={`/images/${activities.IMG_NAME}`} alt="Card image cap"/>
+                <img className="card-img-top gameImg" src={`/img/game/${activities.IMG_NAME}`} alt="Card image cap"/>
                 <div className="card-body">
                   <h5 className="removeMargin">{activities.PRO_NAME}</h5>
                   <span className="activityS_name">{activities.s_name}</span>
@@ -179,7 +221,7 @@ class startActivity extends Component {
         <div className="a_space"></div>
         
       
-        <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog">
+        <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog">
           <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -190,18 +232,25 @@ class startActivity extends Component {
               </div>
               <div className="modal-body">
                 <form>
+                  <GameInfo PEOPLE_MAX={this.state.PEOPLE_MAX} PEOPLE_MIN={this.state.PEOPLE_MIN} PRICE={this.state.PRICE} GAME_TIME={this.state.GAME_TIME} IMG_NAME={this.state.IMG_NAME} heightTest={this.state.heightTest}/>
+                  <hr/>
                   <div className="form-group row">
                     <label className="col-sm-2 col-form-label">遊戲名稱：</label>
                     <div className="col-sm-6">
-                      <input type="text" className="form-control" name="game_title" onChange={this.changeGameHandler} value={this.state.text}/>
+                      <div className="searchInput">
+                        <input type="text" className="form-control" name="game_title" onChange={this.changeGameHandler} value={this.state.text}/>
+                      </div>
                       <div className="searchBox">
                         {this.state.searchValue.map(searchValue=>
                             <div key={searchValue.PRO_SEQ} className={"text_results" + " " + this.state.keywordOpen} onClick={this.keywordDown} data-text={searchValue.PRO_NAME}>{searchValue.PRO_NAME}</div>
                         )}
                       </div>
                     </div>
-                    <select id="siteSelect" className="siteSelect" value={this.state.PRO_SEQ} onChange={this.selectedHandler}>
-                      { 
+                      
+                    
+                    <select id="siteSelect" className="siteSelect" defaultValue="" onChange={this.selectedHandler.bind(this)}>
+                          <option> -- 選擇遊戲場館 -- </option>
+                      {   
                           this.state.selectOption.map(selectOption => 
                           <option
                               key={selectOption.PRO_SEQ}
@@ -211,47 +260,40 @@ class startActivity extends Component {
                           </option>
                       )}
                     </select>
-                      
-                  </div>
-
-                    
-
-                  {/* <div className="form-group row">
-                    <label className="col-sm-2 col-form-label">揪團時間：</label>
-                    <div className="col-sm-6">
-                      <input type="text" className="form-control" name="sel_time" onChange={this.changeHandler}/>
-                    </div>
                   </div>
                   <div className="form-group row">
-                    <label className="col-sm-2 col-form-label">建議人數</label>
-                    <div className="col-sm-4">
-                      <input type="text" className="form-control" name="suggest_people" onChange={this.changeHandler}/>
+                    <label className="col-sm-2 col-form-label">揪團時間：</label>
+                    <div className="col-sm-6">
+                      <input type="text" className="form-control" name="sel_time1" placeholder="ex:YYYY-MM-DD" onChange={this.timeChangeHandler}/>
                     </div>
-                    <label className="col-sm-2 col-form-label">遊戲時長：</label>
-                    <div className="col-sm-4">
-                      <input type="text" className="form-control" name="game_time" onChange={this.changeHandler}/>
-                    </div>
+                    <select className="timeSelect" value={this.state.sel_time2} name="sel_time2" onChange={this.timeChangeHandler2}>
+                          <option selected hidden> -- 選擇時間 -- </option>
+                          <option name="sel_time2" value="10:00:00">10:00-12:00</option>
+                          <option name="sel_time2" value="12:00:00">12:00-14:00</option>
+                          <option name="sel_time2" value="14:00:00">14:00-16:00</option>
+                          <option name="sel_time2" value="16:00:00">16:00-18:00</option>
+                          <option name="sel_time2" value="18:00:00">18:00-20:00</option>
+                          <option name="sel_time2" value="20:00:00">20:00-22:00</option>
+                    </select>
+                  </div>
+                  <div className="form-group row">
+                    <label className="col-sm-2 col-form-label">截止時間：</label>
+                    <div className="col-sm-6">
+                      <input type="text" className="form-control" placeholder="ex:YYYY-MM-DD" name="t_deadline" onChange={this.changeHandler}/>
+                    </div> 
                   </div>
                   <div className="form-group row">
                     <label className="col-sm-2 col-form-label">目前人數：</label>
                     <div className="col-sm-4">
-                      <input type="text" className="form-control" name="current_people" onChange={this.changeHandler}/>
+                      <input type="text" className="form-control" name="default_people" onChange={this.changeHandler}/>
                     </div>
                     <label className="col-sm-2 col-form-label">所需人數：</label>
                     <div className="col-sm-4">
                       <input type="text" className="form-control" name="ask_people" onChange={this.changeHandler}/>
                     </div>
                   </div>
-                  <div className="form-group row">
-                    <label className="col-sm-2 col-form-label">目標人數：</label>
-                    <div className="col-sm-4">
-                      <input type="text" className="form-control" name="goal_people" onChange={this.changeHandler}/>
-                    </div>
-                    <label className="col-sm-2 col-form-label">截止時間：</label>
-                    <div className="col-sm-4">
-                      <input type="text" className="form-control" name="t_deadline" onChange={this.changeHandler}/>
-                    </div>
-                  </div> */}
+
+                  
                 </form>
               </div>
               <div className="modal-footer">
@@ -267,8 +309,21 @@ class startActivity extends Component {
   selectedHandler = (evt) =>{
     let PRO_SEQ = evt.target.value;
     this.setState({
-        PRO_SEQ: PRO_SEQ
+        PRO_SEQ: PRO_SEQ,
+        heightTest: 'heightTest'
     });
+    fetch("http://localhost:3000/startActivity/gameInfo/" + PRO_SEQ,{
+      method: 'GET',
+      }).then(res=>res.json())
+      .then(data => {
+          this.setState({
+            PEOPLE_MAX: data[0].PEOPLE_MAX,
+            PEOPLE_MIN: data[0].PEOPLE_MIN,
+            PRICE: data[0].PRICE,
+            GAME_TIME: data[0].GAME_TIME,
+            IMG_NAME: data[0].IMG_NAME
+          })
+      });
   }
 
   getSelectOption = () =>{

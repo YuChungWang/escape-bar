@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FacebookProvider, Page } from 'react-facebook';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/src/alice-carousel.scss";
@@ -40,11 +40,10 @@ class companyInfo extends Component {
     galleryItems() {
         return (
             this.state.productsInfoAll.map((products, i) =>
-                <img key={`key-${i}`} src={`/images/${products.IMG_NAME}`} className="products_images" />
+                <NavLink className="pro_card" key={products.PRO_SEQ} to={{pathname: `/proList/products/${products.PRO_SEQ}`,state: {id: products.SID}}}><img key={`key-${i}`} src={`/img/game/${products.IMG_NAME}`} className="products_images"/></NavLink>
             )
         )
     };
-
 
     selectedHandler = (evt) =>{
         this.setState({
@@ -68,7 +67,7 @@ class companyInfo extends Component {
                     <div className="row">
                         <div className="col-4">
                             <div className="c_logo_limit">
-                                <img className="c_logo_big" src={`/images/${this.state.companyInfo.c_logo}`}/>
+                                <img className="c_logo_big" src={`/img/company/default/${this.state.companyInfo.c_logo}`}/>
                             </div>
                         </div>
                         <div className="col-8">
@@ -186,10 +185,8 @@ class companyInfo extends Component {
                         this.getMarkersInfo();
                         this.getProductsInfoAll();
                         this.getProductsInfoThis();
-                    })
-                    
+                    })  
                 }
-                
             });
         });
     }

@@ -16,10 +16,12 @@ import ProBuy from './mingcomponents/pro_buy/pro_buy.js';
 //
 
 //Charlie
-import startActivity from './component/startActivity';
-import activityInfo from './component/activityInfo';
-import companyList from './component/companyList';
-import companyInfo from './component/companyInfo';
+import startActivity from './charliecomponents/startActivity';
+import activityInfo from './charliecomponents/activityInfo';
+import companyList from './charliecomponents/companyList';
+import companyInfo from './charliecomponents/companyInfo';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 //

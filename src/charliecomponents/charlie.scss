@@ -121,7 +121,7 @@
       font-size: 12px;
     }
   }
-  
+
   .searchBox{
     background-color: #fff;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, .3);
@@ -144,8 +144,33 @@
     }
   }
   
+  .search_input{
+    position: relative;
+    input{
+      position: absolute;
+    }
+  }
   
   
+  
+  /* activityInfo.js */
+  .height{
+    height: 0px;
+    border: 1px solid #000;
+    transition: width 2s ease, height 2s ease;  
+  }
+
+  .heightTest{
+    height: 200px;
+    animation: opacity2 5s;
+    width: 400px;
+  }
+  
+  @keyframes opacity2 {
+    0%   {opacity: 0;}
+    100% {opacity: 1;}
+  }
+
   /* activityInfo.js */
   .activityInfoGameImg{
     width: 100%;
@@ -229,6 +254,14 @@
     p{
       line-height: 30px;
     }
+  }
+
+  .startNewOneInfoBox{
+    border: 1px solid #FF8E0A;
+  }
+
+  .infoShow{
+    display: block;
   }
   
   /* ================================================================================================================== */
@@ -380,7 +413,7 @@
     background-color: #000;
   }
   
-  .siteSelect{
+  .siteSelect .timeSelect{
     height: 38px;
   }
   
