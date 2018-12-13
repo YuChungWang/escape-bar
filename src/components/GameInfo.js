@@ -36,8 +36,8 @@ class GameInfo extends Component {
                             <div className="gameRight">
                                 <h4 className="gameTitle">{game.PRO_NAME}</h4>
                                 <div className="d-flex flex-row">
-                                    <div className="flex-grow-1"><FaStar className="gameRating"/><span> {game.rating}</span></div>
-                                    <div className=""><FaRegCommentDots className="gameRatingSamples"/><span> {game.comments} 則評價</span></div>
+                                    <div className=""><FaStar className="gameRating"/><span> {game.rating}</span></div>
+                                    <div className="ml-5"><FaRegCommentDots className="gameRatingSamples"/><span> {game.comments} 則評價</span></div>
                                 </div>
                                 <div className="gameFeature">
                                     <FaHashtag className="gameFeatureTag"/><span>{game.FF1}</span>
