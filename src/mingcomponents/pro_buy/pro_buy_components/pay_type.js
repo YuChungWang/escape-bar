@@ -11,7 +11,7 @@ class PayType extends Component {
   constructor(props){
     super(props)
     this.state = {
-      payType : PAY_TYPE_LIST.map(c => false)
+      payType : PAY_TYPE_LIST.map(c => false),
     }
   }
   selPayType = (index) =>{
@@ -39,6 +39,7 @@ class PayType extends Component {
     return options
   }
   render(){
+    let none = this.props.warn ? "none" : ""
     return(
       <React.Fragment>
         <div id="pay_type">
@@ -52,6 +53,7 @@ class PayType extends Component {
               {this.makePayTypeOption()}
             </div>
           </div>
+          <div className={`warning ${none}`}>請先選擇付款方式</div>
         </div>
       </React.Fragment>
     )
