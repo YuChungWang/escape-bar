@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Studio.scss';
 
 class StudioList extends Component {
@@ -22,7 +23,9 @@ class StudioList extends Component {
 
                         <div class="row mb-3">
                             <div class="col-2">
+                            <NavLink to={{pathname: `/companyList/companyInfo/${studio.cid}/${studio.city_id}`,state: {sid: studio.sid}}}>
                                 <img className="studio_img" src={"../img/company/origin/"+studio.c_logo}></img>
+                            </NavLink>
                             </div>
                             <div class="col-8 align-self-center">
                                 <div><span className="studio_cname">{studio.c_name}</span></div>

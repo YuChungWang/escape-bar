@@ -54,12 +54,13 @@ class CollectList extends Component {
                                         </div>
                                     </div>
                                 </div>
-                                
                                 <img className="collect_clogo" src={"../img/company/40/"+collect.s_logo}></img>
                                 {/* <h5 className="card-title">{collect.mcg_id}</h5> */}
                                 <h5 className="card-title">{collect.PRO_NAME}</h5>
-                                <NavLink to = {{pathname:`/proList/products/${collect.PRO_SEQ}`, state: {id: collect.PRO_SEQ}}} className="btn btn-primary">了解詳情</NavLink>
                                 
+                                <NavLink to = {{pathname:`/proList/products/${collect.PRO_SEQ}`, state: {id: collect.PRO_SEQ}}} className="btn btn-primary">了解詳情</NavLink>
+                                {/* <NavLink to= {{pathname: `/proList/products/${products.PRO_SEQ}`,state: {id: products.SID}}}><img key={`key-${i}`} src={`/img/game/${products.IMG_NAME}`} className="products_images"/></NavLink> */}
+
                                 <div className="row collect_info">
                                     <div className="col-sm">{collect.city_name}</div>
                                     <div className="col-sm">{collect.GAME_TIME}分</div>

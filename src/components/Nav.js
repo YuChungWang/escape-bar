@@ -51,7 +51,12 @@ class Nav extends Component {
 
         return(
             <React.Fragment>
+<<<<<<< HEAD
                 <nav className="navList">              
+=======
+                <nav className="navList">
+              
+>>>>>>> ac0233f554ac9361fa50a1aa8cef7c48b7a400ca
                     <div className="navItem"><Link className="linkClear" to="/companyList">工作室列表</Link></div>
                     <div className="navItem"><NavLink className="linkClear" to={{pathname: `/proList`, state: {str: `nav`, type: `nav`}}}>遊戲列表</NavLink></div>
                     <div className="navItem"><Link className="linkClear" to="/article/topic201812">本月主打</Link></div>
