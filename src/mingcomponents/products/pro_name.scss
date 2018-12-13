@@ -8,6 +8,7 @@
         // box-sizing: border-box;
         // padding: 5px;
         .jc_sb{
+            margin-top: 5px;
             position: relative;
             display: flex;
             justify-content: space-between;
@@ -27,7 +28,7 @@
                     font-weight: 800;
                     width: 80px;
                     height: 25px;
-                    line-height: 19px;
+                    line-height: 22px;
                     text-align: center;
                 }
             }
@@ -83,6 +84,26 @@
                 .info_list{
                     margin: 5px 0;
                     text-indent: 2rem;
+                }
+                .time{
+                    background: url(../../images/clock.svg) no-repeat left 5px center;
+                    background-size: 18px;
+                }
+                .people{
+                    background: url(../../images/peo.svg) no-repeat left 1px center;
+                    background-size: 25px;
+                }
+                .ophr{
+                    background: url(../../images/ophr.png) no-repeat left 2px center;
+                    background-size: 20px;
+                }
+                .tel{
+                    background: url(../../images/tel.svg) no-repeat left 6px center;
+                    background-size: 15px;
+                }
+                .addr{
+                    background: url(../../images/map.svg) no-repeat left 6px center;
+                    background-size: 15px;
                 }
             }
             

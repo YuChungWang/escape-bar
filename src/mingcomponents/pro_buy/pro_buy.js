@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import './pro_buy.scss'
 import {BuyFlow,
         BuyerInfo,
-        BuyerInfoLogin,
         PayType,
         CancelRule,
         ProDetail
@@ -17,6 +16,9 @@ class ProBuy extends Component {
       agreeCheck: false,
 
     }
+  }
+  getBuyerInfo = (form) => {
+    
   }
   checkPayType = (payType) => {
     this.setState({
@@ -44,8 +46,8 @@ class ProBuy extends Component {
           <BuyFlow />
           <div id="buy_body80">
             <div className="body_l">
-              <BuyerInfo />
-              <BuyerInfoLogin />
+              <BuyerInfo getBuyerInfo={this.getBuyerInfo}/>
+              {/* <BuyerInfoLogin /> */}
               <PayType checkPayType={this.checkPayType}/>
               <CancelRule agreeCheck={this.agreeCheck}/>
               <div id="pay-btn" onClick={this.payCheck}>確認付款</div>

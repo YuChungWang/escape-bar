@@ -210,7 +210,7 @@ class PRO_STOCK extends Component{
         this.getStock()
         return(
             <React.Fragment>
-                <div id="pro_stock">
+                <div id="pro_stock" ref={this.props.refProp}>
                     <div id="pro_stock_place">
                         <h4>選擇預約場館</h4>
                         <div className={`one_site ${siteDNone}`}>{this.props.data.s_name}</div>

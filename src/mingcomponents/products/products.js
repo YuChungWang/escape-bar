@@ -23,6 +23,7 @@ class Products extends Component{
             data: [],
             status: false
         }
+        this.refStock = React.createRef()
     }
     changeSite = (data) => {
         this.setState({
@@ -60,14 +61,20 @@ class Products extends Component{
         if(this.state.status){
             return (
                 <div className="pro_body_r">
-                    <ProPrice price={this.state.data.PRICE}/>
+                    <ProPrice price={this.state.data.PRICE} scrollToStock={this.scrollToStock}/>
                     <ProMap data={this.state.data}/>
                     <ProShare data={this.state.data}/>
                     <ProManu data={this.state.data}/>
-                    <ProStock data={this.state.data} changeSite={this.changeSite}/>
+                    <ProStock data={this.state.data} changeSite={this.changeSite} refProp={this.refStock}/>
                 </div>
             )
         }
+    }
+    scrollToStock = () => {
+        window.scrollTo({
+            top: this.refStock.current.offsetTop - 200,
+            behavior: "smooth"
+        })
     }
     render(){
         return(
