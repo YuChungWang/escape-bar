@@ -60,10 +60,6 @@ class App extends Component {
           <Route path="/startActivity/activityInfo/:id" component={activityInfo}/>
           <Route exact path="/companyList" component={companyList}/>
           <Route path="/companyList/companyInfo/:cid/:city_id" component={companyInfo}/>
-<<<<<<< HEAD
-=======
-          
->>>>>>> ac0233f554ac9361fa50a1aa8cef7c48b7a400ca
           {/* <IndexBody/> */}
           {/* <EscapeRoomMap/> */}
           <Footer/>
