@@ -12,7 +12,7 @@ $spaceForHeaderNavMobile : 40px;
         height: $spaceForHeaderNav;
         width: 100vw;
         color: white;
-        z-index: 999;
+        z-index: 1050;
         .mainLogo{
             display: block;
             position: relative;
@@ -68,17 +68,6 @@ $spaceForHeaderNavMobile : 40px;
             }
         }
     }
-
-
-.header{
-    position: fixed;
-    background-color: #F7882F;
-    height: $spaceForHeaderNav;
-    width: 100vw;
-    // color: white;
-    z-index: 1050;
-    .mainLogo{
-        display: block;
     .footer{
         position: relative;
         top: $spaceForHeaderNav;
@@ -106,7 +95,7 @@ $spaceForHeaderNavMobile : 40px;
             }
         }
     }
-
+    
     .copyright{
         position: relative;
         top: $spaceForHeaderNav;
