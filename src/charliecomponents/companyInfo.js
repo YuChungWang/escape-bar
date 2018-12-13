@@ -4,6 +4,7 @@ import { FacebookProvider, Page } from 'react-facebook';
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/src/alice-carousel.scss";
 import './charlie.scss';
+import companyInfoGameSlider from './companyInfoGameSlider';
 
 class companyInfo extends Component {
     constructor(props){
@@ -40,7 +41,10 @@ class companyInfo extends Component {
     galleryItems() {
         return (
             this.state.productsInfoAll.map((products, i) =>
-                <NavLink className="pro_card" key={products.PRO_SEQ} to={{pathname: `/proList/products/${products.PRO_SEQ}`,state: {id: products.SID}}}><img key={`key-${i}`} src={`/img/game/${products.IMG_NAME}`} className="products_images"/></NavLink>
+                <NavLink className="pro_card" key={products.PRO_SEQ} to={{pathname: `/proList/products/${products.PRO_SEQ}`,state: {id: products.PRO_SEQ}}}>
+                    <img key={`key-${i}`} src={`/img/game/${products.IMG_NAME}`} className="products_images"/>
+                    <p>{`${products.P_ID === this.state.sid ? '此分館遊戲遊戲' : ''}`}</p>
+                </NavLink>
             )
         )
     };
@@ -83,7 +87,6 @@ class companyInfo extends Component {
                                         </option>
                                     )}
                                 </select>
-                                <button onClick={this.consoleHandler}>Console.log</button>
                             </div>
                             
                             <div className="row mt-2">
@@ -108,20 +111,7 @@ class companyInfo extends Component {
                     <div className="c_games mt-5">
                         <h5>工作室遊戲：</h5>
                     </div>
-                    <div className="row">
-                        {/* {this.state.productsInfoAll.map(products =>
-                            <Link key={products.PRO_SEQ} to={{ pathname: `/products/${products.PRO_SEQ}`, state: {id: products}}} style={{textDecoration: "none"}}>
-                            <div className="col-md-4">
-                                <div className="card">
-                                    <img className="products_images" src={`/images/${products.IMG_NAME}`}/>
-                                    <div className="card-body">
-                                    <p>{products.PRO_NAME} {products.P_ID === this.state.sid ? '（本分店提供此遊戲）' : ''}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            </Link>
-                        )} */}
-                    </div>
+                        <companyInfoGameSlider productsInfoAll={this.state.productsInfoAll} sid={this.state.sid}/>
                         <AliceCarousel
                             items={items}
                             duration={1000}

@@ -32,6 +32,7 @@ class startActivity extends Component {
       sel_time1: '',
       sel_time2: '',
       heightTest: '',
+      uid: ''
     }
   }
 
@@ -133,31 +134,37 @@ class startActivity extends Component {
 
   startHandler = (evt) =>{
     // 需先行判斷用戶是否有登入
-    evt.preventDefault();
-    const now = this.NOW();
-
-    var hostActivity ={
-      act_uid: 4, //＊記得修改：登入會員id由會員資料庫撈取資料
-      PRO_SEQ: this.state.PRO_SEQ,
-      sel_time: this.state.sel_time1 + ' ' + this.state.sel_time2,
-      default_people: this.state.default_people,
-      ask_people: this.state.ask_people,
-      current_people: this.state.default_people,
-      // goal_people應由設定產生，需調整
-      goal_people: parseInt(this.state.default_people) + parseInt(this.state.ask_people),
-      t_created_at: now,
-      t_deadline: this.state.t_deadline + ' ' + '12:00:00'
+    const uid = localStorage.getItem('userId');
+    console.log(uid);
+    if(uid === null){
+      alert('請先登入會員');
+    }else{
+      evt.preventDefault();
+      const now = this.NOW();
+      var hostActivity ={
+        uid: uid,
+        act_uid: 4, //＊記得修改：登入會員id由會員資料庫撈取資料
+        PRO_SEQ: this.state.PRO_SEQ,
+        sel_time: this.state.sel_time1 + ' ' + this.state.sel_time2,
+        default_people: this.state.default_people,
+        ask_people: this.state.ask_people,
+        current_people: this.state.default_people,
+        // goal_people應由設定產生，需調整
+        goal_people: parseInt(this.state.default_people) + parseInt(this.state.ask_people),
+        t_created_at: now,
+        t_deadline: this.state.t_deadline + ' ' + '12:00:00'
+      }
+      console.log(hostActivity);
+      fetch("http://localhost:3000/startActivity/activity_list",{
+            method: 'POST',
+            body: JSON.stringify(hostActivity),
+            headers: new Headers({'Content-Type':'application/json'})
+      }).then(res=>res.json()) //(message:'新增成功')
+      .then(data=>{
+          alert(data.message);
+          this.getActivities();
+      })
     }
-    console.log(hostActivity);
-    fetch("http://localhost:3000/startActivity/activity_list",{
-          method: 'POST',
-          body: JSON.stringify(hostActivity),
-          headers: new Headers({'Content-Type':'application/json'})
-    }).then(res=>res.json()) //(message:'新增成功')
-    .then(data=>{
-        alert(data.message);
-        this.getActivities();
-    })
   }
 
   
@@ -169,7 +176,7 @@ class startActivity extends Component {
           <div className="z_Info d-flex flex-column justify-content-center align-items-center">
             <h2>找不到人一起玩密室逃脫嗎？</h2>
             <h2>快來試試揪團功能</h2>
-            <button type="button" className="btn btn-primary mt-3" id="hostNewActivityBtn" data-toggle="modal" data-target="#exampleModalCenter1" data-backdrop="static">
+            <button type="button" className="btn btn-primary mt-3" id="hostNewActivityBtn" data-toggle="modal" data-target="#exampleModalCenter1" data-backdrop="static" style={{display: this.state.uid === '' ? 'none' : 'block' }}>
             開啟新的揪團
             </button>
           </div>
@@ -345,6 +352,10 @@ class startActivity extends Component {
 
   componentDidMount = () =>{
     this.getActivities();
+    const uid = localStorage.getItem('userId');
+    this.setState({
+      uid: uid
+    });
   }
 
   getActivities(){
