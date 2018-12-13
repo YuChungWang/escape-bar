@@ -176,7 +176,7 @@ class startActivity extends Component {
           <div className="z_Info d-flex flex-column justify-content-center align-items-center">
             <h2>找不到人一起玩密室逃脫嗎？</h2>
             <h2>快來試試揪團功能</h2>
-            <button type="button" className="btn btn-primary mt-3" id="hostNewActivityBtn" data-toggle="modal" data-target="#exampleModalCenter1" data-backdrop="static" style={{display: this.state.uid === '' ? 'none' : 'block' }}>
+            <button type="button" className="btn btn-primary mt-3" id="hostNewActivityBtn" data-toggle="modal" data-target="#exampleModalCenter1" data-backdrop="static" style={{display: this.state.uid === null ? 'none' : 'block' }}>
             開啟新的揪團
             </button>
           </div>
@@ -353,6 +353,7 @@ class startActivity extends Component {
   componentDidMount = () =>{
     this.getActivities();
     const uid = localStorage.getItem('userId');
+    console.log(uid);
     this.setState({
       uid: uid
     });
