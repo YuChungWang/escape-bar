@@ -60,7 +60,6 @@ class App extends Component {
           <Route path="/startActivity/activityInfo/:id" component={activityInfo}/>
           <Route exact path="/companyList" component={companyList}/>
           <Route path="/companyList/companyInfo/:cid/:city_id" component={companyInfo}/>
-          
           {/* <IndexBody/> */}
           {/* <EscapeRoomMap/> */}
           <Footer/>
