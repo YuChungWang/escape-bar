@@ -8,6 +8,9 @@ import Register from '../kaicomponents/register/Register'; // kai
 class Header extends Component {
     constructor(props){
         super(props)
+        this.state = {
+            mobileMenuStatus: false,
+        }
     }
 
     logout(e) {
@@ -17,26 +20,18 @@ class Header extends Component {
         this.props.history.push("/indexbody"); // 導到首頁
     }
 
-    componentDidMount(){
-        var menuBtn = document.querySelector(".mobileMenuToggle");
-        var mobileMenuOpen = document.querySelector(".mobileMenu").style.display;
-
-        menuBtn.addEventListener("click", function(){
-            console.log(mobileMenuOpen);
-
+    mobileMenuOpen(){
+        this.setState({
+            mobileMenuStatus: true,
         })
-
-        // $(".mobileMenuToggle").click(function(){
-        //     let mo = $(".mobileMenu").css("display"); 
-        //     if(mo==="none"){
-        //       $(".mobileMenu").css("display", "block");
-        //     } else {
-        //       $(".mobileMenu").css("display", "none");
-        //     }
-        // })
     }
-    render(){
+    mobileMenuClose(){
+        this.setState({
+            mobileMenuStatus: false,
+        })
+    }
 
+    render(){
         const loginRegLink = (
             <ul className="navbar-nav">
                 {/* <li className="nav-item">
@@ -68,12 +63,15 @@ class Header extends Component {
                 </div>
             </React.Fragment>
         )
+        
+        // let mobileMenuToggle = this.state.mobileMenuStatus ? "mobileMenuOpen" : "" ;
 
         return(
             <React.Fragment>
                 <header className="header">
                     <div className="mainLogo">
-                        <Link to="/indexbody"><img src="./img/escapebarlogo.png"></img></Link>
+                        {/* <Link to="/indexbody"><img src="./img/escapebarlogo.png"></img></Link> */}
+                        <Link to="/indexbody"><img src={require(`../images/Group6.svg`)}></img></Link>
                     </div>
                     <div className="memberStatus">
                         {/* <span>登入</span>
@@ -81,9 +79,8 @@ class Header extends Component {
                         <span>註冊</span> */}
                     </div>
                     
-                        {localStorage.getItem('userId') ? userLink : loginRegLink}
+                        {/* {localStorage.getItem('userId') ? userLink : loginRegLink} */}
                         
-                {/* </header> */}
 
                 {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <a className="navbar-brand" href="/">Escape bar</a>
@@ -100,14 +97,17 @@ class Header extends Component {
                     </div>
                 </nav> */}
 
-                    <div className="mobileMenuToggle">
+                    <div className={`mobileMenuOpenBtn ${this.state.mobileMenuStatus ? "d_none" : "d_block"}`} onClick={this.mobileMenuOpen.bind(this)}>
                         <i class="fas fa-bars"></i>
                     </div>
-
+                    <div className={`mobileMenuCloseBtn ${this.state.mobileMenuStatus ? "d_block" : "d_none"}`} onClick={this.mobileMenuClose.bind(this)}>
+                        <i class="fas fa-times"></i>
+                    </div>
                 </header>
-                <div id="mobileMenuBtn" className="mobileMenu">
+                <div id="" className={`mobileMenu ${this.state.mobileMenuStatus ? "d_block" : ""}`}>
+
                     <div className="mobileMenuItem">
-                        註冊 | 登入
+                        登入 | 註冊
                     </div>
                     <div className="mobileMenuItem">
                         <ul className="mobileMenuItemChild">主要功能

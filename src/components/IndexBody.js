@@ -225,10 +225,10 @@ class IndexBody extends Component {
                         <h3 className="subTitle">本月主打</h3>
                         <hr className="indexHr"></hr>
                         <div className="dp-flex-row monthTopicInside row">
-                            <div className="col-6 p-0">
+                            <div className="col-12 col-lg-6 p-0">
                                 <img className="monthTopicImg" src="/img/xmas.jpg" alt=""></img>
                             </div>
-                            <div className="col-6">
+                            <div className="col col-lg-6">
                                 <h4>聖誕節</h4>
                                 <p>說到十二月，大家會想到什麼呢？<br/>
                                     沒錯，心裡是不是馬上浮現出了「叮叮噹～叮叮噹～鈴聲多響亮」的旋律呢？<br/>
@@ -252,7 +252,7 @@ class IndexBody extends Component {
                         <h3 className="subTitle">火熱揪團中</h3>
                         <hr className="indexHr"></hr>
                         <h5 className="subRemark">找不到夠多朋友一起玩密室嗎～那還不趕快試試揪團功能來找隊友！？今晚吃雞，大吉大利。</h5>
-                        <div className="dp-flex-row flex-jc-ar my-4">
+                        <div className="groupingCardInside my-4">
                             <div className="groupingCard">
                                 <div className="groupGameImgBox">
                                     <img className="groupGameImg" src="../img/game/玩笑實驗室_炸鬥府_01.jpg"></img>
@@ -332,8 +332,8 @@ class IndexBody extends Component {
                         <div className="seeMore"><Button color="success" size="lg" className="indexBtn">開始我的揪團</Button></div>
                     </div>
                     <div className="services">
-                        <h3 className="subTitle">讓逃脫吧陪你一起闖關吧！</h3>
-                        <div className="dp-flex-row flex-jc-ar py-4 servicesInside">
+                        <h3 className="subTitle">讓逃脫吧與你同行！</h3>
+                        <div className="py-4 servicesInside">
                             <div className="serviceFeature">
                                 <div className="serviceImgDiv">
                                     <img className="serviceImg" src="/img/book.png" alt=""></img>

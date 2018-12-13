@@ -1,24 +1,88 @@
 $mainColor: #F7882F;
 $spaceForHeaderNav : 64px;
+$spaceForHeaderNavMobile : 40px;
 $bodyColor: #f4f4f4;
 
-.articleBody {
-    margin-top: $spaceForHeaderNav;
-    .postWrapperSpace{
-        height: 1em;
-    }
-    .postWrapper{
-        border: 2px solid black;
-        border-radius: 8px;
+// desktop: header = 64px, nav = 48px
+// mobile: header = 40px
 
-        margin: auto;
-        .postContent{
-            
-            img{
-                display: block;
-                margin: auto;
-                height: 400px;
+// desktop version shows when width >= 960px
+@media only screen and (min-width: 960px){
+    .articleBody {
+        margin-top: $spaceForHeaderNav;
+        .postWrapperSpace{
+            height: 1em;
+        }
+        .postWrapper{
+            border: 2px solid black;
+            border-radius: 8px;
+
+            margin: 16px auto;
+            .postContent{
+                .topicImgBox{
+                    .topicImgs{
+                        display: block;
+                        margin: auto;
+                        height: 400px;
+                    }
+                }
+                .topicTitles{
+                    text-align: center;
+                    .topicSmallHead{
+
+                    }
+                }
+                .rcmdWords{
+                    background-color: lightblue;
+                    border: 1px solid blue;
+                    border-radius: 8px;
+                    padding: 16px;
+                    margin-bottom: 8px;
+                    font-weight: 700;
+                }
             }
         }
     }
 }
+
+// mobile version shows when width < 960px
+@media only screen and (max-width: 959px){
+    .articleBody {
+        margin-top: $spaceForHeaderNavMobile;
+        .postWrapperSpace{
+            height: 1em;
+        }
+        .postWrapper{
+            border: 2px solid black;
+            border-radius: 8px;
+
+            margin: 4px auto;
+            .postContent{
+                .topicImgBox{
+                    width: 100%;
+                    .topicImgs{
+                        display: block;
+                        margin: auto;
+                        width: 100%;
+                        
+                    }
+                }
+                .topicTitles{
+                    text-align: center;
+                    .topicSmallHead{
+
+                    }
+                }
+                .rcmdWords{
+                    background-color: lightblue;
+                    border: 1px solid blue;
+                    border-radius: 8px;
+                    padding: 16px;
+                    margin-bottom: 8px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+

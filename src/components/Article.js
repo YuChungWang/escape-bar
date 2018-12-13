@@ -52,7 +52,7 @@ class Article extends Component{
                 <section className="articleBody">
                     <div className="container">
                         <div className="postWrapperSpace"></div>
-                        <div className="postWrapper my-5 p-4">
+                        <div className="postWrapper p-4">
                             <h3>{this.state.articleTitle}</h3>
                             {/* <div className="">{this.state.articleContent}</div> */}
                             <div className="postContent" dangerouslySetInnerHTML={{ __html: this.state.articleContent}} />

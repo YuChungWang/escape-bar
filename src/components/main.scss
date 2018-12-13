@@ -5,6 +5,9 @@ $spaceForHeaderNavMobile : 40px;
 // mobile: header = 40px
 
 // desktop version shows when width >= 960px
+
+
+
 @media only screen and (min-width: 960px){
     .header{
         position: fixed;
@@ -32,8 +35,11 @@ $spaceForHeaderNavMobile : 40px;
             transform:translateY(-50%);
             right: 10%;
         }
-        .mobileMenuToggle{
-            display:none;
+        .mobileMenuOpenBtn{
+            display: none;
+        }
+        .mobileMenuCloseBtn{
+            display: none;
         }
     }
     .mobileMenu{
@@ -140,8 +146,9 @@ $spaceForHeaderNavMobile : 40px;
             // transform:translateY(-50%);
             // right: 10%;
         }
-        .mobileMenuToggle{
-            // display: block;
+        .mobileMenuOpenBtn{
+            display: block;
+            // display: none;
             position: relative;
             float: right;
             top: 50%;
@@ -152,8 +159,29 @@ $spaceForHeaderNavMobile : 40px;
                 text-align: right;
             }
         }
+        .mobileMenuCloseBtn{
+            // display: block;
+            display: none;
+            position: relative;
+            float: right;
+            top: 50%;
+            transform:translateY(-50%);
+            right: 5%;
+            .fa-times{
+                font-size: 24px;
+                text-align: right;
+            }
+        }
+        .d_none{
+            display: none;
+        }
+        
+        .d_block{
+            display: block;
+        }
 
     }
+
     .mobileMenu{
         display: none;
         position: relative;
@@ -162,6 +190,7 @@ $spaceForHeaderNavMobile : 40px;
         top: $spaceForHeaderNavMobile;
         background-color: rgba(0,0,0,0.6);
         z-index: 1900;
+
         .mobileMenuItem{
             border-bottom: 1px solid black ;
             padding-top: 4px;
@@ -182,9 +211,9 @@ $spaceForHeaderNavMobile : 40px;
             }
         }
     }
-
-
-
+    .d_block{
+        display: block;
+    }
     .navList{
         display: none;
         position: relative;
