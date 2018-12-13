@@ -32,7 +32,10 @@ class PRO_SHARE extends Component{
       
           }
     componentDidUpdate(){
+       
+
         
+       
     }
 
     render(){
