@@ -122,7 +122,12 @@ class startActivity extends Component {
 
   startHandler = (evt) =>{
     // 需先行判斷用戶是否有登入
-    const uid = localStorage.getItem('userId');
+    const user = localStorage.getItem('userId');
+    const user2 = JSON.parse(user);
+    var uid = user2.uid;
+    this.setState({
+      uid: uid
+    });
     console.log(uid);
     if(uid === null){
       alert('請先登入會員');
@@ -244,7 +249,7 @@ class startActivity extends Component {
               登入|註冊
               </button>
               <br />
-              <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div className="modal-dialog" role="document">
                       <div className="modal-content">
                           <Register />
@@ -438,12 +443,7 @@ class startActivity extends Component {
 
   componentDidMount = () =>{
     this.getActivities();
-    const user = localStorage.getItem('userId');
-    const user2 = JSON.parse(user);
-    const uid = user2.uid;
-    this.setState({
-      uid: uid
-    });
+    
   }
 
   getActivities(){
