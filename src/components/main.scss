@@ -42,6 +42,33 @@ $spaceForHeaderNavMobile : 40px;
             display: none;
         }
     }
+    .login-style {
+        display: block;
+        position: relative;
+        float: right;
+        top: 50%;
+        transform:translateY(-50%);
+        right: 10%;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        margin-left: 20px;
+        margin-top: 8px;
+        a:hover .login-style {
+            color: bisque;
+        }
+    }
+    .login-style2 {
+        display: block;
+        position: relative;
+        float: right;
+        top: 50%;
+        transform:translateY(-50%);
+        right: 10%;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 30px;
+    }
     .mobileMenu{
         display: none;
     }
@@ -179,6 +206,7 @@ $spaceForHeaderNavMobile : 40px;
             top: 50%;
             transform:translateY(-50%);
             right: 5%;
+            color: white;
             .fa-bars{
                 font-size: 24px;
                 text-align: right;
@@ -192,6 +220,7 @@ $spaceForHeaderNavMobile : 40px;
             top: 50%;
             transform:translateY(-50%);
             right: 5%;
+            color: white;
             .fa-times{
                 font-size: 24px;
                 text-align: right;
@@ -215,14 +244,9 @@ $spaceForHeaderNavMobile : 40px;
         width: 12em;
         // height: 500px;
         top: $spaceForHeaderNavMobile;
-<<<<<<< HEAD
-        background-color: rgba(0,0,0,0.6);
         z-index: 10;
-=======
         background-color: white;
         box-shadow: -2px 2px 8px rgba(0,0,0,0.5);
-        z-index: 1900;
->>>>>>> 3c3a1aa73184c41b1e73a7e4078363282f8503bb
 
         .mobileMenuItem{
             border-bottom: 1px solid $mainColor ;
@@ -233,6 +257,29 @@ $spaceForHeaderNavMobile : 40px;
             font-size: 1.2em;
             font-weight: 700;
             // text-align: center;
+            .login-style {
+                // display: block;
+                // position: relative;
+                // float: right;
+                // top: 50%;
+                // transform:translateY(-50%);
+                // right: 10%;
+                // font-size: 16px;
+                // font-weight: bold;
+                // color: white;
+                // margin-left: 20px;
+                // margin-top: 8px;
+                
+            }
+            .logOutLine{
+
+                border-bottom: 1px solid $mainColor ;
+            }
+            .login-style2 {
+                color: black;
+                font-size: 1.2em;
+                font-weight: 700;
+            }
             .mobileMenuItemChild{
                 margin-bottom: 2px;
                 padding: 0;
@@ -347,35 +394,29 @@ $spaceForHeaderNavMobile : 40px;
     }
 }
 
-.login-style {
-    color: white;
-    margin-left: 20px;
-    margin-top: 8px;
-}
 
-a:hover .login-style {
-    color: bisque;
-}
 
-.login-style {
-    display: block;
-    position: relative;
-    float: right;
-    top: 50%;
-    transform:translateY(-50%);
-    right: 10%;
-    font-size: 16px;
-    font-weight: bold;
-}
 
-.login-style2 {
-    display: block;
-    position: relative;
-    float: right;
-    top: 50%;
-    transform:translateY(-50%);
-    right: 10%;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 30px;
-}
+
+// .login-style {
+//     display: block;
+//     position: relative;
+//     float: right;
+//     top: 50%;
+//     transform:translateY(-50%);
+//     right: 10%;
+//     font-size: 16px;
+//     font-weight: bold;
+// }
+
+// .login-style2 {
+//     display: block;
+//     position: relative;
+//     float: right;
+//     top: 50%;
+//     transform:translateY(-50%);
+//     right: 10%;
+//     font-size: 16px;
+//     font-weight: bold;
+//     margin-top: 30px;
+// }

@@ -47,7 +47,7 @@ class Header extends Component {
 
                     <li className="nav-item">
                         <button type="button" className="btn btn-outline-light login-style2 " data-toggle="modal" data-target="#exampleModal">
-                        登入|註冊
+                        登入 | 註冊
                         </button>
                         <br />
                     </li>
@@ -68,8 +68,9 @@ class Header extends Component {
         const userLink = (
             <React.Fragment>
                 <div className="login-style d_none">
-                    <Link to="" onClick={this.logout.bind(this)}><span className="login-style">登出</span></Link>
-                    <Link to="/center"><span className="login-style">會員中心</span></Link>
+                    <Link to="" onClick={this.logout.bind(this)}><div className="login-style mobileMenuItem">登出</div></Link>
+                    
+                    <Link to="/center"><div className="login-style mobileMenuItem">會員中心</div></Link>
                 </div>
             </React.Fragment>
         )
@@ -117,7 +118,7 @@ class Header extends Component {
 
                 <div id="" className={`mobileMenu ${this.state.mobileMenuStatus ? "d_block" : ""}`}>
 
-                    <div className="mobileMenuItem">
+                    <div className="">
                         {localStorage.getItem('userId') ? userLink : loginRegLink}
                     </div>
 
