@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter, Route, Link, NavLink} from 'react-router-dom';
+import $ from 'jquery';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import './indexbody.scss'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Input, Button, Label, Tooltip } from 'reactstrap';
@@ -119,8 +121,13 @@ class IndexBody extends Component {
     render(){
         return(
             <React.Fragment>
+                <div>
+                    <AnchorLink offset='130' href='#top' className="topClass">
+                        <i className="fas fa-angle-double-up fa-2x fasCenter"></i>
+                    </AnchorLink>
+                </div>
                 <section className="indexBody">
-                    <div className="heroSection">
+                    <div className="heroSection" id="top">
                         <div className="searchBox py-4 px-4">
                             <h2 className="slogan">找真人實境遊戲就在逃脫吧！</h2>
                             <h4 className="subSlogan">國內近100間工作室，數百款各類實境解謎、密室逃脫遊戲資訊與網友評價，一網打盡。</h4>
@@ -273,7 +280,7 @@ class IndexBody extends Component {
                                         </div>
                                         <div className="d-flex justify-content-around align-items-center my-2">
                                             <div><span className="deadLine">即將截止！</span></div>
-                                            <div><button className="btn btn-warning btn-lg">快去看看</button></div>
+                                            <div><Link className="linkClear" to="/startActivity"><button className="btn btn-warning btn-lg">快去看看</button></Link></div>
                                         </div>
                                     </div>
                                 </div>
@@ -283,7 +290,7 @@ class IndexBody extends Component {
                                     <img className="groupGameImg" src="../img/game/Qhat帽子烤_翻箱倒櫃_01.jpg"></img>
                                 </div>
                                 <div className="groupGameCompany">
-                                    <div className="groupGameTitle">翻箱倒櫃2.0</div>
+                                    <div className="groupGameTitle">翻箱盜櫃2.0</div>
                                     <div className="groupCompany">QhAt帽子烤工廠</div>
                                 </div>
                                 <div className="groupInfo">
@@ -298,7 +305,7 @@ class IndexBody extends Component {
                                         </div>
                                         <div className="d-flex justify-content-around align-items-center my-2">
                                             <div><span className="">還有 10 天</span></div>
-                                            <div><button className="btn btn-warning btn-lg">快去看看</button></div>
+                                            <div><Link className="linkClear" to="/startActivity"><button className="btn btn-warning btn-lg">快去看看</button></Link></div>
                                         </div>
                                     </div>
                                 </div>
@@ -323,34 +330,43 @@ class IndexBody extends Component {
                                         </div>
                                         <div className="d-flex justify-content-around align-items-center my-2">
                                             <div><span className="">還有 21 天</span></div>
-                                            <div><button className="btn btn-warning btn-lg">快去看看</button></div>
+                                            <div><Link className="linkClear" to="/startActivity"><button className="btn btn-warning btn-lg">快去看看</button></Link></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="seeMore"><Button color="success" size="lg" className="indexBtn">開始我的揪團</Button></div>
+                        <div className="seeMore"><Link className="linkClear" to="/startActivity"><Button color="success" size="lg" className="indexBtn">開始我的揪團</Button></Link></div>
                     </div>
                     <div className="services">
-                        <h3 className="subTitle">讓逃脫吧與你同行！</h3>
-                        <div className="py-4 servicesInside">
-                            <div className="serviceFeature">
-                                <div className="serviceImgDiv">
-                                    <img className="serviceImg" src="/img/book.png" alt=""></img>
-                                </div>
-                                <p className="mt-3"><Link className="linkClear" to="/article/whatisrealescape">新手教學</Link></p>
-                            </div>
-                            <div className="serviceFeature">
-                                <div className="serviceImgDiv">
-                                    <img className="serviceImg" src="/img/speed.png" alt=""></img>
-                                </div>
-                                <p className="mt-3"><Link className="linkClear" to="/proList">特色分類</Link></p>
-                            </div>
-                            <div className="serviceFeature">
-                                <div className="serviceImgDiv">
-                                    <img className="serviceImg" src="/img/teamwork.png" alt=""></img>
-                                </div>
-                                <p className="mt-3"><Link className="" to="/article/groupactivity">福委活動與教育訓練</Link></p>
+                        <div className="indexContainer">
+                            <h3 className="subTitle">讓逃脫吧與你同行！</h3>
+                            <hr className="indexHr"></hr>
+                            <div className="pt-4 servicesInside">
+                                <Link className="serviceLink" to="/article/whatisrealescape">
+                                    <div className="serviceFeature">
+                                        <div className="serviceImgDiv">
+                                            <img className="serviceImg" src="/img/book.png" alt=""></img>
+                                        </div>
+                                        <p className="mt-3">新手教學</p>
+                                    </div>
+                                </Link>
+                                <NavLink className="serviceLink" to={{pathname: `/proList`, state: {str: `nav`, type: `nav`}}}>
+                                    <div className="serviceFeature">
+                                        <div className="serviceImgDiv">
+                                            <img className="serviceImg" src="/img/speed.png" alt=""></img>
+                                        </div>
+                                        <p className="mt-3">特色分類</p>
+                                    </div>
+                                </NavLink>
+                                <Link className="serviceLink" to="/article/groupactivity">
+                                    <div className="serviceFeature">
+                                        <div className="serviceImgDiv">
+                                            <img className="serviceImg" src="/img/teamwork.png" alt=""></img>
+                                        </div>
+                                        <p className="mt-3">福委活動與教育訓練</p>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
                     </div>

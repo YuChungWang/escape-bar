@@ -40,13 +40,13 @@ class Header extends Component {
         const loginRegLink = (
             <React.Fragment>
 
-                <ul className="navbar-nav d_none">
+                <ul className="navbar-nav d_none mobileMenuItem">
                     {/* <li className="nav-item">
                         <Link className="nav-link" to="/register">登入|註冊</Link>
                     </li> */}
 
                     <li className="nav-item">
-                        <button type="button" className="btn btn-outline-light login-style2 " data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" className="btn btn-outline-dark login-style2 " data-toggle="modal" data-target="#exampleModal">
                         登入 | 註冊
                         </button>
                         <br />
@@ -68,9 +68,9 @@ class Header extends Component {
         const userLink = (
             <React.Fragment>
                 <div className="login-style d_none">
-                    <Link to="" onClick={this.logout.bind(this)}><div className="login-style mobileMenuItem">登出</div></Link>
+                    <Link className="linkClear" to="" onClick={this.logout.bind(this)}><div className="login-style mobileMenuItem">登出</div></Link>
                     
-                    <Link to="/center"><div className="login-style mobileMenuItem">會員中心</div></Link>
+                    <Link className="linkClear" to="/center"><div className="login-style mobileMenuItem">會員中心</div></Link>
                 </div>
             </React.Fragment>
         )
@@ -124,11 +124,11 @@ class Header extends Component {
 
                     <div className="mobileMenuItem">
                         <ul className="mobileMenuItemChild">主要功能
-                            <Link className="" to="/proList"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>找遊戲</li></Link>
-                            <li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>找工作室</li>
-                            <Link className="" to="/article/topic201812"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>本月主打</li></Link>
-                            <Link className="" to="/map"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>用地圖找</li></Link>
-                            <li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>揪團一起玩</li>
+                            <Link className="linkClear" to="/proList"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>找遊戲</li></Link>
+                            <Link className="linkClear" to="/companyList"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>找工作室</li></Link>
+                            <Link className="linkClear" to="/article/topic201812"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>本月主打</li></Link>
+                            <Link className="linkClear" to="/map"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>用地圖找</li></Link>
+                            <Link className="linkClear" to="/startActivity"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>揪團一起玩</li></Link>
                         </ul>
                     </div>
                     <div className="mobileMenuItem">關於密室逃脫
