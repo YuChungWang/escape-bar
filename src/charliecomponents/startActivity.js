@@ -32,8 +32,11 @@ class startActivity extends Component {
       IMG_NAME: '',
       sel_time1: '',
       sel_time2: '',
-      heightTest: '',
-      uid: ''
+      heightSet: '',
+      uid: '',
+      imgSet: '',
+      imgBoxSet: '',
+      PRO_NAME: ''
     }
   }
 
@@ -66,23 +69,6 @@ class startActivity extends Component {
       text_keyDown: text
     });
   }
-
-  // selectedHandler = (evt) => {
-  //   this.setState({
-  //     pro_seq: evt.target.value,
-  //     infoShow: 'infoShow'
-  //   },function(){
-  //     fetch('http://localhost:3000/startActivity/gameInfo/' + this.state.pro_seq,{
-  //       method: 'GET',
-  //     }).then(res=>res.json())
-  //     .then(gameInfo => this.setState({
-  //       PEOPLE_MAX: gameInfo.PEOPLE_MAX
-  //     },function(){
-  //       console.log(this.state)
-  //     }))
-  //   });
-  //   console.log(this.state)
-  // }
 
   changeHandler = (evt) =>{
     const inputName = evt.target.name;
@@ -183,7 +169,7 @@ class startActivity extends Component {
               </div>
               <div className="modal-body">
                 <form>
-                  <GameInfo PEOPLE_MAX={this.state.PEOPLE_MAX} PEOPLE_MIN={this.state.PEOPLE_MIN} PRICE={this.state.PRICE} GAME_TIME={this.state.GAME_TIME} IMG_NAME={this.state.IMG_NAME} heightTest={this.state.heightTest}/>
+                  <GameInfo PEOPLE_MAX={this.state.PEOPLE_MAX} PEOPLE_MIN={this.state.PEOPLE_MIN} PRICE={this.state.PRICE} GAME_TIME={this.state.GAME_TIME} IMG_NAME={this.state.IMG_NAME} heightSet={this.state.heightSet} imgSet={this.state.imgSet}/>
                   <hr/>
                   <div className="form-group row">
                     <label className="col-sm-2 col-form-label">遊戲名稱：</label>
@@ -234,11 +220,11 @@ class startActivity extends Component {
                     </div> 
                   </div>
                   <div className="form-group row">
-                    <label className="col-sm-2 col-form-label">目前人數：</label>
+                    <label className="col-sm-2 col-form-label">目前組隊人數：</label>
                     <div className="col-sm-4">
                       <input type="text" className="form-control" name="default_people" onChange={this.changeHandler}/>
                     </div>
-                    <label className="col-sm-2 col-form-label">所需人數：</label>
+                    <label className="col-sm-2 col-form-label">欲徵求人數：</label>
                     <div className="col-sm-4">
                       <input type="text" className="form-control" name="ask_people" onChange={this.changeHandler}/>
                     </div>
@@ -257,10 +243,6 @@ class startActivity extends Component {
 
     const loginRegLink = (
       <ul className="navbar-nav">
-          {/* <li className="nav-item">
-              <Link className="nav-link" to="/register">登入|註冊</Link>
-          </li> */}
-
           <li className="nav-item">
               <button type="button" className="btn btn-outline-light login-style2" data-toggle="modal" data-target="#exampleModal">
               登入|註冊
@@ -274,19 +256,17 @@ class startActivity extends Component {
                   </div>
               </div>
           </li>
-
       </ul>
-  )
+      )
 
       
     return(
       <React.Fragment>
-        <div className="card d-flex align-items-center justify-content-center mb-4 bannerStartActivity">
-          <img className="bannerStartActivityImg" src="img/banner_startActivity.jpg"/>
+        <div className="card d-flex align-items-center justify-content-center mb-4 bannerStartActivity bangSet">
           <div className="z_Info d-flex flex-column justify-content-center align-items-center">
             <h2>找不到人一起玩密室逃脫嗎？</h2>
             <h2>快來試試揪團功能</h2>
-            <button type="button" className="btn btn-primary mt-3" id="hostNewActivityBtn" data-toggle="modal" data-target="#exampleModal" data-backdrop="static">
+            <button type="button" className="btn btn-primary mt-3" id="hostNewActivityBtn" data-toggle="modal" data-target="#exampleModalCenter1" data-backdrop="static">
             開啟新的揪團
             </button>
           </div>
@@ -305,7 +285,7 @@ class startActivity extends Component {
                   <h5 className="removeMargin">{activities.PRO_NAME}</h5>
                   <span className="activityS_name">{activities.s_name}</span>
                   <div className="userInfoBox mt-1">
-                      <img className="userImg" src={`/images/${activities.user_pic}`}/>
+                      <img className="userImg" src={"http://localhost:3000/images/users/"+activities.user_pic}/>
                       <p className="removeMargin p_center">{activities.nickname}</p>
                   </div>
                   <div className="row justify-content-around progressInfoBox mt-2">
@@ -337,7 +317,7 @@ class startActivity extends Component {
         </div>
         <div className="a_space"></div>
               
-        {/* <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog">
+        <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog">
           <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -348,7 +328,7 @@ class startActivity extends Component {
               </div>
               <div className="modal-body">
                 <form>
-                  <GameInfo PEOPLE_MAX={this.state.PEOPLE_MAX} PEOPLE_MIN={this.state.PEOPLE_MIN} PRICE={this.state.PRICE} GAME_TIME={this.state.GAME_TIME} IMG_NAME={this.state.IMG_NAME} heightTest={this.state.heightTest}/>
+                  <GameInfo PEOPLE_MAX={this.state.PEOPLE_MAX} PEOPLE_MIN={this.state.PEOPLE_MIN} PRICE={this.state.PRICE} GAME_TIME={this.state.GAME_TIME} IMG_NAME={this.state.IMG_NAME} PRO_NAME={this.state.PRO_NAME} imgBoxSet={this.state.imgBoxSet} heightSet={this.state.heightSet}/>
                   <hr/>
                   <div className="form-group row">
                     <label className="col-sm-2 col-form-label">遊戲名稱：</label>
@@ -362,8 +342,6 @@ class startActivity extends Component {
                         )}
                       </div>
                     </div>
-                      
-                    
                     <select id="siteSelect" className="siteSelect" defaultValue="" onChange={this.selectedHandler.bind(this)}>
                           <option> -- 選擇遊戲場館 -- </option>
                       {   
@@ -400,16 +378,14 @@ class startActivity extends Component {
                   </div>
                   <div className="form-group row">
                     <label className="col-sm-2 col-form-label">目前人數：</label>
-                    <div className="col-sm-4">
+                    <div className="col-sm-2">
                       <input type="text" className="form-control" name="default_people" onChange={this.changeHandler}/>
                     </div>
-                    <label className="col-sm-2 col-form-label">所需人數：</label>
-                    <div className="col-sm-4">
+                    <label className="col-sm-2 col-form-label">欲徵求人數：</label>
+                    <div className="col-sm-2">
                       <input type="text" className="form-control" name="ask_people" onChange={this.changeHandler}/>
                     </div>
                   </div>
-
-                  
                 </form>
               </div>
               <div className="modal-footer">
@@ -417,10 +393,9 @@ class startActivity extends Component {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
 
-        {localStorage.getItem('userId') ? exampleModalCenter1 : loginRegLink}
-
+        {/* {localStorage.getItem('userId') ? exampleModalCenter1 : loginRegLink} */}
       </React.Fragment>
     );
   }
@@ -429,7 +404,9 @@ class startActivity extends Component {
     let PRO_SEQ = evt.target.value;
     this.setState({
         PRO_SEQ: PRO_SEQ,
-        heightTest: 'heightTest'
+        heightSet: 'heightSet',
+        imgSet: 'imgSet',
+        imgBoxSet: 'imgBoxSet'
     });
     fetch("http://localhost:3000/startActivity/gameInfo/" + PRO_SEQ,{
       method: 'GET',
@@ -440,7 +417,8 @@ class startActivity extends Component {
             PEOPLE_MIN: data[0].PEOPLE_MIN,
             PRICE: data[0].PRICE,
             GAME_TIME: data[0].GAME_TIME,
-            IMG_NAME: data[0].IMG_NAME
+            IMG_NAME: data[0].IMG_NAME,
+            PRO_NAME: data[0].PRO_NAME
           })
       });
   }
