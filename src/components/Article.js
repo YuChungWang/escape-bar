@@ -1,4 +1,6 @@
 import React, {Component} from "react"
+import $ from 'jquery';
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './articlebody.scss'
 
@@ -49,9 +51,14 @@ class Article extends Component{
 
         return(
             <React.Fragment>
+                <div>
+                    <AnchorLink offset='130' href='#top' className="topClass">
+                        <i className="fas fa-angle-double-up fa-2x fasCenter"></i>
+                    </AnchorLink>
+                </div>
                 <section className="articleBody">
-                    <div className="container">
-                        <div className="postWrapperSpace"></div>
+                    <div className="container" >
+                        <div className="postWrapperSpace" id="top"></div>
                         <div className="postWrapper p-4">
                             <h3>{this.state.articleTitle}</h3>
                             {/* <div className="">{this.state.articleContent}</div> */}
