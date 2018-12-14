@@ -152,6 +152,12 @@ $spaceForHeaderNavMobile : 40px;
                 width: 48px;
             }
         }
+        .linkClear{
+            color: white;
+            &:hover{
+                color: $mainColor;
+            }
+        }
     }
     
     .copyright{
@@ -295,6 +301,10 @@ $spaceForHeaderNavMobile : 40px;
                 }
             }
         }
+    }
+    .linkClear{
+        color: black;
+
     }
     .d_block{
         display: block;

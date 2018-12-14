@@ -59,7 +59,7 @@ body{
     }
 
     .subTitle{
-        padding: 24px; 
+        padding-top: 24px; 
         font-weight: 700;
         text-align: center;
     }
@@ -83,7 +83,8 @@ body{
             width: 480px;
             border-radius: 16px;
             background-color: white;
-            opacity: 0.9;
+            opacity: 1;
+            box-shadow: 8px 8px 16px rgba(0,0,0,0.7);
             .dp-flex-col{
                 position: relative;
                 .keyword{
@@ -117,8 +118,7 @@ body{
                         transition: none;
                     }
                 }
-            }   
-            opacity: 1;
+            }
             .slogan{
                 font-weight: 900;
             }
@@ -202,6 +202,11 @@ body{
                 // background-color: black;
                 // border: 2px solid black;
                 box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+                transition: 0.5s;
+                &:hover{
+                    transform: translateY(-8px);
+                    box-shadow: 8px 8px 16px rgba(0,0,0,0.5);
+                }
                 .groupGameImgBox{
                     width: 100%;
                     height: 200px;
@@ -263,28 +268,54 @@ body{
         .servicesInside{
             display: flex;
             flex-direction: row;
-            justify-content: space-around;
+            justify-content: space-between;
             width: 70%;
             margin: auto;
-            .serviceFeature{
-                text-align: center;
-                
-                .serviceImgDiv{
-                    height: 200px;
-                    width: 200px;
-                    background-color: white;
-                    border-radius: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    box-shadow: 4px 4px 16px rgba(0,0,0,0.5);
-                    .serviceImg{
-                        height: 70%;
-                        object-fit: contain;
-                        
+            .serviceLink{
+                color: black;
+                &:hover{
+                    color: white;
+                }
+                .serviceFeature{
+                    text-align: center;
+                    font-size: 1.2em;
+                    .serviceImgDiv{
+                        height: 200px;
+                        width: 200px;
+                        background-color: white;
+                        border-radius: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow: 0 8px 4px rgba(0,0,0,0.5);
+                        transition: 0.5s;
+                        transform-origin: center center;
+                        &:hover {
+                            transform: rotateY(180deg);
+                        }
+                        .serviceImg{
+                            height: 70%;
+                            object-fit: contain;
+                            
+                        }
                     }
                 }
             }
+        }
+    }
+    .topClass{
+        z-index: 99;
+        position: fixed;
+        right: 3%;
+        bottom: 3%;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background-color: #F7882F;
+        text-decoration: none !important;
+        transition: .5s;
+        &:hover{
+            background-color: #DB4F2C;
         }
     }
 }
@@ -319,7 +350,7 @@ body{
     }
 
     .subTitle{
-        padding: 16px;
+        padding-top: 16px;
         font-weight: 700;
         text-align: center;
     }
@@ -331,10 +362,12 @@ body{
 
     .heroSection{
         height: calc(100vh - 80px);
-        background-image: url("/img/heroimg.png");
-        background-repeat: no-repeat; 
-        background-size: cover;
-        background-position: right bottom;
+        // background-image: url("/img/heroimg.png");
+        // background-repeat: no-repeat; 
+        // background-size: cover;
+        // background-position: right bottom;
+        // background-color: #777777;
+        background-color: #F7C331;
         .searchBox{
             position: relative;
             left: 4%;
@@ -343,6 +376,7 @@ body{
             width: 92%;
             border-radius: 16px;
             background-color: white;
+            box-shadow: 2px 4px 16px rgba(0,0,0,0.5);
             .dp-flex-col{
                 position: relative;
                 .keyword{
@@ -465,7 +499,7 @@ body{
                 // height: 480px;
                 // background-color: black;
                 // border: 2px solid black;
-                box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+                box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
                 .groupGameImgBox{
                     width: 100%;
                     height: 200px;
@@ -531,22 +565,27 @@ body{
             align-items: center;
             width: 70%;
             margin: auto;
-            .serviceFeature{
-                text-align: center;
-                
-                .serviceImgDiv{
-                    height: 120px;
-                    width: 120px;
-                    background-color: white;
-                    border-radius: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    box-shadow: 4px 4px 16px rgba(0,0,0,0.5);
-                    .serviceImg{
-                        height: 70%;
-                        object-fit: contain;
-                        
+            .serviceLink{
+                color: black;
+                font-size: 1.2em;
+                .serviceFeature{
+                    text-align: center;
+                    
+                    .serviceImgDiv{
+                        height: 120px;
+                        width: 120px;
+                        background-color: white;
+                        border-radius: 100%;
+                        margin: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow: 0 6px 8px rgba(0,0,0,0.5);
+                        .serviceImg{
+                            height: 70%;
+                            object-fit: contain;
+                            
+                        }
                     }
                 }
             }
