@@ -26,6 +26,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 //
 
+//Charlie
+import startActivity from './charliecomponents/startActivity';
+import activityInfo from './charliecomponents/activityInfo';
+import companyList from './charliecomponents/companyList';
+import companyInfo from './charliecomponents/companyInfo';
+
 class App extends Component {
   render() {
     return (
@@ -40,6 +46,11 @@ class App extends Component {
           <Route exact path="/proList" component={ProList} />
           <Route exact path="/proList/products/:ID" component={Products} /> 
           <Route path="/proList/products/reservation/:ID" component={ProBuy} />
+          <Route exact path="/startActivity" component={startActivity}/>
+          <Route path="/startActivity/activityInfo/:id" component={activityInfo}/>
+          <Route exact path="/companyList" component={companyList}/>
+          <Route path="/companyList/companyInfo/:cid/:city_id" component={companyInfo}/>
+
 
           {/* http://localhsot:3000/register */}
           <Route path="/register" component={Register} />
