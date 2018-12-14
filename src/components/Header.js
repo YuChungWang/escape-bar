@@ -30,6 +30,11 @@ class Header extends Component {
             mobileMenuStatus: false,
         })
     }
+    
+    componentDidMount(){
+        var scrollLast=0;
+        
+    }
 
     render(){
         const loginRegLink = (
@@ -111,23 +116,26 @@ class Header extends Component {
                     </div>
                     <div className="mobileMenuItem">
                         <ul className="mobileMenuItemChild">主要功能
-                            <Link className="" to="/proList"><li className="mobileMenuItemChildList">找遊戲</li></Link>
-                            <li className="mobileMenuItemChildList">找工作室</li>
-                            <Link className="" to="/article/topic201812"><li className="mobileMenuItemChildList">本月主打</li></Link>
-                            <Link className="" to="/map"><li className="mobileMenuItemChildList">用地圖找</li></Link>
-                            <li className="mobileMenuItemChildList">揪團一起玩</li>
+                            <Link className="" to="/proList"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>找遊戲</li></Link>
+                            <li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>找工作室</li>
+                            <Link className="" to="/article/topic201812"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>本月主打</li></Link>
+                            <Link className="" to="/map"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>用地圖找</li></Link>
+                            <li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>揪團一起玩</li>
                         </ul>
                     </div>
-                    <div className="mobileMenuItem">
-                        <ul className="mobileMenuItemChild">關於密室逃脫
-                            <Link className="" to="/article/whatisrealescape"><li className="mobileMenuItemChildList">什麼是密室逃脫</li></Link>
-                            <Link className="" to="/article/groupactivity"><li className="mobileMenuItemChildList">福委活動與教育訓練</li></Link>
+                    <div className="mobileMenuItem">關於密室逃脫
+                        {/* <ul className="mobileMenuItemChild"> */}
+                            {/* <Link className="" to="/article/whatisrealescape"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>什麼是密室逃脫</li></Link>
+                            <Link className="" to="/article/groupactivity"><li className="mobileMenuItemChildList"><i class="fas fa-chevron-right"></i>福委活動與教育訓練</li></Link> */}
                             {/* <li className="">密室逃脫的二三事</li> */}
-                        </ul>
+                        {/* </ul> */}
                     </div>
                     <div className="mobileMenuItem">關於逃脫吧</div>
                     <div className="mobileMenuItem">與我們聯繫</div>
                 </div>
+                {/* <div className="goToTop">
+                    <i class="fas fa-angle-double-up"></i>
+                </div> */}
             </React.Fragment>
         );
     }

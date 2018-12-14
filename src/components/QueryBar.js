@@ -102,7 +102,7 @@ class QueryBar extends Component {
                                 <div key={i} className={"text_results" + " " + this.state.keywordOpen} onClick={this.keywordDown} data-text={text.s_name}>{text.s_name}</div>
                             )}
                         </div>
-                        <button type="submit" className="btn btn-primary queryBtn">搜尋</button>
+                        <button type="submit" className="btn btn-warning queryBtn">搜尋</button>
                     </form>
                 </div>
             </React.Fragment>
