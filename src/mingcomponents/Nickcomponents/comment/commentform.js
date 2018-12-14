@@ -18,11 +18,7 @@ class Commentform extends Component {
       comment:"",
       feature:"",
       rating:1
- 
 
-     
-
-      
   };
   console.log(this.state)
   }

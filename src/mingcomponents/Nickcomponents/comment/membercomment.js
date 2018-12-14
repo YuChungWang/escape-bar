@@ -4,7 +4,8 @@ import './comment.scss';
 import StarRatingComponent from 'react-star-rating-component';
 import Edit from './edit'
 
-
+var uid = null;
+var name = null;
 
 
 
@@ -17,7 +18,8 @@ class Membercomment extends Component {
     console.log(this.props)
 
     this.state = {
-      uid:'u003',
+      uid:uid,
+      name:name,
       gid:this.props.id,
       comments: [],
       rating: [],
@@ -114,7 +116,7 @@ add = (comment) => {
                 
                     {this.state.comments.map(comment => 
                       <div className="box " key={comment.sid}>
-                        <div className=" pic "><img className=" img " src={`/img/${comment.user_pic}`}/></div>
+                        <div className=" pic "><img className=" img " src={"http://localhost:3000/images/users/"+comment.user_pic}/></div>
                             <div className="comment">
                                 
                                 <div className="title">
@@ -155,16 +157,21 @@ add = (comment) => {
 
             <Edit data={this.state.comments} uid={this.state.uid} gid={this.state.gid} update={this.update}/> 
         : 
-            <Commentform   gid={gid} uid={this.state.uid} add={this.add}/> 
+            <Commentform   gid={gid} name={this.state.name} uid={this.state.uid} add={this.add}/> 
 }
             </div>          
         </React.Fragment>
     );
   }
 
+
   
 componentDidMount() {
     // this.getUser();
+    const user = localStorage.getItem('userId');
+    const user2 = JSON.parse(user);
+    // uid = user2.uid
+    // name = user2.nickname
     this.getComments();
     this.myTime();
     this.getRating();
@@ -215,11 +222,10 @@ getCount() {
             }))
         }
 // getUser() {
-//     const uid = localStorage.getItem('userId');
-//         console.log(uid);
-//         this.setState({
-//           uid: uid
-//         });
+//     const user = localStorage.getItem('userId');
+//     const user2 = JSON.parse(user);
+//     uid = user2.uid
+//     name = user2.nickname
 //       }
     
 myTime = (create_at) =>{

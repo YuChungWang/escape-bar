@@ -19,7 +19,7 @@ class Edit extends Component{
        comment:"",
        uid:this.props.uid,
        gid:this.props.gid,
-      //  loginName:'Tom'
+       loginName:this.props.name
        
     }
     
@@ -37,7 +37,7 @@ update = (evt) => {
 
 buttonClick = (evt) => {
  var m = $('#edit')
- var loginName='Tom'
+ var loginName=this.state.name
 //  console.log(this.state.data.nickName)
  var data = $('.all h5:contains("' + loginName  + '")').parents('.comment').children('p').text();
  this.setState({
