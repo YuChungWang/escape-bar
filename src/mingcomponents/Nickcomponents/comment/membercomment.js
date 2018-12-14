@@ -9,6 +9,7 @@ var name = null;
 
 
 
+
 class Membercomment extends Component {
     
   constructor(props) {
@@ -52,7 +53,9 @@ add = (comment) => {
           this.getRating();
           this.getCount();
         //   this.getMember();
-      })}else{
+      })
+    }
+      else{
         alert("請先登入!")
 
       }
@@ -116,7 +119,7 @@ add = (comment) => {
                 
                     {this.state.comments.map(comment => 
                       <div className="box " key={comment.sid}>
-                        <div className=" pic "><img className=" img " src={"http://localhost:3000/images/users/"+comment.user_pic}/></div>
+                        <div className=" pic "><img className=" img " src={`/img/${comment.user_pic}`}/></div>
                             <div className="comment">
                                 
                                 <div className="title">
@@ -155,15 +158,14 @@ add = (comment) => {
                      
             {this.state.d === 'true' ? 
 
-            <Edit data={this.state.comments} uid={this.state.uid} gid={this.state.gid} update={this.update}/> 
+            <Edit data={this.state.comments} name={this.state.name} uid={this.state.uid} gid={this.state.gid} update={this.update}/> 
         : 
-            <Commentform   gid={gid} name={this.state.name} uid={this.state.uid} add={this.add}/> 
+            <Commentform   gid={gid} uid={this.state.uid} add={this.add}/> 
 }
             </div>          
         </React.Fragment>
     );
   }
-
 
   
 componentDidMount() {
@@ -222,10 +224,11 @@ getCount() {
             }))
         }
 // getUser() {
-//     const user = localStorage.getItem('userId');
-//     const user2 = JSON.parse(user);
-//     uid = user2.uid
-//     name = user2.nickname
+//     const uid = localStorage.getItem('userId');
+//         console.log(uid);
+//         this.setState({
+//           uid: uid
+//         });
 //       }
     
 myTime = (create_at) =>{

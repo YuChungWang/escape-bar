@@ -19,11 +19,11 @@ class Edit extends Component{
        comment:"",
        uid:this.props.uid,
        gid:this.props.gid,
-       loginName:this.props.name
+       name:this.props.name
        
     }
     
-    console.log(this.state)
+    console.log(this.state.name)
     
   }
 

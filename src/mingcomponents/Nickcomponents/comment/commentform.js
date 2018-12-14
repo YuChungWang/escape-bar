@@ -14,6 +14,7 @@ class Commentform extends Component {
   
 
     this.state = {
+      uid:this.props.uid,
       gid:this.props.gid,
       comment:"",
       feature:"",
@@ -202,8 +203,8 @@ add = (evt) => {
                <div className="text-left px-5">
 
                      <div className=" form-check form-check-inline mx-3 ">
-              <input className="form-check-input mx-0" type="checkbox" id="feature_13"  onChange={this.checkboxHandler} value="13"></input>
-              <label className="form-check-label mx-1" for="feature_13">親子同遊</label>
+              {/* <input className="form-check-input mx-0" type="checkbox" id="feature_13"  onChange={this.checkboxHandler} value="13"></input>
+              <label className="form-check-label mx-1" for="feature_13">親子同遊</label> */}
             </div>
                </div>
         
