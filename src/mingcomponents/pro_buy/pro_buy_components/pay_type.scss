@@ -2,13 +2,18 @@
   .receipt{
     margin: auto;
     text-align: center;
+    margin-bottom: 40px;
     // font-size:rem;
     background-color: #AAB0BB;
     border-radius: 1rem;
     width: 90%;
   }
+  h3{
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
   .sel_pay_type{
-    
+    margin-bottom: 10px;
     .option{
       width: 90%;
       height: 40px;
@@ -28,5 +33,16 @@
       background-image: url(../../../images/checked.png);
       border: 2px solid #3DB39E;
     }
+  }
+  .warning{
+    width: 90%;
+    margin: 10px auto;
+    background-color: #FF4959;
+    color: #fff;
+    text-align: center;
+    border-radius: 12px;
+  }
+  .warning.none{
+    display: none;
   }
 }

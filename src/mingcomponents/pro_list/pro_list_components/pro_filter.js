@@ -333,7 +333,7 @@ class ProFilter extends Component{
   }
   displayRes = () => {
     if(this.props.count === 0){
-      return "沒有符合搜尋條件的遊戲，您可以試試進階搜尋~(或者吸貓貓)"
+      return "沒有符合搜尋條件的遊戲，您可以試試進階搜尋"
     }
     return `找到${this.props.count}款遊戲`
   }
