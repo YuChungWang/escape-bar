@@ -14,7 +14,7 @@ $spaceForHeaderNavMobile : 40px;
         background-color: #F7882F;
         height: $spaceForHeaderNav;
         width: 100vw;
-        color: white;
+        // color: white;
         z-index: 1050;
         .mainLogo{
             display: block;
@@ -123,8 +123,8 @@ $spaceForHeaderNavMobile : 40px;
         background-color: #F7882F;
         height: $spaceForHeaderNavMobile;
         width: 100vw;
-        color: white;
-        z-index: 999;
+        // color: white;
+        z-index: 1050;
         overflow: visible;
         .mainLogo{
             display: block;
@@ -189,7 +189,7 @@ $spaceForHeaderNavMobile : 40px;
         // height: 500px;
         top: $spaceForHeaderNavMobile;
         background-color: rgba(0,0,0,0.6);
-        z-index: 1900;
+        z-index: 10;
 
         .mobileMenuItem{
             border-bottom: 1px solid black ;

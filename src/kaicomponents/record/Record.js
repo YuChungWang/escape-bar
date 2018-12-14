@@ -149,7 +149,7 @@ class Record extends Component {
                 {/* <RecordModify modifyType={this.state.type} modifyData={this.state.member} memberUpdate={this.updateHandler}/> */}
                 {thing ? (<RecordModify modifyType={this.state.type} modifyData={this.state.member} memberUpdate={this.updateHandler}/>) : (null)}
 
-                <RecordAdd memberRecord = {this.recordHandler} />
+                {/* <RecordAdd memberRecord = {this.recordHandler} /> */}
 
             </React.Fragment>
         )

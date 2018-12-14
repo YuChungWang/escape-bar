@@ -27,43 +27,43 @@ class GroupList extends Component {
                 {
                     this.props.groups.map(group =>
 
-                        <div class="row mb-3">
-                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <div className="row mb-3">
+                            <div className="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                                 <img className="group_img" src={"../img/game/"+group.IMG_NAME}></img>
                             </div>
-                            <div class="col-9 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <div className="col-9 col-sm-3 col-md-3 col-lg-3 col-xl-3 lao-font-size">
                                 <div><span className="group_title_items name_style">遊戲名稱：</span>{group.PRO_NAME}</div>
                                 <div><span className="group_title_items name_style">工作室名稱：</span>{group.c_name}</div>
                                 <div><span className="group_title_items name_style">揪團時間：</span>{moment(group.sel_time).format("YYYY/MM/DD")}</div>
                                 <div><span className="group_title_items name_style">揪團狀態：</span></div>
-                                <div class="row">
-                                    <div class="col-4 text-center lao-font-size">
+                                <div className="row">
+                                    <div className="col-4 text-center lao-font-size">
                                         <div>尋找</div>
                                         <div className="group_num_style">{group.goal_people}</div>
                                         <div>名隊友</div>
                                     </div>
-                                    <div class="col-4 text-center lao-font-size">
+                                    <div className="col-4 text-center lao-font-size">
                                         <div>目前</div>
                                         <div className="group_num_style2">{group.current_people}</div>
                                         <div>名組隊</div>
                                     </div>
-                                    <div class="col-4 text-center lao-font-size">
+                                    <div className="col-4 text-center lao-font-size">
                                         <div> 剩下</div>
                                         <div className="group_num_style3">{group.ask_people}</div>
                                         <div>名缺額</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-8 col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                                 <div><span className="group_title_items name_style">距揪團截止，還有：</span><span className="group_date_style name_style">{moment(group.t_deadline, "YYYYMMDD").fromNow()}</span></div>
                                 <span className="group_title_items name_style">已參與成員：</span>
                                 <div className="scrollme">
                                     <table className="table table-sm">
                                         <thead>
                                             <tr className="">
-                                                <th scope="col">會員 E-mail</th>
-                                                <th scope="col">參加人數</th>
-                                                <th scope="col">加入日期</th>
+                                                <th scope="col"><span className="group_title_items name_style">會員 E-mail</span></th>
+                                                <th scope="col"><span className="group_title_items name_style">參加人數</span></th>
+                                                <th scope="col"><span className="group_title_items name_style">加入日期</span></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,9 +73,10 @@ class GroupList extends Component {
                                 </div>
                                 
                             </div>
-                            <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-2 align-self-center">
+
+                            <div className="col-12 col-sm-2 col-md-2 col-lg-2 col-xl-2 align-self-center text-center">
                                 {/* 刪除揪團 */}
-                                <button type="button" className="btn btn-primary" data-toggle="modal" data-target={(`#exampleModal${group.tid}`)}>
+                                <button type="button" className="btn btn-primary btn_style" data-toggle="modal" data-target={(`#exampleModal${group.tid}`)}>
                                 刪除揪團
                                 </button>
 

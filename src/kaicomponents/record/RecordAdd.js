@@ -53,7 +53,7 @@ class MemberAdd extends Component {
         return(
             <React.Fragment>
                 <div>
-                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" className="btn btn-primary btn_style" data-toggle="modal" data-target="#exampleModal">
                     新增紀錄遊戲
                     </button>
                 </div>

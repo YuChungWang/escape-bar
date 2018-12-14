@@ -22,11 +22,11 @@ class OrderList extends Component {
                 {
                     this.props.members.map(member =>
 
-                        <div class="row mb-3">
-                            <div class="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                        <div className="row mb-3">
+                            <div className="col-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
                                 <img className="order_img" src={"../img/game/"+member.IMG_NAME}></img>
                             </div>
-                            <div class="col-5 col-sm-3 col-md-3 col-lg-3 col-xl-3 lao-font-size">
+                            <div className="col-5 col-sm-3 col-md-3 col-lg-3 col-xl-3 lao-font-size">
                                 <div><span className="order_title_items name_style">遊戲名稱：</span>{member.PRO_NAME}</div>
                                 <div><span className="order_title_items name_style">日期時間：</span>{moment(member.DATE).format("YYYY/MM/DD")}</div>
                                 <div><span className="order_title_items name_style">遊玩人數：</span>{member.PEOPLE_NUM}人</div>
@@ -34,16 +34,16 @@ class OrderList extends Component {
                                 <div><span className="order_title_items name_style">付款金額：</span>{member.T_PRICE}元</div>
  
                             </div>
-                            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 lao-font-size">
+                            <div className="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 lao-font-size">
                                 <div><span className="order_title_items name_style">工作室名稱：</span>{member.c_name}</div>
                                 <div><span className="order_title_items name_style">遊戲地址：</span>{member.s_add}</div>
                                 <div><span className="order_title_items name_style">訂單狀態：</span><span className="order_status_item">{member.STATUS_NAME}</span></div>
                             </div>
                             {/* <div class="col-4"></div> */}
-                            <div class="col-8 col-sm-2 col-md-2 col-lg-2 col-xl-2 align-self-center">
+                            <div className="col-8 col-sm-2 col-md-2 col-lg-2 col-xl-2 align-self-center">
 
                                 {/* 通知好友 */}
-                                <button type="button" className="btn btn-info mb-3" data-toggle="modal" data-target={(`#exampleModal${member.SID}`)}>
+                                <button type="button" className="btn btn-info mb-2 mr-2 btn_style" data-toggle="modal" data-target={(`#exampleModal${member.SID}`)}>
                                 通知好友
                                 </button>
 
@@ -58,12 +58,12 @@ class OrderList extends Component {
                                             </div>
                                             <div className="modal-body">
 
-                                                <div class="container">
-                                                    <div class="row">
-                                                        <div class="col-7">
+                                                <div className="container">
+                                                    <div className="row">
+                                                        <div className="col-7">
                                                             遊戲名稱：{member.PRO_NAME}
                                                         </div>
-                                                        <div class="col-5">
+                                                        <div className="col-5">
                                                             日期時間：{moment(member.DATE).format("YYYY/MM/DD")}
                                                         </div>
                                                     </div>
@@ -77,8 +77,10 @@ class OrderList extends Component {
                                 </div>
 
                                 {/* 取消訂單 */}
-                                <br />
-                                <button type="button" className="btn btn-primary" data-dismiss="modal" data-id={member.STOCK_SID} data-type="del" onClick={this.handler}>取消訂單</button>
+                                {/* <br /> */}
+                                <button type="button" className="btn btn-primary mb-2 mr-2 btn_style" data-dismiss="modal" data-id={member.STOCK_SID} data-type="del" onClick={this.handler}>
+                                取消訂單
+                                </button>
                                 
                                 {/* <button type="button" className="btn btn-primary" data-toggle="modal" data-target={(`#exampleModal${member.SID}`)}>
                                 取消訂單

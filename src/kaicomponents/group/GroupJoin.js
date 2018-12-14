@@ -16,7 +16,7 @@ class GroupJoin extends Component {
             <React.Fragment>
                 {
                     this.state.groupsjoin.map(join =>
-                        <tr>
+                        <tr className="lao-font-size">
                             <td><img className="headshot rounded-circle joinuser-img" src={"http://localhost:3000/images/users/"+join.user_pic}></img> {join.email}</td>
                             <td>{join.join_people} 名隊友</td>
                             <td>{moment(join.t_join).format("MM/DD")}</td>
