@@ -31,4 +31,31 @@
       width: 35%;
     }
   }
+  .success_pay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .frame{
+      border-radius: 10px;
+        width: 300px;
+        height: 170px;
+        position: relative;
+        background-color: rgba($color: #ffffff, $alpha: .85);
+        h3{
+          text-align: center;
+          
+        }
+        .redirect{
+          display: flex;
+          justify-content: space-evenly;
+        }
+    }
+  }
 }

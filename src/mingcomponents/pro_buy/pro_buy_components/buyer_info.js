@@ -1,6 +1,13 @@
 import React, {Component} from 'react'
 import './buyer_info.scss'
 
+const WARN_LIST = [
+  {id:0, text:"請輸入姓名"},
+  {id:1, text:"請輸入Email"},
+  {id:2, text:"請輸入密碼"},
+  {id:3, text:"確認密碼有誤"},
+  {id:4, text:"請輸入手機號碼"}
+]
 class BuyerInfo extends Component {
   constructor(props){
     super(props)
@@ -12,6 +19,7 @@ class BuyerInfo extends Component {
       password2: "",
       mobile: "",
       comment: "",
+      warnList: this.props.warnList
     }
   }
   nameChange = (evt) => {
@@ -62,14 +70,38 @@ class BuyerInfo extends Component {
       this.props.getBuyerInfo(this.state)
     })
   }
+  makeWarningTips = () => {
+    return (
+      <div className="warnTips">
+        {WARN_LIST.map( c => 
+          <div key={c.id} className="tip">
+            <div className={`aaa ${this.state.warnList[c.id] ? "none" : ""}`}>！</div>
+            <div className={`text ${this.state.warnList[c.id] ? "none" : ""}`}>{c.text}</div>
+          </div>
+        ) }
+      </div>)
+  }
+  // componentDidUpdate
+
+  // componentDidMount() {
+  //   let warnList = this.state.warnList.slice()
+  //   // console.log("props")
+  //   warnList[this.props.warnList] = false
+  //   console.log(warnList)
+  //   this.setState({
+  //     warnList
+  //   })
+    
+  // }
   render(){
+    // console.log("state.warnList:"+this.state.warnList)
     let login = this.state.login ? "d-none" : ""
     return(
       <React.Fragment>
         <div id="buyer_info" ref={this.props.refProp}>
           <div className="title">
             <h3>購買人資料</h3>
-            <div className={`tip ${login}`}>快好了！只要在標有<span>*</span>的欄位填入資訊就註冊成<u>會員</u>喽~</div>
+            <div className={`reg_tip ${login}`}>快好了！只要在標有<span>*</span>的欄位填入資訊就註冊成<u>會員</u>喽~</div>
           </div>
           <div id="info_form">
             <div className="for_label">
@@ -87,7 +119,8 @@ class BuyerInfo extends Component {
               <input className={login} maxLength={255} type="password" onChange={this.password2Change}></input><br className={login}/>
               <input type="tel" maxLength={10} onChange={this.mobileChange}></input><br/>
               <textarea rows="4" cols="40" name="comment" maxLength={255} onChange={this.commentChange}/>
-            </div> 
+            </div>
+            {this.makeWarningTips()}
           </div>
         </div>
       </React.Fragment>

@@ -7,6 +7,7 @@ import {BuyFlow,
         ProDetail
 } from './pro_buy_components/index.js'
 
+
 class ProBuy extends Component {
   constructor(props){
     super(props)
@@ -15,14 +16,37 @@ class ProBuy extends Component {
       payType: false,
       agreeCheck: false,
       BuyerInfo: false,
+      warnList: [true, true, true, true, true]
 
     }
     this.buyerInfoRef = React.createRef()
+    this.payTypeRef = React.createRef()
+    this.cancelRuleRef = React.createRef()
+  }
+  componentDidMount(){
+    window.scrollTo(0,0)
   }
   //拿到購買人資料
   getBuyerInfo = (form) => {
+    let {warnList} = this.state 
+    if(form.nickname !== ""){
+      warnList[0] =true
+    }
+    if(form.email !== ""){
+      warnList[1] =true
+    }
+    if(form.password !== ""){
+      warnList[2] =true
+    }
+    if(form.password2 !== ""){
+      warnList[3] =true
+    }
+    if(form.mobile !== ""){
+      warnList[4] =true
+    }
     this.setState({
-      BuyerInfo: form
+      BuyerInfo: form,
+      warnList 
     })
   }
   //選擇付款方式
@@ -43,10 +67,22 @@ class ProBuy extends Component {
       top: this.buyerInfoRef.current.offsetTop -80 ,
     })
   }
+  // scroll to payType
+  scrollToPayType = () => {
+    window.scrollTo({
+      top: this.payTypeRef.current.offsetTop  ,
+    })
+  }
+  // scroll to cancelRule
+  scrollToCancelRule = () => {
+    window.scrollTo({
+      top: this.cancelRuleRef.current.offsetTop -80 ,
+    })
+  }
   //按下預約
   payCheck = () => {
     let {BuyerInfo, data} = this.state
-    //表單都沒填寫
+    // 表單都沒填寫
     if(!BuyerInfo){
       console.log(this.buyerInfoRef.current.offsetTop)
       this.scrollToForm()
@@ -55,40 +91,67 @@ class ProBuy extends Component {
     //姓名沒填寫
     if(BuyerInfo.nickname === ""){
       this.scrollToForm()
+      let {warnList} = this.state
+      warnList[0] = false
+      this.setState({
+        warnList
+      })
       return
     }
     //信箱沒填寫
     if(BuyerInfo.email === ""){
       this.scrollToForm()
+      let {warnList} = this.state
+      warnList[1] = false
+      this.setState({
+        warnList
+      })
       return
     }
     //密碼沒填寫
     if(BuyerInfo.password === ""){
       this.scrollToForm()
+      let {warnList} = this.state
+      warnList[2] = false
+      this.setState({
+        warnList
+      })
+      return
+    }
+    if(BuyerInfo.password2 !== BuyerInfo.password){
+      this.scrollToForm()
+      let {warnList} = this.state
+      warnList[3] = false
+      this.setState({
+        warnList
+      })
       return
     }
     //填寫沒手機
     if(BuyerInfo.mobile === ""){
       this.scrollToForm()
+      let {warnList} = this.state
+      warnList[4] = false
+      this.setState({
+        warnList
+      })
       return
     }
     //選擇付款方式確認
     if(!this.state.payType){
-      alert("請選擇付款方式")
+      // alert("請選擇付款方式")
+      this.scrollToPayType()
       return
     }
     //同意條款確認
     if(!this.state.agreeCheck){
-      alert("請同意服務條款")
+      // alert("請同意服務條款")
+      this.scrollToCancelRule()
       return
     }
     //沒登入會員 購買
     if(!BuyerInfo.login){
       let info = this.state.BuyerInfo
-      if(info.password !== info.password2){
-        alert("確認密碼錯誤")
-        return
-      }
       let nowUid = "u"+Math.floor(Math.random()*1000)+1;
       let user = {uid: nowUid,
                   nickname: info.nickname, 
@@ -141,47 +204,57 @@ class ProBuy extends Component {
           default:
             break
         }
-        //會員登入購買
-        let loginList = {
-          STOCK_SID: data.nowDateSid,
-          UID: "STORAGE",
-          PEOPLE_NUM: data.number,
-          T_PRICE: (data.data.PRICE*data.number),
-          PAY_TYPE: this.state.payType,
-          STATUS: 1,
-          CID: data.data.CID,
-          COMM: BuyerInfo.comment
-        }
-        fetch('http://localhost:3000/eb/buy/buyList' ,{
-          method:'POST',
-          mode: "cors",
-          body: JSON.stringify(loginList), 
-          headers: new Headers({
-            'Content-Type': 'application/json'
-          })
-        }).then(res => res.json())
-        .then(results => {
-          console.log(results.message)
-        })
       })
+      return
     }
-
+    //會員登入購買
+    let loginList = {
+      STOCK_SID: data.nowDateSid,
+      UID: "STORAGE",
+      PEOPLE_NUM: data.number,
+      T_PRICE: (data.data.PRICE*data.number),
+      PAY_TYPE: this.state.payType,
+      STATUS: 1,
+      CID: data.data.CID,
+      COMM: BuyerInfo.comment
+    }
+    fetch('http://localhost:3000/eb/buy/buyList' ,{
+      method:'POST',
+      mode: "cors",
+      body: JSON.stringify(loginList), 
+      headers: new Headers({
+        'Content-Type': 'application/json'
+      })
+    }).then(res => res.json())
+    .then(results => {
+      console.log(results.message)
+    })
   }
   render(){
-    console.log("data:"+this.state.data.data.CID)
+    // console.log("data:"+this.state.data.data.CID)
+    // console.log(this.state.)
     return(
       <React.Fragment>
         <div id="pro_buy" >
           <BuyFlow />
           <div id="buy_body80">
             <div className="body_l">
-              <BuyerInfo getBuyerInfo={this.getBuyerInfo} refProp={this.buyerInfoRef}/>
-              <PayType checkPayType={this.checkPayType} warn={this.state.payType}/>
-              <CancelRule agreeCheck={this.agreeCheck} warn={this.state.agreeCheck}/>
+              <BuyerInfo getBuyerInfo={this.getBuyerInfo} refProp={this.buyerInfoRef} warnList={this.state.warnList}/>
+              <PayType checkPayType={this.checkPayType} refProp={this.payTypeRef} warn={this.state.payType}/>
+              <CancelRule agreeCheck={this.agreeCheck} refProp={this.cancelRuleRef} warn={this.state.agreeCheck}/>
               <div id="pay-btn" onClick={this.payCheck}>確認付款</div>
             </div>
             <div className="body_r">
               <ProDetail data={this.state.data} />
+            </div>
+          </div>
+          <div className={`success_pay`}>
+            <div className="frame">
+              <h3>購買完成</h3>
+              <div className="redirect">
+                <div>查看我的清單</div>
+                <div>回到遊戲列表</div>
+              </div>
             </div>
           </div>
         </div>

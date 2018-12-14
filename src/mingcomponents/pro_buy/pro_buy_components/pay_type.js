@@ -42,7 +42,7 @@ class PayType extends Component {
     let none = this.props.warn ? "none" : ""
     return(
       <React.Fragment>
-        <div id="pay_type">
+        <div id="pay_type" ref={this.props.refProp}>
           <div>
             <h3>開立發票</h3>
             <div className="receipt">本遊戲不適用 逃脫吧 電子發票，請現場索取發票 / 收據，或由遊戲工作室另行寄送。</div>
@@ -53,7 +53,7 @@ class PayType extends Component {
               {this.makePayTypeOption()}
             </div>
           </div>
-          <div className={`warning ${none}`}>請先選擇付款方式</div>
+          <div className={`warning ${none}`}>請選擇付款方式</div>
         </div>
       </React.Fragment>
     )

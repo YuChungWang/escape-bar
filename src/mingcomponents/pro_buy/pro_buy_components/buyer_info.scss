@@ -9,7 +9,7 @@
       margin: 20px 0;
       font-size: 1.5rem;
     }
-    .tip{
+    .reg_tip{
       background-color: #98CE00;
       font-size: .8;
       color: #fff;
@@ -21,6 +21,10 @@
       }
       .tip.d-none{
         display: none;
+      }
+      u{
+        font-size: 1.04rem;
+        // font-weight: 500;
       }
     }
   }
@@ -61,6 +65,29 @@
         outline:none;
       }
     }
-    
+    .warnTips{
+      .tip{
+        margin: 10px 0px 20px 20px;
+        display: flex;
+        height: 24px;
+        .aaa{
+          text-align: center;
+          width: 24px;
+          background-color: #FF4959;
+          border-radius: 50%;
+          color: #fff;
+          margin-right: 5px;
+        }
+        .text{
+          border-radius: 12px;
+          background-color: #FF4959;
+          color: #fff;
+          padding: 0 10px;
+        }
+        .none{
+          display: none;
+        }
+      }
+    }
   }
 }

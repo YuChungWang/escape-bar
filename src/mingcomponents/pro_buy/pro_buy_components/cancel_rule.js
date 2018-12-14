@@ -21,7 +21,7 @@ class CancelRule extends Component {
     let none = this.props.warn ? "none" : ""
     return(
       <React.Fragment>
-        <div id="cancel_rule">
+        <div id="cancel_rule" ref={this.props.refProp}>
           <h3>取消條款</h3>
           <div className="rule">本工作室票券一旦售出概不退還。<br />
             更改日期辦法：<br />
@@ -30,7 +30,7 @@ class CancelRule extends Component {
             建議您出發日前 2 日內如須改期，可將名額轉讓。但請務必告知 逃脫吧 代理參與者的姓名及聯絡資訊。
           </div>
           <div className={`agree_check ${check}`} onClick={this.agreeCheck}>我同意上述條款</div>
-          <div className={`warning ${none}`}>請先同意取消條款</div>
+          <div className={`warning ${none}`}>請同意取消條款</div>
         </div>
       </React.Fragment>
     )
