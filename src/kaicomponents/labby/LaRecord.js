@@ -22,7 +22,7 @@ class LaRecord extends Component {
                                         <div><span className="title_name name_style">遊戲名稱：</span>{record.PRO_NAME}</div>
                                         <div><span className="title_name name_style">遊戲紀錄：</span>{record.score}</div>
                                         <div><span className="title_name name_style">遊玩日期：</span>{moment(record.play_date).format("YYYY/MM/DD")}</div>
-                                        <div><span className="title_name name_style">遊戲心得：</span>{record.play_review}</div>
+                                        <div className="d_none"><span className="title_name name_style">遊戲心得：</span>{record.play_review}</div>
                                     </div>
 
                                     <div class="col-4 col-sm-3 col-md-3 col-lg-3 col-xl-3">
