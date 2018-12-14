@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import './charlie.scss';
 import GameInfo from './GameInfo'
 import Register from '../kaicomponents/register/Register'; // kai
+import Autocomplete from 'react-autocomplete'
 
 class startActivity extends Component {
   constructor(props){
@@ -171,10 +172,10 @@ class startActivity extends Component {
                 <form>
                   <GameInfo PEOPLE_MAX={this.state.PEOPLE_MAX} PEOPLE_MIN={this.state.PEOPLE_MIN} PRICE={this.state.PRICE} GAME_TIME={this.state.GAME_TIME} IMG_NAME={this.state.IMG_NAME} heightSet={this.state.heightSet} imgSet={this.state.imgSet}/>
                   <hr/>
-                  <div className="form-group row">
+                  <div className="row searchInputBox">
                     <label className="col-sm-2 col-form-label">遊戲名稱：</label>
-                    <div className="col-sm-6">
-                      <div className="searchInput">
+                    <div className="col-sm-6">  
+                      <div className="">
                         <input type="text" className="form-control" name="game_title" onChange={this.changeGameHandler} value={this.state.text}/>
                       </div>
                       <div className="searchBox">
@@ -183,8 +184,6 @@ class startActivity extends Component {
                         )}
                       </div>
                     </div>
-                      
-                    
                     <select id="siteSelect" className="siteSelect" defaultValue="" onChange={this.selectedHandler.bind(this)}>
                           <option> -- 選擇遊戲場館 -- </option>
                       {   
