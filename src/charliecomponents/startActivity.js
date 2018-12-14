@@ -317,7 +317,7 @@ class startActivity extends Component {
         </div>
         <div className="a_space"></div>
               
-        <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog">
+        {/* <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog">
           <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -393,9 +393,9 @@ class startActivity extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        {/* {localStorage.getItem('userId') ? exampleModalCenter1 : loginRegLink} */}
+        {localStorage.getItem('userId') ? exampleModalCenter1 : loginRegLink}
       </React.Fragment>
     );
   }

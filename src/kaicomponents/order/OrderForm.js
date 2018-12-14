@@ -10,7 +10,8 @@ class OrderForm extends Component {
                 recipient: '',
                 sender: 'escapebar@mail.com',
                 subject: '逃脫吧！來自好友的溫馨通知',
-                text: '提醒您！記得於' + moment(this.props.mailInfo.DATE).format("YYYY/MM/DD") + '，參加" ' + this.props.mailInfo.PRO_NAME + ' "的遊戲'
+                // text: '提醒您！記得於' + moment(this.props.mailInfo.DATE).format("YYYY/MM/DD") + '，參加" ' + this.props.mailInfo.PRO_NAME + ' "的遊戲'
+                text: `提醒您！記得於 ${moment(this.props.mailInfo.DATE).format("YYYY/MM/DD")}，參加" ${this.props.mailInfo.PRO_NAME} "的遊戲，查看更多內容：http://localhost:3001/`
             }
         }
     }
