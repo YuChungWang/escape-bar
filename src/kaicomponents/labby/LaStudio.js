@@ -16,7 +16,7 @@ class LaStudio extends Component {
 
                                 <div className="las-items mb-2">
                                     <NavLink to={{pathname: `/companyList/companyInfo/${studio.cid}/${studio.city_id}`,state: {sid: studio.sid}}}>
-                                        <img className="las-circle" src={"../img/company/origin/"+studio.c_logo}></img>
+                                        <img className="las-circle" src={"../img/company/default/"+studio.c_logo}></img>
                                     </NavLink>
                                     <div className="las-center">{studio.c_name}</div>
                                 </div>

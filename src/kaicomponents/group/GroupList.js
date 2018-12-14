@@ -55,7 +55,7 @@ class GroupList extends Component {
                                 </div>
                             </div>
                             <div className="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                                <div><span className="group_title_items name_style">距揪團截止，還有：</span><span className="group_date_style name_style">{moment(group.t_deadline, "YYYYMMDD").fromNow()}</span></div>
+                                <div><span className="group_title_items name_style">距揪團截止：</span><span className="group_date_style name_style">{moment(group.t_deadline, "YYYYMMDD").fromNow()}</span></div>
                                 <span className="group_title_items name_style">已參與成員：</span>
                                 <div className="scrollme">
                                     <table className="table table-sm">
