@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Commentform from './commentform';
 import './comment.scss';
 import StarRatingComponent from 'react-star-rating-component';
+import Edit from './edit'
 
 
 
@@ -16,12 +17,15 @@ class Membercomment extends Component {
     console.log(this.props)
 
     this.state = {
+      uid:'u003',
       gid:this.props.id,
       comments: [],
       rating: [],
       count:[],
       member:[],  
-      type: 'add'
+      type: 'add',
+      d: 'false'
+
   }
   console.log(this.state)
     
@@ -29,8 +33,8 @@ class Membercomment extends Component {
 }
 
 
-
 add = (comment) => {
+    if (localStorage.getItem('userId') != null){
     
   delete comment.id;
   fetch('http://localhost:3000/pro/comment', {
@@ -45,10 +49,39 @@ add = (comment) => {
           this.getComments();
           this.getRating();
           this.getCount();
-          this.getMember();
-      })
+        //   this.getMember();
+      })}else{
+        alert("請先登入!")
+
+      }
 
     }
+
+    update = (data) => {
+        // console.log(data)
+       
+         var data = {
+             
+             gid:this.state.gid,
+             uid:this.state.uid,
+             comment:data.comment
+         }
+         console.log(this.state.comment)
+         fetch(`http://localhost:3000/pro/comment/${this.state.gid}` , {
+             method: 'PUT',
+             body: JSON.stringify(data),
+             headers: new Headers({
+                 'Content-Type': 'application/json'
+             })
+         }).then(res => res.json())
+             .then(data => {
+                 alert(data.message);
+                 this.getComments();
+                 this.getRating();
+                 this.getCount();
+ 
+             })
+     }
 
  
 
@@ -60,10 +93,12 @@ add = (comment) => {
     return (
         <React.Fragment>
             <div className="all">
-                <div className="d-flex justify-content-around border-bottom">
-                <h5>網友評論評分:</h5>{this.state.rating.map(rating =>
+                <div className="row d-flex justify-content-around border-bottom">
+
+                <div className=" "><h5>網友評論評分:</h5></div>
+                {this.state.rating.map(rating =>
                     
-                    <div>
+                    <div className="">
                        <StarRatingComponent 
                             name="rate1"   
                             starCount={5}  
@@ -71,7 +106,7 @@ add = (comment) => {
                             renderStarIcon={() =><span class="fa fa-star"></span>}/>
                     </div>)}
 
-                    {this.state.count.map(count => <h5>總共有{count.count}則評價</h5>)}
+                    {this.state.count.map(count => <div className="col-4 "><h5>總共有{count.count}則評價</h5></div>)}
                 </div>
                         
 
@@ -116,7 +151,12 @@ add = (comment) => {
 
             
                      
-                  <Commentform gid={gid} add={this.add}/>
+            {this.state.d === 'true' ? 
+
+            <Edit data={this.state.comments} uid={this.state.uid} gid={this.state.gid} update={this.update}/> 
+        : 
+            <Commentform   gid={gid} uid={this.state.uid} add={this.add}/> 
+}
             </div>          
         </React.Fragment>
     );
@@ -124,11 +164,12 @@ add = (comment) => {
 
   
 componentDidMount() {
+    // this.getUser();
     this.getComments();
     this.myTime();
     this.getRating();
     this.getCount();
-    // this.getMember()
+    this.getMember()
   }
   
 getComments() {
@@ -156,13 +197,31 @@ getCount() {
               count: count
           }))
       }
-// getMember() {
-//         fetch("http://localhost:3000/api/member")
-//           .then(res => res.json())
-//           .then(member => this.setState({ 
-//                 member: member
-//             }))
-//         }
+      getMember() {
+        fetch(`http://localhost:3000/pro/member/${this.state.gid}`)
+          .then(res => res.json())
+          .then(member => this.setState({ 
+                member: member
+            },function(){
+                for(var i=0;i<member.length;i++){
+                    console.log(member[i].uid)
+                    console.log(this.state.uid)
+                    if(this.state.uid === (member[i].uid)){
+                        this.setState({
+                            d: 'true'
+                        })
+                    }
+                }
+            }))
+        }
+// getUser() {
+//     const uid = localStorage.getItem('userId');
+//         console.log(uid);
+//         this.setState({
+//           uid: uid
+//         });
+//       }
+    
 myTime = (create_at) =>{
     var t = new Date(create_at);
     return(

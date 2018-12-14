@@ -65,6 +65,7 @@ onStarClick(nextValue, prevValue, name) {
 
 
 add = (evt) => {
+  
     this.props.add(this.state);
     evt.preventDefault();
 }
