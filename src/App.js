@@ -53,5 +53,6 @@ class App extends Component {
       </BrowserRouter>
     );
   }
+
 }
 export default App;

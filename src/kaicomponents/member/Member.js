@@ -107,23 +107,23 @@ class Member extends Component {
         }
 
         return(
-            <BrowserRouter>
-                <React.Fragment>
                     <div className="container">
                         <MemberList members = {this.state.members} memberModify = {this.modifyHandler} /> {/* 父傳 members.json 資料給 MemberList 子元件 */} {/* 子傳父 */}
                         
                         {/* <MemberModify modifyType={this.state.type} modifyData={this.state.member} memberUpdate={this.updateHandler} /> */}
                         {/* {isMemberData ? (<MemberModify modifyType={this.state.type} modifyData={this.state.member} memberUpdate={this.updateHandler} />) : (null)} */}
-                        {thing ? (<MemberModify modifyType={this.state.type} modifyData={this.state.member} memberUpdate={this.updateHandler} />) : (null)}
+                       {thing ? (<MemberModify modifyType={this.state.type} modifyData={this.state.member} memberUpdate={this.updateHandler} />) : (null)}
 
                         <div className="mem_sub_nav">
-                            <Link to={`${this.props.match.url}/labby`}><span className="sub_nav_items">個人主頁 | </span></Link>
-                            <Link to={`${this.props.match.url}/order`}><span className="sub_nav_items">我的訂單 | </span></Link>
-                            <Link to={`${this.props.match.url}/group`}><span className="sub_nav_items">我的揪團 | </span></Link>
-                            <Link to={`${this.props.match.url}/collect`}><span className="sub_nav_items">收藏清單 | </span></Link>
-                            <Link to={`${this.props.match.url}/studio`}><span className="sub_nav_items">追蹤工作室 | </span></Link>
-                            <Link to={`${this.props.match.url}/record`}><span className="sub_nav_items">遊戲紀錄</span></Link>
-                        </div>
+                            <div className="mem-font-size">
+                                <Link to={`${this.props.match.url}/labby`}><span className="sub_nav_items ">個人主頁</span></Link>
+                                <Link to={`${this.props.match.url}/order`}><span className="sub_nav_items ">我的訂單</span></Link>
+                                <Link to={`${this.props.match.url}/group`}><span className="sub_nav_items ">我的揪團</span></Link>
+                                <Link to={`${this.props.match.url}/collect`}><span className="sub_nav_items ">收藏清單</span></Link>
+                                <Link to={`${this.props.match.url}/studio`}><span className="sub_nav_items ">追蹤工作室</span></Link>
+                                <Link to={`${this.props.match.url}/record`}><span className="sub_nav_items ">遊戲紀錄</span></Link>
+                            </div>
+                        </div> 
 
                         <Route exact path={`${this.props.match.url}/`} component={Labby} />
                         {/* http://localhsot:3000/center/order */}
@@ -139,8 +139,7 @@ class Member extends Component {
                         {/* http://localhsot:3000/center/record */}
                         <Route path={`${this.props.match.url}/record`} component={Record} />
                     </div>
-                </React.Fragment>
-            </BrowserRouter>
+         
         )
     }
 

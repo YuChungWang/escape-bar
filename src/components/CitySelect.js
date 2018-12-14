@@ -7,12 +7,18 @@ class CitySelect extends Component {
         super(props);
         this.state = {} ;
     }
+
+    // 選擇篩選器之後回傳城市中心與比例尺
     handleChange =(e)=> {
         var city_id = e.target.value;
         var city_zoom ='';
         var city_center = {} ;
         // console.log(city_id);
         switch (city_id){
+            // 現在所在位置
+            // case "0":
+            //     break;
+
             // 台北市
             case "1":
                 city_zoom = '13';
@@ -64,7 +70,7 @@ class CitySelect extends Component {
             // 高雄市
             case "15":
                 city_zoom = '13';
-                city_center ={lat: 22.9959, lng: 120.2245};
+                city_center ={lat: 22.6530, lng: 120.3032};
                 break;
 
             // 宜蘭縣
@@ -81,12 +87,13 @@ class CitySelect extends Component {
         // console.log(city_id, city_zoom, city_center)
         this.props.getCenterByCity({
             city_id: city_id,
-            zoom: city_zoom,
+            zoom: parseInt(city_zoom),
             center: city_center,
         })      
-        this.getStoresByCity(city_id);
+        // this.getStoresByCity(city_id);
     }
     
+    // 篩選的同時讀出該縣市的場館，目前沒用到
     getStoresByCity = (city_id) => {
         fetch('http://localhost:3000/map/city/'+city_id)
         .then(res => res.json())
@@ -100,6 +107,7 @@ class CitySelect extends Component {
             <React.Fragment>
                 <select className="custom-select" onChange={this.handleChange}>
                     <option value="">選擇城市快速移動</option>
+                    {/* <option value="0">現在位置</option> */}
                     <option value="1">台北市</option>
                     <option value="2">新北市</option>
                     <option value="4">桃園市</option>

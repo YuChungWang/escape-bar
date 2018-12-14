@@ -1,10 +1,13 @@
 import React,{Component} from 'react';
 import './pro_share.scss';
+import Register from '../../kaicomponents/register/Register'; // kai
+import { Link } from "react-router-dom";
 
 class PRO_SHARE extends Component{
     constructor(props){
         super(props)
         this.state = {
+            
             gid:this.props.id
        
         }
@@ -12,33 +15,98 @@ class PRO_SHARE extends Component{
 
     }
     add = () => {
-        
-        var data ={
-            gid:this.state.gid
+        if (localStorage.getItem('userId') != null){
+            var data ={
+                gid:this.state.gid
+            }
+            console.log(this.props.id)
+            // this.add(this.state.gid);
+            fetch('http://localhost:3000/pro/collection', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: new Headers({
+                    'Content-Type': 'application/json'
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                })
+          
+              } else {
+                  alert("請先登入!")
+                  
+              }
         }
-       
-        console.log(this.props.id)
-        // this.add(this.state.gid);
-        fetch('http://localhost:3000/pro/collection', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            })
-        }).then(res => res.json())
-            .then(data => {
-                alert(data.message);
-            })
+        // var data ={
+        //     gid:this.state.gid
+        // }
+        // console.log(this.props.id)
+        // // this.add(this.state.gid);
+        // fetch('http://localhost:3000/pro/collection', {
+        //     method: 'POST',
+        //     body: JSON.stringify(data),
+        //     headers: new Headers({
+        //         'Content-Type': 'application/json'
+        //     })
+        // }).then(res => res.json())
+        //     .then(data => {
+        //         alert(data.message);
+        //     })
       
-          }
+        //   }
     componentDidUpdate(){
-       
-
-        
-       
+ 
     }
 
+
     render(){
+
+
+        const add = () => {
+        
+            var data ={
+                gid:this.state.gid
+            }
+            console.log(this.props.id)
+            // this.add(this.state.gid);
+            fetch('http://localhost:3000/pro/collection', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: new Headers({
+                    'Content-Type': 'application/json'
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                })
+          
+              }
+
+
+
+        const loginRegLink = (
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/register">登入|註冊</Link>
+                </li>
+      
+                <li className="nav-item">
+                    <button type="button" className="btn btn-outline-light login-style2" data-toggle="modal" data-target="#exampleModal">
+                    登入|註冊
+                    </button>
+                    <br />
+                    <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <Register />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+      
+            </ul>
+          )
+          
         return(
             <React.Fragment>
                 <div id="pro_share">
@@ -60,9 +128,19 @@ class PRO_SHARE extends Component{
                         </div>
                     </div>
                 </div>
+
+                {/* {localStorage.getItem('userId') ? add : loginRegLink} */}
             </React.Fragment>
         )
     }
+
+    componentDidMount = () =>{
+        const uid = localStorage.getItem('userId');
+        console.log(uid);
+        this.setState({
+          uid: uid
+        });
+      }
 
 
 }

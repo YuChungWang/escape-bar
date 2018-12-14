@@ -36,8 +36,8 @@ class GameInfo extends Component {
                             <div className="gameRight">
                                 <h4 className="gameTitle">{game.PRO_NAME}</h4>
                                 <div className="d-flex flex-row">
-                                    <div className="flex-grow-1"><FaStar className="gameRating"/><span> {game.rating}</span></div>
-                                    <div className=""><FaRegCommentDots className="gameRatingSamples"/><span> {game.comments} 則評價</span></div>
+                                    <div className=""><FaStar className="gameRating"/><span> {game.rating}</span></div>
+                                    <div className="ml-5"><FaRegCommentDots className="gameRatingSamples"/><span> {game.comments} 則評價</span></div>
                                 </div>
                                 <div className="gameFeature">
                                     <FaHashtag className="gameFeatureTag"/><span>{game.FF1}</span>
@@ -46,7 +46,7 @@ class GameInfo extends Component {
                                 </div>
                                 <div className="d-flex flex-row">
                                     <div className="flex-grow-1"><FaDollarSign/><span>{game.PRICE} 元起 </span></div>
-                                    <div className=""><Button className="" color="warning">查看更多</Button></div>
+                                    <div className=""><NavLink to={{pathname: `/proList/products/${game.PRO_SEQ}`, state: {id: game.PRO_SEQ}}}><Button className="" color="warning">查看更多</Button></NavLink></div>
                                 </div>
                             </div>
                         </div>

@@ -17,6 +17,24 @@ class Header extends Component {
         this.props.history.push("/indexbody"); // 導到首頁
     }
 
+    componentDidMount(){
+        var menuBtn = document.querySelector(".mobileMenuToggle");
+        var mobileMenuOpen = document.querySelector(".mobileMenu").style.display;
+
+        menuBtn.addEventListener("click", function(){
+            console.log(mobileMenuOpen);
+
+        })
+
+        // $(".mobileMenuToggle").click(function(){
+        //     let mo = $(".mobileMenu").css("display"); 
+        //     if(mo==="none"){
+        //       $(".mobileMenu").css("display", "block");
+        //     } else {
+        //       $(".mobileMenu").css("display", "none");
+        //     }
+        // })
+    }
     render(){
 
         const loginRegLink = (
@@ -26,7 +44,7 @@ class Header extends Component {
                 </li> */}
 
                 <li className="nav-item">
-                    <button type="button" className="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal">
+                    <button type="button" className="btn btn-outline-light login-style2" data-toggle="modal" data-target="#exampleModal">
                     登入|註冊
                     </button>
                     <br />
@@ -38,18 +56,17 @@ class Header extends Component {
                         </div>
                     </div>
                 </li>
+
             </ul>
         )
 
         const userLink = (
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <Link className="nav-link" to="/center">會員中心</Link>
-                </li>
-                <li className="nav-item">
-                    <a href="" onClick={this.logout.bind(this)} className="nav-link">登出</a>
-                </li>
-            </ul>
+            <React.Fragment>
+                <div className="login-style">
+                    <Link to="" onClick={this.logout.bind(this)}><span className="login-style">登出</span></Link>
+                    <Link to="/center"><span className="login-style">會員中心</span></Link>
+                </div>
+            </React.Fragment>
         )
 
         return(
@@ -63,7 +80,10 @@ class Header extends Component {
                         <span> | </span>
                         <span>註冊</span> */}
                     </div>
-                </header>
+                    
+                        {localStorage.getItem('userId') ? userLink : loginRegLink}
+                        
+                {/* </header> */}
 
                 {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
                     <a className="navbar-brand" href="/">Escape bar</a>
@@ -80,6 +100,34 @@ class Header extends Component {
                     </div>
                 </nav> */}
 
+                    <div className="mobileMenuToggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+
+                </header>
+                <div id="mobileMenuBtn" className="mobileMenu">
+                    <div className="mobileMenuItem">
+                        註冊 | 登入
+                    </div>
+                    <div className="mobileMenuItem">
+                        <ul className="mobileMenuItemChild">主要功能
+                            <Link className="" to="/proList"><li className="mobileMenuItemChildList">找遊戲</li></Link>
+                            <li className="mobileMenuItemChildList">找工作室</li>
+                            <Link className="" to="/article/topic201812"><li className="mobileMenuItemChildList">本月主打</li></Link>
+                            <Link className="" to="/map"><li className="mobileMenuItemChildList">用地圖找</li></Link>
+                            <li className="mobileMenuItemChildList">揪團一起玩</li>
+                        </ul>
+                    </div>
+                    <div className="mobileMenuItem">
+                        <ul className="mobileMenuItemChild">關於密室逃脫
+                            <Link className="" to="/article/whatisrealescape"><li className="mobileMenuItemChildList">什麼是密室逃脫</li></Link>
+                            <Link className="" to="/article/groupactivity"><li className="mobileMenuItemChildList">福委活動與教育訓練</li></Link>
+                            {/* <li className="">密室逃脫的二三事</li> */}
+                        </ul>
+                    </div>
+                    <div className="mobileMenuItem">關於逃脫吧</div>
+                    <div className="mobileMenuItem">與我們聯繫</div>
+                </div>
             </React.Fragment>
         );
     }

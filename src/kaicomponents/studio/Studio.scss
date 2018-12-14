@@ -12,3 +12,11 @@
     height: 135px;
     border-radius: 50%;
 }
+
+@media screen and (max-width: 376px){
+    .studio_img {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+}

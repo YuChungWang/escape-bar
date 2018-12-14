@@ -127,10 +127,9 @@ class MapBody extends React.Component {
           styles: MapStyles,
           mapTypeControl: false,
           // fullscreenControl: false,
-          // streetViewControl: false,
+          streetViewControl: false,
           // disableDefaultUI: true
         }}
-        panTo={this.props.center}
         >
         
         

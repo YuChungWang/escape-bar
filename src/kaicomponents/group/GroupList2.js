@@ -75,11 +75,11 @@ class GroupList extends Component {
                                         <div>名缺額</div>
                                     </div>
                                 </div>
-                                <a href="/" className="btn btn-primary mt-3">Show More</a>
+                                <a href="/" className="btn btn-primary mt-3">了解更多</a>
                                 <div className="row collect_info">
-                                    <div className="col-sm">{groups2.GAME_TIME}分鐘</div>
-                                    <div className="col-sm">{groups2.PRICE}起</div>
                                     <div className="col-sm">{groups2.city_name}</div>
+                                    <div className="col-sm">{groups2.GAME_TIME}分鐘</div>
+                                    <div className="col-sm"><span className="group_price_style">${groups2.PRICE}起</span></div>
                                 </div>
 
                             </div>

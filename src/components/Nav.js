@@ -19,51 +19,46 @@ class Nav extends Component {
 
     render(){
 
-        const loginRegLink = (
-            <ul className="navbar-nav">
-                {/* <li className="nav-item">
-                    <Link className="nav-link" to="/register">登入|註冊</Link>
-                </li> */}
+        // const loginRegLink = (
+        //     <ul className="navbar-nav">
+        //         <li className="nav-item">
+        //             <button type="button" className="btn btn-light mt-1" data-toggle="modal" data-target="#exampleModal">
+        //             登入|註冊
+        //             </button>
+        //             <br />
+        //             <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        //                 <div className="modal-dialog" role="document">
+        //                     <div className="modal-content">
+        //                         <Register />
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         </li>
 
-                <li className="nav-item">
-                    <button type="button" className="btn btn-light mt-1" data-toggle="modal" data-target="#exampleModal">
-                    登入|註冊
-                    </button>
-                    <br />
-                    <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog" role="document">
-                            <div className="modal-content">
-                                <Register />
-                            </div>
-                        </div>
-                    </div>
-                </li>
+        //     </ul>
+        // )
 
-            </ul>
-        )
-
-        const userLink = (
-            <React.Fragment>
-                <div className="navItem">
-                    <Link className="linkClear" to="/center">會員中心</Link>
-                </div>
-                <div className="navItem">
-                    {/* <a className="log-text-color" href="" onClick={this.logout.bind(this)} className="nav-link">登出</a> */}
-                    <Link className="linkClear" to="" onClick={this.logout.bind(this)}>登出</Link>
-                </div>
-            </React.Fragment>
-        )
+        // const userLink = (
+        //     <React.Fragment>
+        //         <div className="navItem">
+        //             <Link className="linkClear" to="/center">會員中心</Link>
+        //         </div>
+        //         <div className="navItem">
+        //             <Link className="linkClear" to="" onClick={this.logout.bind(this)}>登出</Link>
+        //         </div>
+        //     </React.Fragment>
+        // )
 
         return(
             <React.Fragment>
-                <nav className="navList">
-                    <div className="navItem">工作室列表</div>
+                <nav className="navList">              
+                    <div className="navItem"><Link className="linkClear" to="/companyList">工作室列表</Link></div>
                     <div className="navItem"><NavLink className="linkClear" to={{pathname: `/proList`, state: {str: `nav`, type: `nav`}}}>遊戲列表</NavLink></div>
                     <div className="navItem"><Link className="linkClear" to="/article/topic201812">本月主打</Link></div>
                     <div className="navItem"><Link className="linkClear" to="/map">密室地圖</Link></div>
-                    <div className="navItem">揪團一起玩</div>
+                    <div className="navItem"><Link className="linkClear" to="/startActivity">揪團一起玩</Link></div>
 
-                    {localStorage.getItem('userId') ? userLink : loginRegLink}
+                    {/* {localStorage.getItem('userId') ? userLink : loginRegLink} */}
                 </nav>
                     
                 {/* <nav className="navbar navbar-expand-lg navbar-light bg-light">

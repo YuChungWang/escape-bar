@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Studio.scss';
 
 class StudioList extends Component {
@@ -21,11 +22,13 @@ class StudioList extends Component {
                     this.props.studios.map(studio =>
 
                         <div class="row mb-3">
-                            <div class="col-2">
+                            <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                            <NavLink to={{pathname: `/companyList/companyInfo/${studio.cid}/${studio.city_id}`,state: {sid: studio.sid}}}>
                                 <img className="studio_img" src={"../img/company/origin/"+studio.c_logo}></img>
+                            </NavLink>
                             </div>
-                            <div class="col-8 align-self-center">
-                                <div><span className="studio_cname">{studio.c_name}</span></div>
+                            <div class="col-6 col-sm-8 col-md-8 col-lg-8 col-xl-8 align-self-center">
+                                <div><span className="studio_cname name_style">{studio.c_name}</span></div>
                                 <div className="studio_title_line mt-2 mb-3"></div>
                                 {/* <div>工作室簡介：{studio.c_intro}</div> */}
                                 {/* <div>工作室網站：<a href={studio.c_website} target="_blank">{studio.c_website}</a></div> */}
@@ -33,10 +36,10 @@ class StudioList extends Component {
                             {/* <div class="col-1">
 
                             </div> */}
-                            <div class="col-2 align-self-center">
+                            <div class="col-3 col-sm-2 col-md-2 col-lg-2 col-xl-2 align-self-center">
 
                                 {/* 取消追蹤 */}
-                                <button type="button" className="btn btn-primary" data-toggle="modal" data-target={(`#exampleModal${studio.mts_id}`)}>
+                                <button type="button" className="btn btn-primary btn_style" data-toggle="modal" data-target={(`#exampleModal${studio.mts_id}`)}>
                                 取消追蹤
                                 </button>
 

@@ -33,8 +33,8 @@ class RecordList extends Component {
                                     <div><span className="title_name">遊玩心得：</span>{member.play_review}</div>
                                 </div>
                                 <div class="col-3">
-                                    <div><span className="title_name">遊玩照片：</span></div>
-                                    <img className="record_img" src={"http://localhost:3000/images/records/"+member.record_pic}></img>
+                                    <div><span className="title_name">闖關照片：</span></div>
+                                    <img className="record_img2" src={"http://localhost:3000/images/records/"+member.record_pic}></img>
                                 </div>
                                 <div class="col-2 align-self-center">
                                     <button className="btn btn-primary" data-id={member.mrg_id} data-type="edit" onClick={this.handler}>編輯遊戲紀錄</button>

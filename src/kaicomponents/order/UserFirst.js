@@ -7,8 +7,8 @@ class UserFirst extends Component {
     render(){
         return(
             <React.Fragment>
-                <div className="alert alert-warning" role="alert">
-                    <h4 className="alert-heading text-center">你還沒有資料哦～</h4>
+                <div className="alert-warning">
+                    <h4 className="text-center">你還沒有資料哦～</h4>
                 </div>
             </React.Fragment>
         )

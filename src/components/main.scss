@@ -1,100 +1,294 @@
 $mainColor: #F7882F;
 $spaceForHeaderNav : 64px;
-// header = 64px, nav = 48px
+$spaceForHeaderNavMobile : 40px;
+// desktop: header = 64px, nav = 48px
+// mobile: header = 40px
 
-.header{
-    position: fixed;
-    background-color: #F7882F;
-    height: $spaceForHeaderNav;
-    width: 100vw;
-    color: white;
-    z-index: 999;
-    .mainLogo{
-        display: block;
-        position: relative;
-        float: left;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        img{
-            height: $spaceForHeaderNav;
-        }
-    }
-    .memberStatus{
-        display: block;
-        position: relative;
-        float: right;
-        top: 50%;
-        transform:translateY(-50%);
-        right: 10%;
-    }
-}
-
-
-.navList{
-    position: relative;
-    top: $spaceForHeaderNav;
-    background-color: #6B7A8F;
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    justify-content: center;
-    .navItem{
-        padding: 12px 56px;
-        font-size: 1em;
+// desktop version shows when width >= 960px
+@media only screen and (min-width: 960px){
+    .header{
+        position: fixed;
+        background-color: #F7882F;
+        height: $spaceForHeaderNav;
+        width: 100vw;
         color: white;
-        font-weight: 600;
-        cursor: pointer;
-        &:hover{
-            // background-color: $mainColor;
-            opacity: 0.8;
+        z-index: 1050;
+        .mainLogo{
+            display: block;
+            position: relative;
+            float: left;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            img{
+                height: $spaceForHeaderNav;
+            }
         }
-        .linkClear{
+        .memberStatus{
+            display: block;
+            position: relative;
+            float: right;
+            top: 50%;
+            transform:translateY(-50%);
+            right: 10%;
+        }
+        .mobileMenuToggle{
+            display:none;
+        }
+    }
+    .mobileMenu{
+        display: none;
+    }
+
+
+    .navList{
+        position: relative;
+        top: $spaceForHeaderNav;
+        background-color: #6B7A8F;
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        justify-content: center;
+        .navItem{
+            padding: 12px 56px;
+            font-size: 1em;
             color: white;
+            font-weight: 600;
+            cursor: pointer;
             &:hover{
-                text-decoration: none;
+                // background-color: $mainColor;
+                opacity: 0.8;
+            }
+            .linkClear{
                 color: white;
+                &:hover{
+                    text-decoration: none;
+                    color: white;
+                }
             }
         }
     }
+    .footer{
+        position: relative;
+        top: $spaceForHeaderNav;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: #444444;
+        color: white;
+        .footerList{
+            padding: 12px;
+            list-style: none;
+            font-weight: 600;
+            .footerItem{
+                font-weight: 400;
+            }
+            .subscribeInput{
+                border-radius: 24px;
+                height: 2.4em;
+                font-size: 1em;
+                line-height: 2.4em;
+            }
+            .socialIcon{
+                width: 48px;
+            }
+        }
+    }
+    
+    .copyright{
+        position: relative;
+        top: $spaceForHeaderNav;
+        background-color: black;
+        color: #444444;
+        h6{
+            padding: 8px;
+            text-align: center;
+            margin: 0;
+        }
+    }
 }
 
 
-.footer{
-    position: relative;
-    top: $spaceForHeaderNav;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: #444444;
-    color: white;
-    .footerList{
-        padding: 12px;
-        list-style: none;
-        font-weight: 600;
-        .footerItem{
-            font-weight: 400;
+// mobile version shows when width < 960px
+@media only screen and (max-width: 959px){
+    .header{
+        position: fixed;
+        background-color: #F7882F;
+        height: $spaceForHeaderNavMobile;
+        width: 100vw;
+        color: white;
+        z-index: 999;
+        overflow: visible;
+        .mainLogo{
+            display: block;
+            position: relative;
+            float: left;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            img{
+                height: $spaceForHeaderNavMobile;
+            }
         }
-        .subscribeInput{
-            border-radius: 24px;
-            height: 2.4em;
+        .memberStatus{
+            display: none;
+            // display: block;
+            // position: relative;
+            // float: right;
+            // top: 50%;
+            // transform:translateY(-50%);
+            // right: 10%;
+        }
+        .mobileMenuToggle{
+            // display: block;
+            position: relative;
+            float: right;
+            top: 50%;
+            transform:translateY(-50%);
+            right: 5%;
+            .fa-bars{
+                font-size: 24px;
+                text-align: right;
+            }
+        }
+
+    }
+    .mobileMenu{
+        display: none;
+        position: relative;
+        width: 100vw;
+        // height: 500px;
+        top: $spaceForHeaderNavMobile;
+        background-color: rgba(0,0,0,0.6);
+        z-index: 1900;
+        .mobileMenuItem{
+            border-bottom: 1px solid black ;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            padding-left: 40%;
+            font-size: 1.2em;
+            font-weight: 700;
+            // text-align: center;
+            .mobileMenuItemChild{
+                margin-bottom: 2px;
+                padding: 0;
+                list-style: none;
+                .mobileMenuItemChildList{
+                    padding-left: 1em;
+                    font-size: 1em;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+
+
+    .navList{
+        display: none;
+        position: relative;
+        top: $spaceForHeaderNavMobile;
+        background-color: #6B7A8F;
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+        justify-content: center;
+        .navItem{
+            display: none;
+            padding: 12px 56px;
             font-size: 1em;
-            line-height: 2.4em;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            &:hover{
+                // background-color: $mainColor;
+                opacity: 0.8;
+            }
+            .linkClear{
+                color: white;
+                &:hover{
+                    text-decoration: none;
+                    color: white;
+                }
+            }
         }
-        .socialIcon{
-            width: 48px;
+    }
+
+
+    .footer{
+        display: none;
+        position: relative;
+        top: $spaceForHeaderNavMobile;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: #444444;
+        color: white;
+        .footerList{
+            display: none;
+            padding: 12px;
+            list-style: none;
+            font-weight: 600;
+            .footerItem{
+                font-weight: 400;
+            }
+            .subscribeInput{
+                border-radius: 24px;
+                height: 2.4em;
+                font-size: 1em;
+                line-height: 2.4em;
+            }
+            .socialIcon{
+                width: 48px;
+            }
+        }
+    }
+
+    .copyright{
+        // display: none;
+        position: relative;
+        top: $spaceForHeaderNavMobile;
+        background-color: black;
+        color: #444444;
+        h6{
+            padding: 6px;
+            text-align: center;
+            margin: 0;
         }
     }
 }
 
-.copyright{
+.login-style {
+    color: white;
+    margin-left: 20px;
+    margin-top: 8px;
+}
+
+a:hover .login-style {
+    color: bisque;
+}
+
+.login-style {
+    display: block;
     position: relative;
-    top: $spaceForHeaderNav;
-    background-color: black;
-    color: #444444;
-    h6{
-        padding: 8px;
-        text-align: center;
-    }
+    float: right;
+    top: 50%;
+    transform:translateY(-50%);
+    right: 10%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-style2 {
+    display: block;
+    position: relative;
+    float: right;
+    top: 50%;
+    transform:translateY(-50%);
+    right: 10%;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 30px;
 }
