@@ -438,7 +438,9 @@ class startActivity extends Component {
 
   componentDidMount = () =>{
     this.getActivities();
-    const uid = localStorage.getItem('userId');
+    const user = localStorage.getItem('userId');
+    const user2 = JSON.parse(user);
+    const uid = user2.uid;
     this.setState({
       uid: uid
     });
