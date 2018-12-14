@@ -24,17 +24,13 @@ import Register from './kaicomponents/register/Register';
 import Member from './kaicomponents/member/Member';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
+//
 
 //Charlie
 import startActivity from './charliecomponents/startActivity';
 import activityInfo from './charliecomponents/activityInfo';
 import companyList from './charliecomponents/companyList';
 import companyInfo from './charliecomponents/companyInfo';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
-//
 
 class App extends Component {
   render() {
@@ -50,16 +46,17 @@ class App extends Component {
           <Route exact path="/proList" component={ProList} />
           <Route exact path="/proList/products/:ID" component={Products} /> 
           <Route path="/proList/products/reservation/:ID" component={ProBuy} />
+          <Route exact path="/startActivity" component={startActivity}/>
+          <Route path="/startActivity/activityInfo/:id" component={activityInfo}/>
+          <Route exact path="/companyList" component={companyList}/>
+          <Route path="/companyList/companyInfo/:cid/:city_id" component={companyInfo}/>
+
 
           {/* http://localhsot:3000/register */}
           <Route path="/register" component={Register} />
           {/* http://localhsot:3000/center */}
           <Route path="/center" component={Member} />
 
-          <Route exact path="/startActivity" component={startActivity}/>
-          <Route path="/startActivity/activityInfo/:id" component={activityInfo}/>
-          <Route exact path="/companyList" component={companyList}/>
-          <Route path="/companyList/companyInfo/:cid/:city_id" component={companyInfo}/>
           {/* <IndexBody/> */}
           {/* <EscapeRoomMap/> */}
           <Footer/>

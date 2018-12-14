@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import './charlie.scss';
 import GameInfo from './GameInfo'
 import Register from '../kaicomponents/register/Register'; // kai
+// import Autocomplete from 'react-autocomplete'
 
 class startActivity extends Component {
   constructor(props){
@@ -121,7 +122,12 @@ class startActivity extends Component {
 
   startHandler = (evt) =>{
     // 需先行判斷用戶是否有登入
-    const uid = localStorage.getItem('userId');
+    const user = localStorage.getItem('userId');
+    const user2 = JSON.parse(user);
+    var uid = user2.uid;
+    this.setState({
+      uid: uid
+    });
     console.log(uid);
     if(uid === null){
       alert('請先登入會員');
@@ -150,95 +156,90 @@ class startActivity extends Component {
       .then(data=>{
           alert(data.message);
           this.getActivities();
-      })
+      });
     }
   }
 
   
   render(){
-
     const exampleModalCenter1 = (
-      <div className="modal fade" id="exampleModal" tabIndex="-1" role="dialog">
-          <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalCenterTitle">發布揪團</h5>
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <form>
-                  <GameInfo PEOPLE_MAX={this.state.PEOPLE_MAX} PEOPLE_MIN={this.state.PEOPLE_MIN} PRICE={this.state.PRICE} GAME_TIME={this.state.GAME_TIME} IMG_NAME={this.state.IMG_NAME} heightSet={this.state.heightSet} imgSet={this.state.imgSet}/>
-                  <hr/>
-                  <div className="form-group row">
-                    <label className="col-sm-2 col-form-label">遊戲名稱：</label>
-                    <div className="col-sm-6">
-                      <div className="searchInput">
-                        <input type="text" className="form-control" name="game_title" onChange={this.changeGameHandler} value={this.state.text}/>
-                      </div>
-                      <div className="searchBox">
-                        {this.state.searchValue.map(searchValue=>
-                            <div key={searchValue.PRO_SEQ} className={"text_results" + " " + this.state.keywordOpen} onClick={this.keywordDown} data-text={searchValue.PRO_NAME}>{searchValue.PRO_NAME}</div>
-                        )}
-                      </div>
+      <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog">
+        <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalCenterTitle">發布揪團</h5>
+              <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <form>
+                <GameInfo PEOPLE_MAX={this.state.PEOPLE_MAX} PEOPLE_MIN={this.state.PEOPLE_MIN} PRICE={this.state.PRICE} GAME_TIME={this.state.GAME_TIME} IMG_NAME={this.state.IMG_NAME} PRO_NAME={this.state.PRO_NAME} imgBoxSet={this.state.imgBoxSet} heightSet={this.state.heightSet}/>
+                <hr/>
+                <div className="form-group row">
+                  <label className="col-sm-2 col-form-label">遊戲名稱：</label>
+                  <div className="col-sm-6">
+                    <div className="searchInput">
+                      <input type="text" className="form-control" name="game_title" onChange={this.changeGameHandler} value={this.state.text}/>
                     </div>
-                      
-                    
-                    <select id="siteSelect" className="siteSelect" defaultValue="" onChange={this.selectedHandler.bind(this)}>
-                          <option> -- 選擇遊戲場館 -- </option>
-                      {   
-                          this.state.selectOption.map(selectOption => 
-                          <option
-                              key={selectOption.PRO_SEQ}
-                              name={selectOption.PRO_SEQ}   
-                              value={selectOption.PRO_SEQ}>
-                              {selectOption.s_name}
-                          </option>
+                    <div className="searchBox">
+                      {this.state.searchValue.map(searchValue=>
+                          <div key={searchValue.PRO_SEQ} className={"text_results" + " " + this.state.keywordOpen} onClick={this.keywordDown} data-text={searchValue.PRO_NAME}>{searchValue.PRO_NAME}</div>
                       )}
-                    </select>
-                  </div>
-                  <div className="form-group row">
-                    <label className="col-sm-2 col-form-label">揪團時間：</label>
-                    <div className="col-sm-6">
-                      <input type="text" className="form-control" name="sel_time1" placeholder="ex:YYYY-MM-DD" onChange={this.timeChangeHandler}/>
-                    </div>
-                    <select className="timeSelect" value={this.state.sel_time2} name="sel_time2" onChange={this.timeChangeHandler2}>
-                          <option selected hidden> -- 選擇時間 -- </option>
-                          <option name="sel_time2" value="10:00:00">10:00-12:00</option>
-                          <option name="sel_time2" value="12:00:00">12:00-14:00</option>
-                          <option name="sel_time2" value="14:00:00">14:00-16:00</option>
-                          <option name="sel_time2" value="16:00:00">16:00-18:00</option>
-                          <option name="sel_time2" value="18:00:00">18:00-20:00</option>
-                          <option name="sel_time2" value="20:00:00">20:00-22:00</option>
-                    </select>
-                  </div>
-                  <div className="form-group row">
-                    <label className="col-sm-2 col-form-label">截止時間：</label>
-                    <div className="col-sm-6">
-                      <input type="text" className="form-control" placeholder="ex:YYYY-MM-DD" name="t_deadline" onChange={this.changeHandler}/>
-                    </div> 
-                  </div>
-                  <div className="form-group row">
-                    <label className="col-sm-2 col-form-label">目前組隊人數：</label>
-                    <div className="col-sm-4">
-                      <input type="text" className="form-control" name="default_people" onChange={this.changeHandler}/>
-                    </div>
-                    <label className="col-sm-2 col-form-label">欲徵求人數：</label>
-                    <div className="col-sm-4">
-                      <input type="text" className="form-control" name="ask_people" onChange={this.changeHandler}/>
                     </div>
                   </div>
-
-                  
-                </form>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-primary" onClick={this.startHandler} data-dismiss="modal">發布揪團</button>
-              </div>
+                  <select id="siteSelect" className="siteSelect" defaultValue="" onChange={this.selectedHandler.bind(this)}>
+                        <option> -- 選擇遊戲場館 -- </option>
+                    {   
+                        this.state.selectOption.map(selectOption => 
+                        <option
+                            key={selectOption.PRO_SEQ}
+                            name={selectOption.PRO_SEQ}   
+                            value={selectOption.PRO_SEQ}>
+                            {selectOption.s_name}
+                        </option>
+                    )}
+                  </select>
+                </div>
+                <div className="form-group row">
+                  <label className="col-sm-2 col-form-label">揪團時間：</label>
+                  <div className="col-sm-6">
+                    <input type="text" className="form-control" name="sel_time1" placeholder="ex:YYYY-MM-DD" onChange={this.timeChangeHandler}/>
+                  </div>
+                  <select className="timeSelect" value={this.state.sel_time2} name="sel_time2" onChange={this.timeChangeHandler2}>
+                        <option selected hidden> -- 選擇時間 -- </option>
+                        <option name="sel_time2" value="10:00:00">10:00-12:00</option>
+                        <option name="sel_time2" value="12:00:00">12:00-14:00</option>
+                        <option name="sel_time2" value="14:00:00">14:00-16:00</option>
+                        <option name="sel_time2" value="16:00:00">16:00-18:00</option>
+                        <option name="sel_time2" value="18:00:00">18:00-20:00</option>
+                        <option name="sel_time2" value="20:00:00">20:00-22:00</option>
+                  </select>
+                </div>
+                <div className="form-group row">
+                  <label className="col-sm-2 col-form-label">截止時間：</label>
+                  <div className="col-sm-6">
+                    <input type="text" className="form-control" placeholder="ex:YYYY-MM-DD" name="t_deadline" onChange={this.changeHandler}/>
+                  </div> 
+                </div>
+                <div className="form-group row">
+                  <label className="col-sm-2 col-form-label">目前人數：</label>
+                  <div className="col-sm-2">
+                    <input type="text" className="form-control" name="default_people" onChange={this.changeHandler}/>
+                  </div>
+                  <label className="col-sm-2 col-form-label">欲徵求人數：</label>
+                  <div className="col-sm-2">
+                    <input type="text" className="form-control" name="ask_people" onChange={this.changeHandler}/>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-primary" onClick={this.startHandler} data-dismiss="modal">發布揪團</button>
             </div>
           </div>
         </div>
+      </div>
     )
 
     const loginRegLink = (
@@ -248,7 +249,7 @@ class startActivity extends Component {
               登入|註冊
               </button>
               <br />
-              <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div className="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div className="modal-dialog" role="document">
                       <div className="modal-content">
                           <Register />
@@ -257,7 +258,7 @@ class startActivity extends Component {
               </div>
           </li>
       </ul>
-      )
+    )
 
       
     return(
@@ -317,7 +318,7 @@ class startActivity extends Component {
         </div>
         <div className="a_space"></div>
               
-        <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog">
+        {/* <div className="modal fade" id="exampleModalCenter1" tabIndex="-1" role="dialog">
           <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -393,9 +394,9 @@ class startActivity extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        {/* {localStorage.getItem('userId') ? exampleModalCenter1 : loginRegLink} */}
+        {localStorage.getItem('userId') ? exampleModalCenter1 : loginRegLink}
       </React.Fragment>
     );
   }
@@ -442,11 +443,7 @@ class startActivity extends Component {
 
   componentDidMount = () =>{
     this.getActivities();
-    const uid = localStorage.getItem('userId');
-    console.log(uid);
-    this.setState({
-      uid: uid
-    });
+    
   }
 
   getActivities(){

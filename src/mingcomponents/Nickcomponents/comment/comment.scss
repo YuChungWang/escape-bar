@@ -1,30 +1,23 @@
 .all{
     padding: 8px;
     text-align: center;
-    // display: flex;
     justify-content: center;
     width:700px;
     border:5px solid #ccc;
     left: 30%;
     top:50%;
-    // margin-left: 25%;
     margin-top: 5px;
     box-shadow: 0px 5px 5px #000;
     font-family: '微軟正黑體';
 
     .box{
-        max-width: 800px;
         flex-direction: row;
-        // max-height: 200px;
-        // display:flex;
+        display:flex;
         justify-content: center;
         font-size: 0.8rem;
-        // padding: 2px;
-        // border-top:1px solid orange;
-
-        // background-color: orange;
+    
         .pic{
-            background-color:  #F7882F;
+            // background-color:
             
             width: 150px;
             height: 150px;
@@ -46,16 +39,14 @@
             width: 450px;
             height: 150px;
             padding: 2px;
-            // border:1px solid #ccc;
             border-top:1px solid orange;
             // opacity: .5;
             background-color: #ccc;
             transition: .5s;
-            color: #000;
             margin:5px;
             text-align: left;
             line-height: 2;
-            float: left;
+          
         .title{
             display: flex;
             justify-content: space-between;

@@ -11,7 +11,7 @@ class Button extends Component {
         
         super(props);   
         this.state = {
-            data:[this.props.data],
+     data:[this.props.data],
       type: 'add'
 
         }
@@ -23,6 +23,8 @@ class Button extends Component {
     //     this.props.add(this.state.data);
     //     evt.preventDefault();
     // }
+
+    
 
     add = (e) => {
         console.log(this.state.data)

@@ -18,11 +18,7 @@ class Commentform extends Component {
       comment:"",
       feature:"",
       rating:1
- 
 
-     
-
-      
   };
   console.log(this.state)
   }
@@ -65,6 +61,7 @@ onStarClick(nextValue, prevValue, name) {
 
 
 add = (evt) => {
+  
     this.props.add(this.state);
     evt.preventDefault();
 }

@@ -23,6 +23,8 @@ class Products extends Component{
             data: [],
             status: false
         }
+    
+
     }
     changeSite = (data) => {
         this.setState({
@@ -51,6 +53,8 @@ class Products extends Component{
                     <ProSlider id={this.state.data.PRO_SEQ} />
                     <ProName data={this.state.data} changeSite={this.changeSite}/>
                     <ProInfo info={this.state.data.PRO_INFO}/>
+                    <PRO_COMMENT id={this.state.data.PRO_SEQ}/>
+
                     <ProBuyRule/>
                 </div>
             )
@@ -62,7 +66,7 @@ class Products extends Component{
                 <div className="pro_body_r">
                     <ProPrice price={this.state.data.PRICE}/>
                     <ProMap data={this.state.data}/>
-                    <ProShare data={this.state.data}/>
+                    <ProShare id={this.state.data.PRO_SEQ}/>
                     <ProManu data={this.state.data}/>
                     <ProStock data={this.state.data} changeSite={this.changeSite}/>
                 </div>
