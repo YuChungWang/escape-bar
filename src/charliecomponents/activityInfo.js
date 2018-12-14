@@ -112,18 +112,6 @@ class activityInfo extends Component {
                 .then(data=>{
                     alert(data.message);
                 });
-
-                // fetch('http://localhost:3000/startActivity/activity_list/' + this.tid,{
-                // method: 'PUT',
-                // body: JSON.stringify(this.state.activity),
-                // headers: new Headers({
-                //     'Content-Type': 'application/json'
-                // }),
-                // }).then(res=>res.json())
-                // .then(data=>{
-                //     alert(data.message);
-                //     this.reGetActivity();
-                // });
             })
         }
     }

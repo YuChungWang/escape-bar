@@ -135,12 +135,6 @@
   }
 }
 
-.searchInputBox{
-  position: relative !important;
-  height: 60px !important;
-  z-index: 99;
-}
-
 .searchBox{
   background-color: #fff;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, .3);
@@ -303,9 +297,36 @@
 
 /* 地圖設定 */
 /* 區塊縣市 hover 為#e3441c */
+
+.cityHover{
+  color: #C16406;
+  padding: 2px 18px;
+  position: absolute;
+  bottom: 130px;
+  right: 60px;
+  background-color: rgba(256, 256, 256, 0.5);
+  border: 0.5px solid rgba(226, 152, 13, 0.5);
+  opacity: 0;
+}
+
+.cityInfoDisplay{
+  animation: opacityShow .5s;
+  opacity: 1;
+}
+
+@keyframes opacityShow {
+  0%   {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 .taiwan_map .map_block:hover{
   fill: #DB4F2C;
   cursor: pointer;
+  outline: none;
+}
+
+.taiwan_map .map_nonblock:hover{
+  fill: #DBD08F;
   outline: none;
 }
 
@@ -447,4 +468,8 @@
 
 #companyBtn:hover {
   background-color: #D5500A;
+}
+
+.track{
+  opacity: 0.3;
 }

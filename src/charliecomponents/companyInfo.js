@@ -5,6 +5,7 @@ import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/src/alice-carousel.scss";
 import './charlie.scss';
 import GameSlider from './GameSlider';
+import Register from '../kaicomponents/register/Register'; // kai
 
 class companyInfo extends Component {
     constructor(props){
@@ -17,20 +18,31 @@ class companyInfo extends Component {
             productsInfoAll: [],
             productsInfoThis: [],
             sid: '',
+            track: 'false'
         }
         this.cid = props.match.params.cid;
         this.city_id = props.match.params.city_id;
     }
 
-    onSlideChange(e) {
-        console.log('Item`s position during a change: ', e.item);
-        console.log('Slide`s position during a change: ', e.slide);
-    };
-    
-    onSlideChanged(e) {
-    console.log('Item`s position after changes: ', e.item);
-    console.log('Slide`s position after changes: ', e.slide);
-    };
+    trackHandler = () =>{
+        console.log(this.state.uid, this.cid, this.city_id);
+        fetch('http://localhost:3000/pro/track',{
+            method: 'POST',
+            body: JSON.stringify({
+                uid: this.state.uid,
+                cid: this.cid,
+                city_id: this.city_id
+            }),
+            headers: new Headers({'Content-Type':'application/json'})
+        }).then(res=>res.json()) //(message:'追蹤工作室成功')
+        .then(data=>{
+            alert(data.message);
+        });
+        
+        this.setState({
+            track: 'true'
+        });
+    }
 
     selectedHandler = (evt) =>{
         this.setState({
@@ -47,6 +59,23 @@ class companyInfo extends Component {
     }
 
     render(){
+        const loginRegLink = (
+            <ul className="navbar-nav">
+                <li className="nav-item">
+                    <button type="button" className="btn btn-outline-light login-style2" data-toggle="modal" data-target="#exampleModal">
+                    登入|註冊
+                    </button>
+                    <br />
+                    <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog" role="document">
+                            <div className="modal-content">
+                                <Register />
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        )
         return(
             <React.Fragment>
                 <div className="container bangSetMore">
@@ -77,6 +106,8 @@ class companyInfo extends Component {
                                     <p style={{display: this.state.markersInfo.s_tel === '' ? 'none' : 'block' }}>電話：{this.state.markersInfo.s_tel}</p>
                                     <p>營業時間：{this.state.markersInfo.s_ophr}</p>
                                     <a href={this.state.companyInfo.c_website} style={{display: this.state.companyInfo.c_website === '' ? 'none' : 'block' }}><button className="btn btn-primary" id="companyBtn">點擊前往工作室網站</button></a>
+                                    <button className={`btn btn-primary mt-2 ${this.state.track === 'true' ? 'track' : ''}`} id="companyBtn" onClick={this.trackHandler}>{this.state.track === 'false' ? '追蹤工作室' : '已追蹤'}</button>
+                                    {/* {localStorage.getItem('userId') ? exampleModalCenter1 : loginRegLink} */}
                                 </div>
                                 <div className="col-6">
                                     <FacebookProvider appId="801282820265015">
@@ -104,6 +135,10 @@ class companyInfo extends Component {
     componentDidMount = () =>{
         this.getSelectOption();
         this.getCompanyInfo();
+        const uid = localStorage.getItem('userId');
+        this.setState({
+            uid: uid
+        });
     }
 
     getSelectOption = () =>{
