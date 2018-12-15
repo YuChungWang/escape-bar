@@ -207,7 +207,7 @@ class PRO_STOCK extends Component{
         let sitesClassName = this.state.sitesOpen ? "open" : ""
         let siteName = this.state.siteDisplayNone ? this.props.data.s_name : this.props.data.site_name
         let alertClassName = this.state.alertStatus ? "" : "none"
-        // this.getStock()
+        this.getStock()
         return(
             <React.Fragment>
                 <div id="pro_stock" ref={this.props.refProp}>

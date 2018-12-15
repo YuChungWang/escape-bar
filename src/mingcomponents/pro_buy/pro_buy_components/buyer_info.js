@@ -8,11 +8,23 @@ const WARN_LIST = [
   {id:3, text:"確認密碼有誤"},
   {id:4, text:"請輸入手機號碼"}
 ]
+
+var m_user = ""
+var m_userName = null
+var m_userEmail = null
+var m_userMobile = null
+if(localStorage.getItem('userId') !== null){
+  m_user = JSON.parse(localStorage.getItem('userId'))
+  m_userName = m_user.nickname
+  m_userEmail = m_user.email
+  m_userMobile = m_user.mobile
+}
+
 class BuyerInfo extends Component {
   constructor(props){
     super(props)
     this.state = {
-      login: false,
+      // login: false,
       nickname: "",
       email: "",
       password: "",
@@ -24,6 +36,7 @@ class BuyerInfo extends Component {
   }
   nameChange = (evt) => {
     let nickname = evt.target.value
+    m_userName = nickname
     this.setState({
       nickname
     }, () => {
@@ -32,6 +45,7 @@ class BuyerInfo extends Component {
   }
   emailChange = (evt) => {
     let email = evt.target.value
+    m_userEmail = email
     this.setState({
       email
     }, () => {
@@ -56,6 +70,7 @@ class BuyerInfo extends Component {
   }
   mobileChange = (evt) => {
     let mobile = evt.target.value
+    m_userMobile = mobile
     this.setState({
       mobile
     }, () => {
@@ -95,7 +110,10 @@ class BuyerInfo extends Component {
   // }
   render(){
     // console.log("state.warnList:"+this.state.warnList)
-    let login = this.state.login ? "d-none" : ""
+    
+    let login = (localStorage.getItem('userId') !== null) ? "d-none" : ""
+    
+    
     return(
       <React.Fragment>
         <div id="buyer_info" ref={this.props.refProp}>
@@ -113,11 +131,11 @@ class BuyerInfo extends Component {
               <label>備註</label>
             </div>
             <div className="for_input">
-              <input type="input" maxLength={15} onChange={this.nameChange}></input><br/>
-              <input type="email" onChange={this.emailChange}></input><br/>
+              <input type="input" maxLength={15} onChange={this.nameChange} value={m_userName}></input><br/>
+              <input type="email" onChange={this.emailChange} value={m_userEmail}></input><br/>
               <input className={login} maxLength={255} type="password" onChange={this.passwordChange}></input><br className={login}/>
               <input className={login} maxLength={255} type="password" onChange={this.password2Change}></input><br className={login}/>
-              <input type="tel" maxLength={10} onChange={this.mobileChange}></input><br/>
+              <input type="tel" maxLength={10} onChange={this.mobileChange} value={m_userMobile}></input><br/>
               <textarea rows="4" cols="40" name="comment" maxLength={255} onChange={this.commentChange}/>
             </div>
             {this.makeWarningTips()}

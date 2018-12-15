@@ -13,7 +13,7 @@ class Nav extends Component {
         e.preventDefault()
 
         localStorage.removeItem('userId')
-        this.props.history.push("/home"); // 導到首頁
+        // this.props.history.push("/home"); // 導到首頁
     }
 
     render(){

@@ -18,7 +18,7 @@ class ProDetail extends Component {
     return(
       <React.Fragment>
         <div id="pro_detail">
-          <div className="pro_img" style={{backgroundImage: `url(${require('../../../images/p_img/'+ props.data.IMG_NAME)}`}}></div>
+          <div className="pro_img" style={{backgroundImage: `url(${require('../../../images/p_img/'+ props.data.IMG_NAME)})`}}></div>
           <div className="detail_frame">
             <h3>{props.data.PRO_NAME}</h3>
             <p>您選擇的日期與人數</p>

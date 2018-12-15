@@ -52,7 +52,7 @@ class Products extends Component{
                     <ProSlider id={this.state.data.PRO_SEQ} />
                     <ProName data={this.state.data} changeSite={this.changeSite}/>
                     <ProInfo info={this.state.data.PRO_INFO}/>
-                    <PRO_COMMENT id={this.state.data.PRO_SEQ}/>
+                    {/* <PRO_COMMENT id={this.state.data.PRO_SEQ}/> */}
 
                     <ProBuyRule/>
                 </div>
