@@ -14,7 +14,7 @@ class Commentform extends Component {
   
 
     this.state = {
-      // uid:this.props.uid,
+      uid:this.props.uid,
       gid:this.props.gid,
       comment:"",
       feature:"",
@@ -44,7 +44,7 @@ checkboxHandler=(evt)=>{
 })
 }
 
-// componentDidMount
+
 
 starHandler=(evt)=>{
   let rating = evt.target.value
@@ -74,7 +74,6 @@ add = (evt) => {
 
 
   render() {
-    console.log("props.ud:"+this.state.uid)
       const { rating } = this.state;
 
     return (

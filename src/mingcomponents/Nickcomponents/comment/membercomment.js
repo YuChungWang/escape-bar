@@ -27,26 +27,18 @@ class Membercomment extends Component {
       count:[],
       member:[],  
       type: 'add',
-      d: 'false',
-      
+      d: 'false'
+
   }
   console.log(this.state)
     
     
 }
-componentDidUpdate(){
-    if(localStorage.getItem('userId') != null){
-        let user = localStorage.getItem('userId');
-        let user2 = JSON.parse(user);
-        uid = user2.uid
-        name = user2.nickname
-    }
-   
-}
+
 
 add = (comment) => {
     if (localStorage.getItem('userId') != null){
-    comment.uid =uid
+    
   delete comment.id;
   fetch('http://localhost:3000/pro/comment', {
       method: 'POST',
@@ -105,44 +97,43 @@ add = (comment) => {
 
     return (
         <React.Fragment>
-            <div className="all ">
-                <div className=" top star">
-           
-                <div className=" d-flex ">
-                
-                <h5>網友評論評分</h5> 
-                
+            <div className="all">
+                <div className="row d-flex justify-content-around border-bottom">
+
+                <div className=" "><h5>網友評論評分:</h5></div>
                 {this.state.rating.map(rating =>
                     
-                    <div className= "star1 mx-1">
+                    <div className="">
                        <StarRatingComponent 
                             name="rate1"   
                             starCount={5}  
                             value={rating.rating}   
                             renderStarIcon={() =><span class="fa fa-star"></span>}/>
                     </div>)}
-</div>
-            
 
-                    {this.state.count.map(count => <div className=""><h6>總共有{count.count}則評價</h6></div>)}
+                    {this.state.count.map(count => <div className="col-4 "><h5>總共有{count.count}則評價</h5></div>)}
                 </div>
-                           
+                        
 
                         
                 
                     {this.state.comments.map(comment => 
-                      <div className="box row align-items-center" key={comment.sid}>
-                        <div className=" pic"><img className=" img " src={`/img/${comment.user_pic}`}/></div>
-                            <div className="comment col">
-                           
-                                <div className="title row d-flex justify-content-space-between">
+                      <div className="box " key={comment.sid}>
+                        <div className=" pic "><img className=" img " src={`/img/${comment.user_pic}`}/></div>
+                            <div className="comment">
+                                
+                                <div className="title">
 
-                          
-                                    <h5 className="name col-7">{comment.nickname}:</h5>    
-                                 
-                                    <div  className="star col-5 text-right" ><StarRatingComponent name="rate1"   starCount={5}  value={comment.rating}   renderStarIcon={() =><span class="fa fa-star"></span>}/></div>
+                                    {/* memberapi */}
+                                    {/* <div>{this.state.member.map(member =>
+                                    
+                                    <h5>{member.nickname}</h5> )}
+                                 </div>
+                         */}
+                                    <h5 className="name">{comment.nickname}:</h5>    
+                                    <div className="star"  >{comment.create_at}</div>
+                                    <div><StarRatingComponent name="rate1"   starCount={5}  value={comment.rating}   renderStarIcon={() =><span class="fa fa-star"></span>}/></div>
                                 </div>
-                      
                                 <p>{comment.comment}</p>
                             </div>
                       </div>
@@ -169,7 +160,7 @@ add = (comment) => {
 
             <Edit data={this.state.comments} name={this.state.name} uid={this.state.uid} gid={this.state.gid} update={this.update}/> 
         : 
-            <Commentform   gid={gid} uid={uid} add={this.add}/> 
+            <Commentform   gid={gid} uid={this.state.uid} add={this.add}/> 
 }
             </div>          
         </React.Fragment>
@@ -179,26 +170,17 @@ add = (comment) => {
   
 componentDidMount() {
     // this.getUser();
-    if(localStorage.getItem('userId') != null){
-        let user = localStorage.getItem('userId');
-        let user2 = JSON.parse(user);
-        uid = user2.uid
-        name = user2.nickname
-        console.log(uid)
-        console.log(name)
-        this.setState({
-            uid,
-            name
-        })
-    }
-    
+    const user = localStorage.getItem('userId');
+    const user2 = JSON.parse(user);
+    // uid = user2.uid
+    // name = user2.nickname
     this.getComments();
     this.myTime();
     this.getRating();
     this.getCount();
     this.getMember()
   }
-
+  
 getComments() {
     let gid = this.state.gid
     
