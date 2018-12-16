@@ -22,7 +22,8 @@ class ProList extends Component{
   search = (data) => {
     this.setState({
       type: "search",
-      homeType: ""
+      homeType: "",
+      homeRecords: false,
     })
     // let getProducts = [];
     data.sort = this.state.sort
@@ -59,6 +60,8 @@ class ProList extends Component{
     .then(res => res.json())
     .then(products => this.setState({
       products: products,
+      // records: false,
+      homeRecords: false,
     }))
   }
   sort = (sort) => {

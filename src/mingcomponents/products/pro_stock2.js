@@ -249,7 +249,7 @@ class PRO_STOCK2 extends Component{
                     </div>    
                 </div>
                 <div id="pro_stock_buy2" className="dd-flex">
-                    <div className="buy-btn">我要揪團</div>
+                    <NavLink to={{pathname:'/startActivity'}} className="buy-btn">我要揪團</NavLink>
                     {this.checkRedirect()}
                 </div>
                 <div className={`alert ${alertClassName}`} onClick={this.alertClose}>

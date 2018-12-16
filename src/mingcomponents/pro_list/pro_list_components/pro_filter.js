@@ -41,11 +41,11 @@ const PEO_LIST = [
   {id:"10", name: "10人"}
 ]
 const PRICE_LIST = [
-  {id:"&& p.`PRICE` >= 0", name: "不限"},
-  {id:"&& p.`PRICE` <= 300", name:"300以下"},
-  {id:"&& p.`PRICE` <= 450", name:"450以下"},
-  {id:"&& p.`PRICE` <= 600", name:"600以下"},
-  {id:"&& p.`PRICE` >= 600", name:"600以上"}
+  {id:" && p.`PRICE` >= 0 ", name: "不限"},
+  {id:" && p.`PRICE` <= 300 ", name:"300以下"},
+  {id:" && p.`PRICE` <= 450 ", name:"450以下"},
+  {id:" && p.`PRICE` <= 600 ", name:"600以下"},
+  {id:" && p.`PRICE` >= 600 ", name:"600以上"}
 ]
 // const myFetch = async (url) => {
 //   let res = await fetch (url, {
