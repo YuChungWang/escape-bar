@@ -1,14 +1,28 @@
-#pro_stock{
+@mixin  breakpoint($point){
+    @if $point == mobile {
+        @media only screen  and (max-width: 959px) { @content; }
+    }     
+}
+#pro_stock2{
     background-color: #fff;
     border-radius: 20px;
     margin-top: 30px;
     border: 1px solid #B0ABAB;
     overflow: hidden;
-    #pro_stock_place{
+    display: none;
+    @include breakpoint(mobile) {
+        border-radius: 0;
+        display: block;
+        // border: none;
+    }
+    #pro_stock_place2{
         text-align: center;
         box-sizing: border-box;
         padding-top: 10px;
         position: relative;
+        @include breakpoint(mobile) {
+            // padding-top: 0;
+        }
         h4{
             padding: 10px 0;
             margin: auto;
@@ -69,7 +83,7 @@
             display: none;
         }
     }
-    #pro_stock_date{
+    #pro_stock_date2{
         text-align: center;
         h4{
             width: 80%;
@@ -77,7 +91,6 @@
             border-bottom: 1px solid #F7882F;
             padding: 10px 0;
         }
-
         ul{
             list-style: none;
             padding: 0;
@@ -160,14 +173,14 @@
     }
     
   }
-  #pro_stock_price{
-    margin-top: 10px;
+  #pro_stock_price2{
+    // margin-top: 10px;
     // display: none;
     width: 100%;
     background-color: #EFEFEF;
     border-radius: 5px;
     justify-content: space-around;
-    #title{
+    #title2{
         p{
             margin: 0;
             color: #888;
@@ -177,11 +190,11 @@
             color: #3a6a9e;
             margin-top: 10px;
         }
-        #site_name{
+        #site_name2{
             // font-size: 1rem;
         }
     }
-    #total_price{
+    #total_price2{
         margin: 15px ;
         border: 1px solid #B0ABAB;
         border-radius: 50%;
@@ -200,12 +213,17 @@
         }
     }
   }
-  #pro_stock_price.none{
+  #pro_stock_price2.none{
     display: none;
   }
-  #pro_stock_buy{
+  #pro_stock_buy2{
     margin: 10px 0 20px 0;
     justify-content: space-evenly;
+    display: none;
+    @include breakpoint(mobile) {
+        display: flex;
+        // margin-top: 10px 0 20px 0;
+    }
     .buy-btn{
         background-color: #F7882F;
         margin: 0 10px;

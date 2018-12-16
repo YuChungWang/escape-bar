@@ -16,12 +16,22 @@ class PRO_SLIDER extends Component{
         slider.classList.add("trans");
         let first_child = slider.firstChild;
         // slider.append(first_child);
-        slider.style.left = -winWidth*2*0.48+ 'px';
+        if(winWidth <= 959){
+            slider.style.left = -winWidth*2 + 'px';
+        }else{
+            slider.style.left = -winWidth*2*0.48+ 'px';
+        }
+        
             // slider.style.left = winWidth*i + 'px';
         setTimeout(function a(){
             slider.classList.remove("trans");
             slider.append(first_child);
-            slider.style.left = -winWidth*0.48+ 'px';
+            if(winWidth <= 959){
+                slider.style.left = -winWidth + 'px';
+            }else{
+                slider.style.left = -winWidth*0.48+ 'px';
+            }
+            // slider.style.left = -winWidth*0.48+ 'px';
         }, 500);
     }
     l_sliderPrev = () =>{
@@ -35,7 +45,12 @@ class PRO_SLIDER extends Component{
         setTimeout(function b(){
             slider.classList.remove("trans");
             slider.prepend(last_child);
-            slider.style.left = -winWidth*0.48 + 'px';
+            if(winWidth <= 959){
+                slider.style.left = -winWidth + 'px';
+            }else{
+                slider.style.left = -winWidth*0.48+ 'px';
+            }
+            // slider.style.left = -winWidth*0.48 + 'px';
         }, 500);
     }
     do = () => {
@@ -81,8 +96,8 @@ class PRO_SLIDER extends Component{
                         <li>3</li> */}
                         {this.state.img.map((img, i) => <li key={i} style={{backgroundImage: `url(${require('../../images/p_img/' + img.IMG_NAME)})`}}></li>)}
                     </ul>  
-                    <div  className="l_btn_next l_btn" onClick={this.l_sliderNext}>next</div>
-                    <div  className="l_btn_prev l_btn" onClick={this.l_sliderPrev}>prev</div>
+                    <div  className="l_btn_next l_btn" onClick={this.l_sliderNext}><span>Next</span></div>
+                    <div  className="l_btn_prev l_btn" onClick={this.l_sliderPrev}><span>Prev</span></div>
                 </div>
             </React.Fragment>
         )

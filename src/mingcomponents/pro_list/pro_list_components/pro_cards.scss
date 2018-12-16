@@ -73,10 +73,23 @@
                 }
               }
               .comment{
-                padding: 6px;
+                // padding: 6px;
+                margin: 0 5px;
                 display: flex;
-                justify-content: center;
+                // justify-content: space-between;
                 text-align: center;
+                div{
+                  label{
+                    margin: 0;
+                  }
+                }
+                .count{
+                  margin-left: 10px;
+                  color: #0D5661;
+                  font-weight: 650;
+                  line-height: 26px;
+                  
+                }
               }
               ul{
                 list-style: none;

@@ -96,7 +96,7 @@ class PRO_NAME extends Component {
                             <div className="info_list people">適合人數：{this.props.data.PEOPLE_MIN}~{this.props.data.PEOPLE_MAX}人</div>
                             <div className="info_list ophr">營業時間：{this.props.data.s_ophr}</div>
                             <div className="info_list tel">連絡電話：{this.props.data.s_tel}</div> 
-                            <div className="info_list addr">遊戲地點：{this.props.data.s_add}</div>  
+                            <div className="info_list addr">遊戲地點：<div>{this.props.data.s_add}</div></div>  
                         </div>
                     </div>
                     
