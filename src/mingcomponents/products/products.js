@@ -4,11 +4,15 @@ import ProSlider from './pro_slider.js';
 import ProName from './pro_name.js';
 import ProInfo from './pro_info.js';
 import ProPrice from './pro_price.js';
+import ProPrice2 from './pro_price2.js';
 import ProMap from './pro_map.js';
+import ProMap2 from './pro_map2.js';
 import ProShare from './pro_share.js';
 import ProManu from './pro_manu.js';
+import ProManu2 from './pro_manu2.js';
 import ProBuyRule from './pro_buy_rule.js';
 import ProStock from './pro_stock.js';
+import ProStock2 from './pro_stock2.js';
 import ProAd from './pro_ad.js';
 
 //Nick
@@ -24,6 +28,7 @@ class Products extends Component{
             status: false
         }
         this.refStock = React.createRef()
+        this.refStock2 = React.createRef()
     }
     changeSite = (data) => {
         this.setState({
@@ -51,10 +56,14 @@ class Products extends Component{
                 <div className="pro_body_l">
                     <ProSlider id={this.state.data.PRO_SEQ} />
                     <ProName data={this.state.data} changeSite={this.changeSite}/>
+                    <ProPrice2 price={this.state.data.PRICE} scrollToStock2={this.scrollToStock2}/>
+                    <ProMap2 data={this.state.data}/>
                     <ProInfo info={this.state.data.PRO_INFO}/>
-                    <PRO_COMMENT id={this.state.data.PRO_SEQ}/>
+                    <ProManu2 data={this.state.data}/>
+                    {/* <PRO_COMMENT id={this.state.data.PRO_SEQ}/> */}
 
                     <ProBuyRule/>
+                    <ProStock2 data={this.state.data} changeSite={this.changeSite} refProp={this.refStock2}/>
                 </div>
             )
         }
@@ -67,7 +76,7 @@ class Products extends Component{
                     <ProMap data={this.state.data}/>
                     <ProShare id={this.state.data.PRO_SEQ}/>
                     <ProManu data={this.state.data}/>
-                    <ProStock data={this.state.data} changeSite={this.changeSite} refProp={this.refStock}/>
+                    {/* <ProStock data={this.state.data} changeSite={this.changeSite} refProp={this.refStock}/> */}
                 </div>
             )
         }
@@ -75,6 +84,12 @@ class Products extends Component{
     scrollToStock = () => {
         window.scrollTo({
             top: this.refStock.current.offsetTop - 200,
+            behavior: "smooth"
+        })
+    }
+    scrollToStock2 = () => {
+        window.scrollTo({
+            top: this.refStock2.current.offsetTop - 150,
             behavior: "smooth"
         })
     }
@@ -100,14 +115,6 @@ class Products extends Component{
                             <ProManu data={this.state.data}/>
                             <ProStock data={this.state.data} changeSite={this.changeSite}/>
                         </div> */}
-                        <div className="pro_body_l">
-                            {/* <ProComment id={this.state.data.id/> */}
-                            
-                            {/* <ProBuyRule/> */}
-                        </div>
-                        <div className="pro_body_r">
-                            {/* <ProStock /> */}
-                        </div>
                         {/* <ProAd /> */}
                     </div>
                   

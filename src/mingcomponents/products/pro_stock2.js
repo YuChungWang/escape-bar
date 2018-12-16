@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
-import './pro_stock.scss';
+import './pro_stock2.scss';
 import DATE_PICKER from './date_picker.js';
 import DatePicker2 from './date_picker2.js';
 import {NavLink} from 'react-router-dom';
 import { throws } from 'assert';
 
-class PRO_STOCK extends Component{
+class PRO_STOCK2 extends Component{
     constructor(props){
         super(props)
         this.state = {
@@ -210,8 +210,8 @@ class PRO_STOCK extends Component{
         this.getStock()
         return(
             <React.Fragment>
-                <div id="pro_stock" ref={this.props.refProp}>
-                    <div id="pro_stock_place">
+                <div id="pro_stock2" ref={this.props.refProp}>
+                    <div id="pro_stock_place2">
                         <h4>選擇預約場館</h4>
                         <div className={`one_site ${siteDNone}`}>{this.props.data.s_name}</div>
                         <div className={`sites ${sitesClassName} ${siteDNone}`} onClick={this.openSites} tabIndex={0} onBlur={this.closeSites}>
@@ -219,7 +219,7 @@ class PRO_STOCK extends Component{
                             {this.makeSiteOptions()}
                         </div>
                     </div>
-                    <div id="pro_stock_date">
+                    <div id="pro_stock_date2">
                         <h4>預約日期與時段</h4>
                         <DatePicker2 stock={this.state.stock} selDate={this.selDate}/>
                         <ul>
@@ -237,18 +237,18 @@ class PRO_STOCK extends Component{
                         </ul>
                     </div>
                 </div>
-                <div id="pro_stock_price" className={`dd-flex ${totalPriceShow}`}>
+                <div id="pro_stock_price2" className={`dd-flex ${totalPriceShow}`}>
                     <div id="title">
                         <p>您選擇的遊戲為:</p>
                         <h4 id="">{this.state.data.PRO_NAME}</h4>
-                        <h4 id="site_name">- {siteName}</h4>   
+                        <h4 id="site_name2">- {siteName}</h4>   
                     </div>
-                    <div id="total_price">
+                    <div id="total_price2">
                         <p>總價</p>
                         <h4>${price}</h4>
                     </div>    
                 </div>
-                <div id="pro_stock_buy" className="dd-flex">
+                <div id="pro_stock_buy2" className="dd-flex">
                     <div className="buy-btn">我要揪團</div>
                     {this.checkRedirect()}
                 </div>
@@ -262,4 +262,4 @@ class PRO_STOCK extends Component{
 
 }
 
-export default PRO_STOCK;
+export default PRO_STOCK2;

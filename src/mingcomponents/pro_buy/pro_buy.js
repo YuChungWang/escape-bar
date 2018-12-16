@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {NavLink} from 'react-router-dom'
 import './pro_buy.scss'
 import {BuyFlow,
         BuyerInfo,
@@ -6,6 +7,7 @@ import {BuyFlow,
         CancelRule,
         ProDetail
 } from './pro_buy_components/index.js'
+import Register from '../../kaicomponents/register/Register';
 
 
 class ProBuy extends Component {
@@ -16,7 +18,8 @@ class ProBuy extends Component {
       payType: false,
       agreeCheck: false,
       BuyerInfo: false,
-      warnList: [true, true, true, true, true]
+      warnList: [true, true, true, true, true],
+      successPay: false
 
     }
     this.buyerInfoRef = React.createRef()
@@ -83,59 +86,61 @@ class ProBuy extends Component {
   payCheck = () => {
     let {BuyerInfo, data} = this.state
     // 表單都沒填寫
-    if(!BuyerInfo){
-      console.log(this.buyerInfoRef.current.offsetTop)
-      this.scrollToForm()
-      return
-    }
-    //姓名沒填寫
-    if(BuyerInfo.nickname === ""){
-      this.scrollToForm()
-      let {warnList} = this.state
-      warnList[0] = false
-      this.setState({
-        warnList
-      })
-      return
-    }
-    //信箱沒填寫
-    if(BuyerInfo.email === ""){
-      this.scrollToForm()
-      let {warnList} = this.state
-      warnList[1] = false
-      this.setState({
-        warnList
-      })
-      return
-    }
-    //密碼沒填寫
-    if(BuyerInfo.password === ""){
-      this.scrollToForm()
-      let {warnList} = this.state
-      warnList[2] = false
-      this.setState({
-        warnList
-      })
-      return
-    }
-    if(BuyerInfo.password2 !== BuyerInfo.password){
-      this.scrollToForm()
-      let {warnList} = this.state
-      warnList[3] = false
-      this.setState({
-        warnList
-      })
-      return
-    }
-    //填寫沒手機
-    if(BuyerInfo.mobile === ""){
-      this.scrollToForm()
-      let {warnList} = this.state
-      warnList[4] = false
-      this.setState({
-        warnList
-      })
-      return
+    if(localStorage.getItem('userId') === null){
+      if(!BuyerInfo){
+        console.log(this.buyerInfoRef.current.offsetTop)
+        this.scrollToForm()
+        return
+      }
+      //姓名沒填寫
+      if(BuyerInfo.nickname === ""){
+        this.scrollToForm()
+        let {warnList} = this.state
+        warnList[0] = false
+        this.setState({
+          warnList
+        })
+        return
+      }
+      //信箱沒填寫
+      if(BuyerInfo.email === ""){
+        this.scrollToForm()
+        let {warnList} = this.state
+        warnList[1] = false
+        this.setState({
+          warnList
+        })
+        return
+      }
+      //密碼沒填寫
+      if(BuyerInfo.password === ""){
+        this.scrollToForm()
+        let {warnList} = this.state
+        warnList[2] = false
+        this.setState({
+          warnList
+        })
+        return
+      }
+      if(BuyerInfo.password2 !== BuyerInfo.password){
+        this.scrollToForm()
+        let {warnList} = this.state
+        warnList[3] = false
+        this.setState({
+          warnList
+        })
+        return
+      }
+      //填寫沒手機
+      if(BuyerInfo.mobile === ""){
+        this.scrollToForm()
+        let {warnList} = this.state
+        warnList[4] = false
+        this.setState({
+          warnList
+        })
+        return
+      }
     }
     //選擇付款方式確認
     if(!this.state.payType){
@@ -150,7 +155,7 @@ class ProBuy extends Component {
       return
     }
     //沒登入會員 購買
-    if(!BuyerInfo.login){
+    if(localStorage.getItem('userId') === null){
       let info = this.state.BuyerInfo
       let nowUid = "u"+Math.floor(Math.random()*1000)+1;
       let user = {uid: nowUid,
@@ -200,6 +205,9 @@ class ProBuy extends Component {
             .then(results => {
               console.log(results.message)
             })
+            this.setState({
+              successPay: true
+            })
             break
           default:
             break
@@ -210,7 +218,7 @@ class ProBuy extends Component {
     //會員登入購買
     let loginList = {
       STOCK_SID: data.nowDateSid,
-      UID: "STORAGE",
+      UID: JSON.parse(localStorage.getItem('userId')).uid,
       PEOPLE_NUM: data.number,
       T_PRICE: (data.data.PRICE*data.number),
       PAY_TYPE: this.state.payType,
@@ -229,10 +237,25 @@ class ProBuy extends Component {
     .then(results => {
       console.log(results.message)
     })
+    this.setState({
+      successPay: true
+    })
+  }
+  //導頁
+  makeBuyListLink = () => {
+    if(localStorage.getItem('userId') !== null){
+      return(
+        <NavLink className="link" to={{pathname: '/center/order'}}>查看我的清單</NavLink>
+      )
+    }
+    // return(<NavLink className="link" to={{pathname: '/register'}}>查看我的清單</NavLink>)
+    return (
+      <div  className="link" data-toggle="modal" data-target="#exampleModal">登入會員</div>
+    )
   }
   render(){
+    let none = this.state.successPay ? "" : "none"
     // console.log("data:"+this.state.data.data.CID)
-    // console.log(this.state.)
     return(
       <React.Fragment>
         <div id="pro_buy" >
@@ -248,12 +271,22 @@ class ProBuy extends Component {
               <ProDetail data={this.state.data} />
             </div>
           </div>
-          <div className={`success_pay`}>
+
+          <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+              <div className="modal-content">
+                <Register />
+              </div>
+            </div>
+          </div>
+
+          <div className={`success_pay ${none}`}>
             <div className="frame">
-              <h3>購買完成</h3>
+              <div className="img" style={{backgroundImage: `url(${require(`../../images/checked.svg`)})`}}></div>
+              <h3>完成購買<i>!</i></h3>
               <div className="redirect">
-                <div>查看我的清單</div>
-                <div>回到遊戲列表</div>
+                {this.makeBuyListLink()}
+                <NavLink className="link" to={{pathname: '/proList', state: {str: `nav`, type: `nav`}}}>回到遊戲列表</NavLink>
               </div>
             </div>
           </div>

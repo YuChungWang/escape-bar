@@ -47,14 +47,12 @@ class ProCards extends Component{
                         <h3>{card.PRO_NAME}</h3>
                       </div>
                       {/* <comment /> */}
-                      <div className="comment"><h5>評價:</h5>
-                                              <div><StarRatingComponent 
-                                                      name="rate1"   
-                                                      starCount={5}  
-                                                      value={card.rating}   
-                            renderStarIcon={() =><span class="fa fa-star"></span>}/></div>
-                    
-                    </div>
+                      <div className="comment">
+                        <div><StarRatingComponent name="rate1" starCount={5} value={card.rating}   
+                          renderStarIcon={() =><span class="fa fa-star"></span>}/>
+                        </div>
+                        <div className="count">{card.comments}則評論</div>
+                      </div>
                       <ul>
                         <li>{card.f1}</li>
                         <li>{card.f2}</li>

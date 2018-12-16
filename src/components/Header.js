@@ -17,7 +17,8 @@ class Header extends Component {
         e.preventDefault()
 
         localStorage.removeItem('userId')
-        this.props.history.push("/indexbody"); // 導到首頁
+        // this.props.history.push("/indexbody"); // 導到首頁
+        window.location.reload()
     }
 
     mobileMenuOpen(){
