@@ -60,7 +60,7 @@ class Products extends Component{
                     <ProMap2 data={this.state.data}/>
                     <ProInfo info={this.state.data.PRO_INFO}/>
                     <ProManu2 data={this.state.data}/>
-                    {/* <PRO_COMMENT id={this.state.data.PRO_SEQ}/> */}
+                    <PRO_COMMENT id={this.state.data.PRO_SEQ}/>
 
                     <ProBuyRule/>
                     <ProStock2 data={this.state.data} changeSite={this.changeSite} refProp={this.refStock2}/>
@@ -76,7 +76,7 @@ class Products extends Component{
                     <ProMap data={this.state.data}/>
                     <ProShare id={this.state.data.PRO_SEQ}/>
                     <ProManu data={this.state.data}/>
-                    <ProStock data={this.state.data} changeSite={this.changeSite} refProp={this.refStock}/>
+                    {/* <ProStock data={this.state.data} changeSite={this.changeSite} refProp={this.refStock}/> */}
                 </div>
             )
         }
