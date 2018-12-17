@@ -179,12 +179,10 @@ add = (comment) => {
   
 componentDidMount() {
     // this.getUser();
-<<<<<<< HEAD
-    const user = localStorage.getItem('userId');
-    const user2 = JSON.parse(user);
-    uid = user2.uid
-    name = user2.nickname
-=======
+    // const user = localStorage.getItem('userId');
+    // const user2 = JSON.parse(user);
+    // uid = user2.uid
+    // name = user2.nickname
     if(localStorage.getItem('userId') != null){
         let user = localStorage.getItem('userId');
         let user2 = JSON.parse(user);
@@ -198,7 +196,6 @@ componentDidMount() {
         })
     }
     
->>>>>>> 09d8d97b27adb9d207a97ed781f465509da03e0c
     this.getComments();
     this.myTime();
     this.getRating();
