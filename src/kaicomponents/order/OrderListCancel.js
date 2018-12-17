@@ -30,7 +30,7 @@ class OrderListCancel extends Component {
  
                             </div>
                             <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 lao-font-size">
-                                <div><span className="order_title_items name_style">工作室名稱：</span>{member.c_name}</div>
+                                <div><span className="order_title_items name_style">工作室名稱：</span>{member.s_name}</div>
                                 <div><span className="order_title_items name_style">遊戲地址：</span>{member.s_add}</div>
                                 <div><span className="order_title_items name_style">訂單狀態：</span><span className="order_status2_item">{member.STATUS_NAME}</span></div>
                             </div>

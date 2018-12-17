@@ -135,8 +135,7 @@ class startActivity extends Component {
       evt.preventDefault();
       const now = this.NOW();
       var hostActivity ={
-        uid: uid,
-        act_uid: 4, //＊記得修改：登入會員id由會員資料庫撈取資料
+        act_uid: uid,
         PRO_SEQ: this.state.PRO_SEQ,
         sel_time: this.state.sel_time1 + ' ' + this.state.sel_time2,
         default_people: this.state.default_people,

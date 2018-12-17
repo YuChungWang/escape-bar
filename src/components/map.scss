@@ -19,6 +19,7 @@ $queryBarPositionFromTop: 12px;
         justify-content: space-between;
         .mapBody{
             width: 77%;
+            height: 100%;
             img[src^="../img/company/40/"]{
                 border-radius: 100%;
                 border:2px dashed $mainColor !important;

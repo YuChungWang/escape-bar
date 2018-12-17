@@ -25,11 +25,13 @@ class companyInfo extends Component {
     }
 
     trackHandler = () =>{
-        console.log(this.state.uid, this.cid, this.city_id);
+        const user = localStorage.getItem('userId');
+        const user2 = JSON.parse(user);
+        var uid = user2.uid;
         fetch('http://localhost:3000/pro/track',{
             method: 'POST',
             body: JSON.stringify({
-                uid: this.state.uid,
+                uid: uid,
                 cid: this.cid,
                 city_id: this.city_id
             }),

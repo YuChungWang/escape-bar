@@ -172,8 +172,8 @@ componentDidMount() {
     // this.getUser();
     const user = localStorage.getItem('userId');
     const user2 = JSON.parse(user);
-    // uid = user2.uid
-    // name = user2.nickname
+    uid = user2.uid
+    name = user2.nickname
     this.getComments();
     this.myTime();
     this.getRating();
