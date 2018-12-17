@@ -11,7 +11,7 @@ class PRO_SHARE extends Component{
         this.state = {
             
             gid:this.props.id,
-            collect: 'false'
+            collect:false
        
         }
         console.log(this.state.collect)
@@ -37,9 +37,9 @@ class PRO_SHARE extends Component{
                 })
             }).then(res => res.json())
                 .then(data => {
-                    alert(data.message);                
+                    alert(data.message);                 
                 })
-                
+           
 
                 
               } else {
@@ -84,25 +84,25 @@ class PRO_SHARE extends Component{
     render(){
 
 
-        // const add = () => {
+        const add = () => {
         
-        //     var data ={
-        //         gid:this.state.gid
-        //     }
-        //     console.log(this.props.id)
-        //     // this.add(this.state.gid);
-        //     fetch('http://localhost:3000/pro/collection', {
-        //         method: 'POST',
-        //         body: JSON.stringify(data),
-        //         headers: new Headers({
-        //             'Content-Type': 'application/json'
-        //         })
-        //     }).then(res => res.json())
-        //         .then(data => {
-        //             alert(data.message);
-        //         })
+            var data ={
+                gid:this.state.gid
+            }
+            console.log(this.props.id)
+            // this.add(this.state.gid);
+            fetch('http://localhost:3000/pro/collection', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: new Headers({
+                    'Content-Type': 'application/json'
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    alert(data.message);
+                })
           
-        //       }
+              }
 
 
 
@@ -134,7 +134,7 @@ class PRO_SHARE extends Component{
                 <div id="pro_share">
                     <div id="favor">
 
-                    {this.state.collect ==='false' ? 
+                    {this.state.collect === false ? 
 
                         <div id="add_favor"  onClick={this.add}>
                             <img src={require("../../images/favor.png")} alt=""/>
