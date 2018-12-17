@@ -181,7 +181,7 @@ class ProBuy extends Component {
             alert("email重複")
             break
           case "註冊成功":
-            alert("註冊成功")
+            // alert("註冊成功")
             let list = {
               STOCK_SID: data.nowDateSid,
               UID: nowUid,
