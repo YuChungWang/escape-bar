@@ -76,6 +76,44 @@ class Header extends Component {
             </React.Fragment>
         )
 
+        const loginRegLink2 = (
+            <React.Fragment>
+
+                <ul className="navbar-nav mobileMenuItem">
+                    {/* <li className="nav-item">
+                        <Link className="nav-link" to="/register">登入|註冊</Link>
+                    </li> */}
+
+                    <li className="nav-item">
+                        <button type="button" className="btn btn-outline-dark login-style2 " data-toggle="modal" data-target="#exampleModal">
+                        登入 | 註冊
+                        </button>
+                        <br />
+                    </li>
+
+                </ul>
+
+                <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <Register />
+                        </div>
+                    </div>
+                </div>
+
+            </React.Fragment>
+        )
+
+        const userLink2 = (
+            <React.Fragment>
+                <div className="login-style">
+                    <Link className="linkClear" to="" onClick={this.logout.bind(this)}><div className="login-style mobileMenuItem">登出</div></Link>
+                    
+                    <Link className="linkClear" to="/center"><div className="login-style mobileMenuItem">會員中心</div></Link>
+                </div>
+            </React.Fragment>
+        )
+
         // let mobileMenuToggle = this.state.mobileMenuStatus ? "mobileMenuOpen" : "" ;
 
         return(
@@ -120,7 +158,7 @@ class Header extends Component {
                 <div id="" className={`mobileMenu ${this.state.mobileMenuStatus ? "d_block" : ""}`}>
 
                     <div className="">
-                        {localStorage.getItem('userId') ? userLink : loginRegLink}
+                        {localStorage.getItem('userId') ? userLink2 : loginRegLink2}
                     </div>
 
                     <div className="mobileMenuItem">

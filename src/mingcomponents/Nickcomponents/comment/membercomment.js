@@ -132,7 +132,7 @@ add = (comment) => {
                 
                     {this.state.comments.map(comment => 
                       <div className="box row align-items-center" key={comment.sid}>
-                        <div className=" pic"><img className=" img " src={`/img/${comment.user_pic}`}/></div>
+                        <div className=" pic"><img className=" img " src={`http://localhost:3000/images/users/${comment.user_pic}`}/></div>
                             <div className="comment col">
                            
                                 <div className="title row d-flex justify-content-space-between">

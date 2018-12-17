@@ -40,7 +40,9 @@ class PRO_SHARE extends Component{
                     alert(data.message);                 
                 })
            
-
+                this.setState({
+                    collect:true
+                })
                 
               } else {
                   alert("請先登入!")
@@ -72,10 +74,10 @@ class PRO_SHARE extends Component{
                 uid = user2.uid
                 console.log(uid)
             }
-            this.setState={
-                uid,
+            // this.setState={
+            //     uid,
               
-            }
+            // }
            
         }
         
