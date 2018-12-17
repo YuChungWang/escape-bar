@@ -19,7 +19,7 @@ class ProBuy extends Component {
       agreeCheck: false,
       BuyerInfo: false,
       warnList: [true, true, true, true, true],
-      successPay: false
+      successPay: false,
 
     }
     this.buyerInfoRef = React.createRef()

@@ -75,7 +75,15 @@ class Register extends Component {
                     localStorage.setItem('userId', JSON.stringify(user.session)); // 將會員編號存於 localStorage
                     // cookie.set('user', JSON.stringify(user.session), { path: '/' });
                     // window.location.href=""; // 導回當前頁面
-                    window.location.reload(); // refresh page
+                    if(window.location.href === `http://localhost:3001/proList/products/reservation/`){
+                        this.props.history.push("/center")
+                        console.log("buy")
+                    }else{
+                        console.log('aaa')
+                        window.location.reload(); // refresh page
+                    }
+                    
+
                     // this.props.history.push("/") // 導到會員中心頁面
                     break;
                 case "密碼錯誤！":
@@ -90,7 +98,6 @@ class Register extends Component {
     }
 
     render(){
-
         return(
             <React.Fragment>
                 {/* <div class="row">

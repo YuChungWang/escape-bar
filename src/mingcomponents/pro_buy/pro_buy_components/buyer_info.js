@@ -96,7 +96,12 @@ class BuyerInfo extends Component {
         ) }
       </div>)
   }
-  // componentDidUpdate
+  componentDidUpdate(){
+    m_user = ""
+    m_userName = null
+    m_userEmail = null
+    m_userMobile = null
+  }
 
   // componentDidMount() {
   //   let warnList = this.state.warnList.slice()
